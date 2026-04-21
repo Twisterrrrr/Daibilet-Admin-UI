@@ -24,37 +24,52 @@ pnpm workspace monorepo using TypeScript. Daibilet Admin V3 + Supplier Cabinet f
 - `/admin/*` — Admin Panel (all admin modules)
 - `/supplier/*` — Supplier Cabinet
 
-### Admin Pages
-- `/admin` — Dashboard (stats, recent orders, charts)
-- `/admin/events` + `/admin/events/:id` — Events list & detail
-- `/admin/venues` + `/admin/venues/:id` — Venues list & detail
-- `/admin/cities` + `/admin/cities/:id` — Cities list & detail
-- `/admin/suppliers` + `/admin/suppliers/:id` — Suppliers list & detail
-- `/admin/orders` + `/admin/orders/:id` — Orders list & detail (with refund requests)
-- `/admin/landings` + `/admin/landings/:id` — Landings list & detail
-- `/admin/promo-blocks` + `/admin/promo-blocks/:id` — Promo blocks list & detail
-- `/admin/settings` — Platform settings
+### Admin Pages — full operator surface (not just CRUD)
+**Operations**
+- `/admin` — Dashboard
 
-### Supplier Cabinet Pages (MVP)
-- `/supplier` — Supplier dashboard
-- `/supplier/events` + `/supplier/events/:id` — Own events (read-only imported fields)
+**Каталог**
+- `/admin/events` + `/:id` — source-aware events with inventorySource/salesMode/syncStatus, override indicators, SEO+quality issues, tabs (Обзор / Источник&Sync / Контент / SEO / Качество / Аудит)
+- `/admin/venues` + `/:id`, `/admin/cities` + `/:id`
+- `/admin/categories` — hierarchical tree with subcategories
+
+**Продажи**
+- `/admin/orders` + `/:id` — channel + inventory owner + payment provider columns, dual visibility flags (ЛК покупателя / ЛК поставщика), buyer-link icons, tabs (Обзор / Канал&провайдер / Билеты / Возвраты / Аудит)
+- `/admin/refunds` + `/:id` — dedicated refund queue with decision flow
+- `/admin/users` + `/:id` — buyer accounts with order history
+- `/admin/reviews` — moderation queue
+
+**Партнёры**
+- `/admin/suppliers` + `/:id`
+
+**Маркетинг**
+- `/admin/landings` + `/:id`, `/admin/promo-blocks` + `/:id`
+- `/admin/articles` + `/:id` — blog management
+- `/admin/collections` + `/:id` — event collections with ordering
+- `/admin/seo-audit` — aggregated SEO issues across events/landings/venues/articles with score
+
+**Поддержка / Система**
+- `/admin/support` + `/:id` — ticket inbox with priority + reply flow
+- `/admin/logs` — system events (sync, checkout, payment, audit) with level/source filters
+- `/admin/settings`
+
+### Supplier Cabinet Pages
+- `/supplier` — Dashboard
+- `/supplier/events` + `/:id` — manual vs imported vs hybrid awareness; imported events show read-only Lock alert + dedicated «Запрос на коррекцию» tab
 - `/supplier/orders` — Own orders
-- `/supplier/profile` — Company profile (editable contact fields, read-only legal fields)
-- `/supplier/reports` — Reports placeholder
-- `/supplier/support` — Support request flow
+- `/supplier/refunds` — Refund requests on supplier's events (read-only — admin decides)
+- `/supplier/integrations` — Connected sources (Ticketon mirror, Ticketscloud API, etc.) with sync status and diagnostics
+- `/supplier/profile`, `/supplier/reports`, `/supplier/support`
 
 ### Shared Components (`src/components/`)
-- `layout/AdminLayout.tsx` — sidebar + topbar wrapper for admin
-- `layout/SupplierLayout.tsx` — sidebar + topbar wrapper for supplier
-- `layout/AdminSidebar.tsx` — collapsible dark sidebar with nav groups
-- `layout/SupplierSidebar.tsx` — supplier nav sidebar
-- `layout/Topbar.tsx` — breadcrumbs, theme toggle, notifications
-- `shared/StatCard.tsx` — metric card with trend indicator
-- `shared/DataTable.tsx` — generic sortable table with loading skeleton
-- `shared/StatusBadge.tsx` — colored status pill (multi-variant)
-- `shared/PageHeader.tsx` — page title + action buttons
-- `shared/FilterBar.tsx` — search input + filter slot
-- `shared/DetailField.tsx` — field label/value pair with read-only indicator
+- `layout/AdminLayout.tsx`, `SupplierLayout.tsx`, `Topbar.tsx`
+- `layout/AdminSidebar.tsx` — grouped sections (Operations / Каталог / Продажи / Партнёры / Маркетинг / Поддержка / Система)
+- `layout/SupplierSidebar.tsx` — grouped supplier nav including Integrations + Refunds
+- `shared/StatCard.tsx`, `DataTable.tsx`, `StatusBadge.tsx`, `PageHeader.tsx` (accepts ReactNode description), `FilterBar.tsx`, `DetailField.tsx`
+- `shared/SourceBadge.tsx` — `InventorySource` (manual|imported|api|hybrid) + `SalesMode` (internal_checkout|external_redirect|mirror|hybrid) badges
+- `shared/SyncStatusBadge.tsx` — sync status pill (ok|stale|error|syncing|never)
+- `shared/IssueList.tsx` + `IssueCount` — typed issues (critical|warning|info) for SEO/quality surfaces
+- `shared/Tabs.tsx` — tab strip used in event/order detail tabs
 
 ### Design
 - Color theme: slate/navy dark sidebar, light card background

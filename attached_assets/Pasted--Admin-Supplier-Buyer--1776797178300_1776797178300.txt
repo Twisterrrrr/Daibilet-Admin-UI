@@ -1,0 +1,242 @@
+Как связать Admin + Supplier + Buyer
+
+Вот здесь надо строить не три кабинета, а одну матрицу видимости.
+
+Пример: Order
+
+Один и тот же Order:
+
+В админке:
+полный статус
+источник
+payment/integration данные
+supplier attribution
+buyer info
+internal notes
+refund workflow
+audit info
+В supplier cabinet:
+только если order относится к supplier
+только релевантные поля
+без лишних внутренних деталей
+видно продажу, сумму, статус, maybe buyer contact по правилам
+видно refund status, если касается их продажи
+В buyer account:
+только заказы самого пользователя
+статус
+что куплено
+дата/время
+билет/ссылка
+возврат/обращение
+
+То же самое для RefundRequest:
+
+admin обрабатывает
+buyer подаёт и отслеживает
+supplier видит, что по его событию есть такой кейс, если это нужно по бизнесу
+8. Какую структуру я бы рекомендовал сейчас
+
+С учётом всего, что вы уже обсуждали, я бы взял такой monorepo:
+
+packages/
+  backend/
+  frontend-public/
+  frontend-admin/
+  frontend-supplier/
+  shared-ui/
+  shared-types/
+  shared-api/
+  shared-auth/
+frontend-public
+
+Содержит:
+
+каталог
+лендинги
+checkout entry
+buyer account area
+
+Маршруты типа:
+
+/
+/events/[slug]
+/cities/[slug]
+/account/orders
+/account/orders/[id]
+/account/refunds
+/account/profile
+frontend-admin
+
+Содержит:
+
+полный Admin V3
+frontend-supplier
+
+Содержит:
+
+supplier dashboard
+supplier events
+supplier orders
+supplier reports
+integrations
+support/profile
+
+Это лучше, чем навсегда смешивать admin и supplier.
+
+9. Что отдавать Lovable, а что нет
+
+С учётом ваших обсуждений:
+
+В Lovable можно отдавать:
+для frontend-admin
+shell
+navigation
+list/detail scaffolding
+filters
+tabs
+forms
+dashboards
+для frontend-supplier
+shell
+dashboard
+my events
+my orders
+reports
+integration status pages
+support/profile flows
+Не отдавать Lovable как свободную зону:
+backend design
+source-of-truth rules
+auth model
+permissions
+order projection logic
+refund workflow rules
+import/sync engine
+payout/finance engine
+customer account data rules
+
+То есть Lovable делает экран, а не архитектуру платформы.
+
+10. Как строить связь с ЛК покупателя технически
+
+Это важный кусок, который ты напомнил правильно.
+
+По вашим прошлым решениям у тебя уже логика в нужную сторону:
+
+OrderProjectionService
+проекции заказов из internal checkout
+проекции заказов из external mirrors / email / provider data
+единый Order как центральная сущность
+
+Дальше из этого следует:
+
+Buyer account не должен зависеть от канала продажи
+
+Покупателю всё равно, заказ:
+
+через внутренний checkout,
+через Ticketscloud mirror,
+через Teplohod,
+через другой API.
+
+Если заказ удалось привязать к пользователю/почте/аккаунту, он должен оказаться в buyer account как нормальная запись.
+
+То есть buyer account строится не вокруг payment provider, а вокруг:
+
+userId
+email/phone match
+order identity
+entitlement/ticket visibility
+11. Правильная очередность реализации
+
+Я бы делал так.
+
+Очередь 1
+
+Core operator layer
+
+Admin V3
+Events
+Venues
+Suppliers
+Orders
+Users
+Refund requests
+basic support linkage
+Очередь 2
+
+Buyer account minimum viable
+
+мои заказы
+деталь заказа
+возвратный запрос
+профиль
+support entry
+Очередь 3
+
+Supplier cabinet MVP
+
+dashboard
+мои события
+мои продажи
+моя компания
+support
+basic reports
+Очередь 4
+
+Supplier source-aware expansion
+
+integration status
+sync diagnostics
+partial override UX
+API/hybrid/import modes
+Очередь 5
+
+Finance visibility
+
+commission snapshots
+payable estimates
+period reports
+exports
+manual settlement workflow
+
+Это лучше, чем пытаться разом закрыть:
+
+админку,
+supplier,
+buyer,
+full finance,
+integration control plane.
+12. Мой итог по сути твоего вопроса
+
+С учётом всех ваших прошлых обсуждений модель должна быть такой:
+
+Backend
+
+единый core:
+
+source-aware events
+unified orders
+supplier attribution
+customer linkage
+refund requests
+role-based projections
+Admin
+
+полный операторский слой платформы
+
+Supplier cabinet
+
+отдельный фронтенд, supplier-scoped, source-aware
+
+Buyer account
+
+клиентский контур, лучше внутри public frontend, order-centric
+
+Lovable
+
+использовать для frontend-admin и frontend-supplier как генератор интерфейсной поверхности
+
+Cursor
+
+использовать для интеграции, нормализации, контрактов, state, permissions, rollout

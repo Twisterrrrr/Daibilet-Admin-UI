@@ -9,14 +9,18 @@ import {
   MessageSquare,
   Ticket,
   ShieldCheck,
+  Plug,
+  RotateCcw,
 } from "lucide-react";
 
 const supplierNav = [
   { label: "Дашборд", href: "/supplier", icon: LayoutDashboard },
   { label: "Мои события", href: "/supplier/events", icon: CalendarDays },
   { label: "Заказы", href: "/supplier/orders", icon: ShoppingCart },
-  { label: "Профиль / Компания", href: "/supplier/profile", icon: User },
+  { label: "Возвраты", href: "/supplier/refunds", icon: RotateCcw },
+  { label: "Интеграции", href: "/supplier/integrations", icon: Plug },
   { label: "Отчёты", href: "/supplier/reports", icon: BarChart2 },
+  { label: "Профиль / Компания", href: "/supplier/profile", icon: User },
   { label: "Обращения", href: "/supplier/support", icon: MessageSquare },
 ];
 
@@ -53,7 +57,7 @@ export function SupplierSidebar() {
                     ? "bg-sidebar-primary text-sidebar-primary-foreground"
                     : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                 )}
-                data-testid={`supplier-nav-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+                data-testid={`supplier-nav-${item.label.toLowerCase().replace(/\s+/g, "-").replace(/\//g, "")}`}
               >
                 <item.icon className="w-4 h-4 shrink-0" />
                 <span className="truncate">{item.label}</span>
