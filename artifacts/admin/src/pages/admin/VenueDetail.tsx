@@ -9,64 +9,87 @@ import { ContentHubBadge, TrafficStatsCards, TopKeywordsTable } from "@/componen
 import { IssueList } from "@/components/shared/IssueList";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { ArrowLeft, Edit2, Eye, Image as ImageIcon, FileText, Map, ListOrdered } from "lucide-react";
-import { formatNumber } from "@/lib/utils";
+import { ArrowLeft, Edit2, Eye, Image as ImageIcon, FileText, Map, ListOrdered, Ticket, Plus, Clock, Calendar, Sparkles, Building2, CalendarRange } from "lucide-react";
+import { formatNumber, formatCurrency } from "@/lib/utils";
+import { SalesModelBadge, salesModelMeta, type SalesModel } from "./VenuesList";
 
 const venue = {
-  id: "VEN-001",
-  name: "Алатау Арена",
-  slug: "alatau-arena",
+  id: "VEN-007",
+  name: "Музей Кастеева",
+  slug: "kasteev-museum",
   city: "Алматы", citySlug: "almaty",
-  address: "ул. Алтынсарина, 31",
-  lat: "43.2364", lng: "76.8978",
-  capacity: 12000,
+  address: "мкр. Коктем-3, 22",
+  lat: "43.2120", lng: "76.9020",
+  capacity: 600,
   status: "active",
+  category: "Музей",
   isContentHub: true,
-  phone: "+7 727 222-33-44",
-  website: "https://alatauarena.kz",
-  importedSource: "ticketon.kz", sourceId: "VEN-KZT-44",
+  salesModel: "hybrid" as SalesModel,
+  phone: "+7 727 247-82-46",
+  website: "https://gmirk.kz",
+  importedSource: null as string | null,
+  sourceId: null as string | null,
   // hub content
-  h1: "Алатау Арена — расписание событий",
-  intro: "Многофункциональный спортивно-концертный комплекс в Алматы. Вместимость 12 000 человек. Здесь проходят крупнейшие концерты, спортивные матчи и шоу.",
-  description: "Алатау Арена — современный спортивно-концертный комплекс, открыт в 2016 году. Используется для хоккейных матчей, концертов, выставок и крупных корпоративных мероприятий.",
-  hasSeatingMap: true,
-  faqs: [
-    { q: "Где находится Алатау Арена?", a: "ул. Алтынсарина, 31, Алматы. Парковка для гостей бесплатная." },
-    { q: "Сколько мест в зале?", a: "Вместимость зависит от конфигурации: до 12 000 для концертов, 9 600 для хоккея." },
-    { q: "Можно ли пройти со своей едой?", a: "Нет, на территории работают официальные точки питания." },
+  h1: "Государственный музей искусств им. А. Кастеева",
+  intro: "Крупнейший художественный музей Казахстана. Постоянная экспозиция, временные выставки, экскурсии и мастер-классы. Купите билет онлайн без очереди.",
+  description: "Основан в 1976 году, коллекция насчитывает более 25 000 произведений. Залы казахстанского, российского и западноевропейского искусства, прикладное искусство Востока.",
+  hasSeatingMap: false,
+  // standalone admission settings
+  admissionPolicy: {
+    syncEnabled: true,
+    workingHours: "Вт–Вс, 10:00–18:00 (понедельник — выходной)",
+    dailyCapacity: 1200,
+    soldToday: 248,
+    advanceBookingDays: 30,
+    refundPolicy: "За 24 часа до посещения",
+    timedEntry: false, // если true — слоты на конкретное время
+  },
+  admissionTypes: [
+    { id: "ADM-1", name: "Взрослый",        price: 1500, status: "active",   description: "Граждане РК и иностранные гости",                  soldToday: 142, sold30d: 3420 },
+    { id: "ADM-2", name: "Студенческий",    price:  500, status: "active",   description: "При предъявлении студенческого билета",            soldToday: 48,  sold30d: 1180 },
+    { id: "ADM-3", name: "Школьный",        price:  300, status: "active",   description: "Дети с 7 до 17 лет",                                soldToday: 32,  sold30d: 980 },
+    { id: "ADM-4", name: "Семейный",        price: 3000, status: "active",   description: "2 взрослых + до 3 детей",                          soldToday: 18,  sold30d: 540 },
+    { id: "ADM-5", name: "Льготный",        price:    0, status: "active",   description: "Пенсионеры, ветераны, инвалиды (бесплатно по ID)", soldToday: 8,   sold30d: 240 },
   ],
+  upcomingEvents: [
+    { id: "EVT-101", title: "Выставка «Степь и небо»", date: "2026-05-01", type: "exhibition" },
+    { id: "EVT-102", title: "Лекция: казахстанский авангард", date: "2026-05-08", type: "lecture" },
+    { id: "EVT-103", title: "Ночь музеев 2026", date: "2026-05-18", type: "special" },
+  ],
+  // SEO
+  metaTitle: "Музей Кастеева в Алматы — билеты онлайн | Daibilet",
+  metaDescription: "Купите билет в Государственный музей искусств им. А. Кастеева онлайн. Цены, расписание, выставки. Без очереди.",
+  ogImage: true,
+  canonical: "https://daibilet.kz/almaty/venues/kasteev-museum/",
   blocks: [
-    { type: "events_grid", title: "Ближайшие события на площадке" },
-    { type: "seating_map", title: "Схема зала" },
-    { type: "description", title: "Об арене" },
+    { type: "intro", title: "Описание музея" },
+    { type: "admission_pricing", title: "Стоимость билетов" },
+    { type: "events_grid", title: "Временные выставки и события" },
+    { type: "working_hours", title: "Режим работы" },
     { type: "map", title: "Как добраться" },
     { type: "faq", title: "Вопросы и ответы" },
   ],
-  // SEO
-  metaTitle: "Алатау Арена — афиша концертов и событий | Daibilet",
-  metaDescription: "Все события на Алатау Арене в Алматы. Купите билеты онлайн. Схема зала, расписание, цены.",
-  ogImage: true,
-  canonical: "https://daibilet.kz/almaty/venues/alatau-arena/",
+  faqs: [
+    { q: "Как купить билет в музей?", a: "Выберите тип билета, оплатите онлайн, получите электронный билет на e-mail. Покажите QR-код на входе." },
+    { q: "Можно ли вернуть билет?", a: "Да, не позднее чем за 24 часа до посещения." },
+    { q: "Есть ли льготы?", a: "Пенсионеры, ветераны и люди с ОВЗ — бесплатно по предъявлении документа." },
+  ],
   traffic: {
-    visits30d: 24_800,
-    organicShare: 78,
-    avgPosition: 4.1,
-    ctr: 5.4,
-    delta: 18.2,
+    visits30d: 12_800,
+    organicShare: 84,
+    avgPosition: 4.4,
+    ctr: 7.2,
+    delta: 14.2,
     topKeywords: [
-      { kw: "алатау арена", pos: 1, visits: 9_400 },
-      { kw: "алатау арена афиша", pos: 2, visits: 5_100 },
-      { kw: "концерт алатау арена", pos: 3, visits: 3_800 },
-      { kw: "алатау арена схема зала", pos: 5, visits: 2_400 },
-      { kw: "алатау арена билеты", pos: 4, visits: 1_900 },
+      { kw: "музей кастеева",         pos: 1, visits: 4_600 },
+      { kw: "музей искусств алматы",  pos: 3, visits: 2_400 },
+      { kw: "музей кастеева билеты",  pos: 2, visits: 1_900 },
+      { kw: "выставки алматы",        pos: 6, visits: 1_400 },
+      { kw: "куда сходить алматы",    pos: 8, visits: 980 },
     ],
   },
-  upcomingEvents: [
-    { id: "EVT-002", title: "Forum на Arena", date: "2026-05-12" },
-    { id: "EVT-014", title: "Spring Showcase", date: "2026-05-20" },
-  ],
   seoIssues: [
-    { id: "1", severity: "info" as const, title: "Можно добавить разметку Place + Event", description: "Это улучшит отображение в поиске и Google Maps." },
+    { id: "1", severity: "info" as const, title: "Можно добавить разметку Museum + OpeningHoursSpecification", description: "Это улучшит сниппет в Google, особенно для запросов «режим работы»." },
   ],
 };
 
@@ -74,6 +97,13 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
   const [, setLocation] = useLocation();
   const [tab, setTab] = useState("overview");
   const [hubEnabled, setHubEnabled] = useState(venue.isContentHub);
+  const [salesModel, setSalesModel] = useState<SalesModel>(venue.salesModel);
+
+  const isStandalone = salesModel !== "event_only";
+  const isHybrid = salesModel === "hybrid";
+
+  const totalAdmissionRevenue30d = venue.admissionTypes.reduce((s, a) => s + a.price * a.sold30d, 0);
+  const totalSold30d = venue.admissionTypes.reduce((s, a) => s + a.sold30d, 0);
 
   return (
     <AdminLayout
@@ -84,12 +114,13 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
         title={
           <span className="inline-flex items-center gap-2 flex-wrap">
             {venue.name}
+            <SalesModelBadge model={salesModel} />
             <ContentHubBadge isHub={hubEnabled} />
             <StatusBadge status={venue.status} />
             <span className="text-sm text-muted-foreground font-normal font-mono">daibilet.kz/{venue.citySlug}/venues/{venue.slug}/</span>
           </span>
         }
-        description={`${venue.city} · ${venue.capacity.toLocaleString()} мест · ${formatNumber(venue.traffic.visits30d)} визитов / 30 дн`}
+        description={`${venue.category} · ${venue.city} · ${venue.capacity.toLocaleString()} мест · ${formatNumber(venue.traffic.visits30d)} визитов / 30 дн`}
         actions={
           <>
             <Button variant="outline" size="sm" onClick={() => setLocation("/admin/venues")} data-testid="button-back">
@@ -104,9 +135,11 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
       <Tabs
         items={[
           { key: "overview", label: "Обзор" },
+          { key: "model", label: "Модель продаж" },
+          ...(isStandalone ? [{ key: "admission", label: "Прямые продажи", count: venue.admissionTypes.length }] : []),
           { key: "hub", label: "Контент-хаб" },
           { key: "seo", label: "SEO & трафик" },
-          { key: "events", label: "События", count: venue.upcomingEvents.length },
+          ...(salesModel !== "standalone" ? [{ key: "events", label: "События", count: venue.upcomingEvents.length }] : []),
           { key: "audit", label: "Справочник" },
         ]}
         active={tab}
@@ -117,17 +150,150 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
         <div className="flex flex-col gap-4">
           <TrafficStatsCards t={venue.traffic} />
 
+          {isStandalone && (
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+              <Cell label="Продано сегодня" value={formatNumber(venue.admissionPolicy.soldToday)} hint={`из ${formatNumber(venue.admissionPolicy.dailyCapacity)} лимит`} />
+              <Cell label="Продано / 30 дн" value={formatNumber(totalSold30d)} hint="по всем тарифам" />
+              <Cell label="Выручка / 30 дн" value={formatCurrency(totalAdmissionRevenue30d)} hint="прямые продажи" accent="good" />
+              <Cell label="Активных тарифов" value={String(venue.admissionTypes.filter(a => a.status === "active").length)} hint={`из ${venue.admissionTypes.length}`} />
+            </div>
+          )}
+
           <div className="bg-card border border-card-border rounded-lg p-5">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h3 className="text-sm font-semibold mb-1">Статус «Контент-хаб»</h3>
                 <p className="text-xs text-muted-foreground max-w-lg">
-                  Включает SEO-описание, схему зала, FAQ и блоки. Без этого площадка отображается только как краткая карточка в событии.
+                  Включает SEO-описание, FAQ, блоки и hero-галерею. Без него площадка отображается только как краткая карточка в событии.
                 </p>
               </div>
               <Switch checked={hubEnabled} onCheckedChange={setHubEnabled} data-testid="switch-venue-hub" />
             </div>
           </div>
+        </div>
+      )}
+
+      {tab === "model" && (
+        <div className="flex flex-col gap-4">
+          <div className="bg-card border border-card-border rounded-lg p-5">
+            <h3 className="text-sm font-semibold mb-1">Модель продаж</h3>
+            <p className="text-xs text-muted-foreground mb-4">
+              Определяет, как площадка зарабатывает на Daibilet: только через события, через прямые продажи входа, или комбинировано.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+              <ModelOption value="event_only" current={salesModel} onSelect={setSalesModel}
+                icon={CalendarRange} title="Только события"
+                desc="Концертные залы, арены, театры — продаются только билеты на конкретные события."
+                example="Алатау Арена, Barys Arena" />
+              <ModelOption value="standalone" current={salesModel} onSelect={setSalesModel}
+                icon={Building2} title="Прямые продажи"
+                desc="Музеи, зоопарки, океанариумы — посетители покупают билет «на вход» по открытой цене, без привязки к событию."
+                example="Алматинский зоопарк, Думан" />
+              <ModelOption value="hybrid" current={salesModel} onSelect={setSalesModel}
+                icon={Sparkles} title="Гибрид"
+                desc="Постоянная экспозиция (открытая цена) + временные выставки и события."
+                example="Музей Кастеева, центр современного искусства" />
+            </div>
+          </div>
+
+          {isStandalone && (
+            <DetailSection title="Параметры прямых продаж">
+              <DetailField label="Часы работы" value={venue.admissionPolicy.workingHours} />
+              <DetailField label="Дневной лимит посетителей" value={venue.admissionPolicy.dailyCapacity.toLocaleString()} />
+              <DetailField label="Продажа заранее (дней)" value={String(venue.admissionPolicy.advanceBookingDays)} />
+              <DetailField label="Политика возврата" value={venue.admissionPolicy.refundPolicy} />
+              <DetailField label="Билет на конкретное время (timed entry)" value={venue.admissionPolicy.timedEntry ? "Да — слоты по 30 мин" : "Нет — открытый вход в часы работы"} />
+              <DetailField label="Синхронизация лимитов с кассой" value={venue.admissionPolicy.syncEnabled ? "Включена" : "Выключена"} />
+            </DetailSection>
+          )}
+
+          {isHybrid && (
+            <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900 rounded-lg p-4 text-sm text-amber-900 dark:text-amber-200">
+              <strong className="flex items-center gap-1.5"><Sparkles className="w-4 h-4" /> Гибридная модель</strong>
+              <p className="mt-1">
+                Покупатель видит на странице площадки <strong>две зоны</strong>: «Билет на вход» (постоянная экспозиция, открытая цена) и «Афиша» (временные события). Дневной лимит площадки делится между ними автоматически.
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {tab === "admission" && isStandalone && (
+        <div className="flex flex-col gap-4">
+          <div className="bg-card border border-card-border rounded-lg p-5">
+            <div className="flex items-start justify-between gap-3 mb-3">
+              <div>
+                <h3 className="text-sm font-semibold flex items-center gap-2">
+                  <Clock className="w-4 h-4" /> Лимит посетителей и часы работы
+                </h3>
+                <p className="text-xs text-muted-foreground mt-0.5">{venue.admissionPolicy.workingHours}</p>
+              </div>
+              <Button variant="outline" size="sm">Изменить</Button>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="flex-1 bg-muted rounded-full h-2 overflow-hidden">
+                <div className="bg-emerald-500 h-full" style={{ width: `${(venue.admissionPolicy.soldToday / venue.admissionPolicy.dailyCapacity) * 100}%` }} />
+              </div>
+              <span className="text-xs tabular-nums text-muted-foreground whitespace-nowrap">
+                {venue.admissionPolicy.soldToday} / {venue.admissionPolicy.dailyCapacity}
+              </span>
+            </div>
+          </div>
+
+          <div className="bg-card border border-card-border rounded-lg overflow-hidden">
+            <div className="px-5 py-4 border-b border-border flex items-center justify-between">
+              <div>
+                <h3 className="text-sm font-semibold flex items-center gap-2"><Ticket className="w-4 h-4" /> Тарифы входа</h3>
+                <p className="text-xs text-muted-foreground mt-0.5">Открытая цена, продаётся независимо от событий</p>
+              </div>
+              <Button size="sm" data-testid="button-add-admission"><Plus className="w-3.5 h-3.5 mr-1" /> Добавить тариф</Button>
+            </div>
+            <table className="w-full text-sm">
+              <thead className="text-xs text-muted-foreground bg-muted/50">
+                <tr>
+                  <th className="text-left px-4 py-2 font-medium">Тариф</th>
+                  <th className="text-left px-4 py-2 font-medium">Условия</th>
+                  <th className="text-right px-4 py-2 font-medium">Цена</th>
+                  <th className="text-right px-4 py-2 font-medium">Сегодня</th>
+                  <th className="text-right px-4 py-2 font-medium">/ 30 дн</th>
+                  <th className="text-right px-4 py-2 font-medium">Выручка / 30 дн</th>
+                  <th className="px-4 py-2"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {venue.admissionTypes.map((a) => (
+                  <tr key={a.id} className="border-t border-border hover:bg-accent/40">
+                    <td className="px-4 py-2 font-medium">{a.name}</td>
+                    <td className="px-4 py-2 text-xs text-muted-foreground">{a.description}</td>
+                    <td className="px-4 py-2 text-right tabular-nums font-medium">{a.price === 0 ? <span className="text-emerald-600">Бесплатно</span> : formatCurrency(a.price)}</td>
+                    <td className="px-4 py-2 text-right tabular-nums">{a.soldToday}</td>
+                    <td className="px-4 py-2 text-right tabular-nums">{formatNumber(a.sold30d)}</td>
+                    <td className="px-4 py-2 text-right tabular-nums text-muted-foreground">{a.price === 0 ? "—" : formatCurrency(a.price * a.sold30d)}</td>
+                    <td className="px-4 py-2 text-right">
+                      <button className="text-primary hover:underline text-xs">Изменить</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="border-t-2 border-border bg-muted/30 font-medium">
+                  <td className="px-4 py-2.5" colSpan={4}>Итого по тарифам</td>
+                  <td className="px-4 py-2.5 text-right tabular-nums">{formatNumber(totalSold30d)}</td>
+                  <td className="px-4 py-2.5 text-right tabular-nums text-emerald-600">{formatCurrency(totalAdmissionRevenue30d)}</td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          {isHybrid && (
+            <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900 rounded-lg p-4 text-sm text-blue-900 dark:text-blue-200">
+              <strong className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> Конфликт с временными событиями</strong>
+              <p className="mt-1 text-xs">
+                Когда на площадке проходит закрытое событие, прямые продажи на этот день автоматически блокируются (или ограничиваются часами события — настраивается).
+              </p>
+            </div>
+          )}
         </div>
       )}
 
@@ -138,7 +304,6 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
               Контент-хаб выключен. Включите тумблер на вкладке «Обзор», чтобы редактировать наполнение.
             </div>
           )}
-
           <DetailSection title="Заголовок и описание">
             <DetailField label="H1" value={venue.h1} className="sm:col-span-2 lg:col-span-2" />
             <DetailField label="Intro" value={venue.intro} className="sm:col-span-2 lg:col-span-3" />
@@ -157,17 +322,17 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
             </div>
           </div>
 
-          <div className="bg-card border border-card-border rounded-lg p-5">
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-semibold flex items-center gap-2"><Map className="w-4 h-4" /> Схема зала</h3>
-              <Button variant="outline" size="sm">{venue.hasSeatingMap ? "Заменить" : "Добавить"}</Button>
+          {salesModel !== "standalone" && (
+            <div className="bg-card border border-card-border rounded-lg p-5">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-sm font-semibold flex items-center gap-2"><Map className="w-4 h-4" /> Схема зала</h3>
+                <Button variant="outline" size="sm">{venue.hasSeatingMap ? "Заменить" : "Добавить"}</Button>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                {venue.hasSeatingMap ? `SVG-схема загружена · ${venue.capacity.toLocaleString()} мест` : "Схема зала не загружена"}
+              </p>
             </div>
-            {venue.hasSeatingMap ? (
-              <p className="text-xs text-muted-foreground">SVG-схема загружена · {venue.capacity.toLocaleString()} мест в стандартной конфигурации</p>
-            ) : (
-              <p className="text-xs text-muted-foreground">Схема зала не загружена</p>
-            )}
-          </div>
+          )}
 
           <div className="bg-card border border-card-border rounded-lg overflow-hidden">
             <div className="px-5 py-4 border-b border-border flex items-center justify-between">
@@ -216,12 +381,13 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
         </div>
       )}
 
-      {tab === "events" && (
+      {tab === "events" && salesModel !== "standalone" && (
         <div className="bg-card border border-card-border rounded-lg overflow-hidden">
           <table className="w-full text-sm">
             <thead className="text-xs text-muted-foreground bg-muted/50">
               <tr>
                 <th className="text-left px-4 py-2 font-medium">Событие</th>
+                <th className="text-left px-4 py-2 font-medium">Тип</th>
                 <th className="text-left px-4 py-2 font-medium">Дата</th>
                 <th className="px-4 py-2"></th>
               </tr>
@@ -230,6 +396,7 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
               {venue.upcomingEvents.map((e) => (
                 <tr key={e.id} className="border-t border-border hover:bg-accent/40 cursor-pointer" onClick={() => setLocation(`/admin/events/${e.id}`)}>
                   <td className="px-4 py-2 font-medium">{e.title}</td>
+                  <td className="px-4 py-2 text-xs text-muted-foreground">{e.type}</td>
                   <td className="px-4 py-2">{e.date}</td>
                   <td className="px-4 py-2 text-right text-xs text-primary">Открыть →</td>
                 </tr>
@@ -245,7 +412,9 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
             <DetailField label="ID" value={venue.id} readOnly />
             <DetailField label="Slug" value={venue.slug} />
             <DetailField label="Название" value={venue.name} readOnly />
+            <DetailField label="Категория" value={venue.category} />
             <DetailField label="Вместимость" value={venue.capacity.toLocaleString()} readOnly />
+            <DetailField label="Модель продаж" value={salesModelMeta[salesModel].label} readOnly />
           </DetailSection>
           <DetailSection title="Расположение">
             <DetailField label="Город" value={venue.city} readOnly />
@@ -259,12 +428,43 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
               <a href={venue.website} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{venue.website}</a>
             } readOnly />
           </DetailSection>
-          <DetailSection title="Источник импорта">
-            <DetailField label="Источник" value={venue.importedSource} readOnly />
-            <DetailField label="ID в источнике" value={venue.sourceId} readOnly />
-          </DetailSection>
+          {venue.importedSource && (
+            <DetailSection title="Источник импорта">
+              <DetailField label="Источник" value={venue.importedSource} readOnly />
+              <DetailField label="ID в источнике" value={venue.sourceId ?? "—"} readOnly />
+            </DetailSection>
+          )}
         </div>
       )}
     </AdminLayout>
+  );
+}
+
+function Cell({ label, value, hint, accent }: { label: string; value: string; hint?: string; accent?: "good" }) {
+  return (
+    <div className="bg-card border border-card-border rounded-lg p-4">
+      <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">{label}</span>
+      <p className={`text-xl font-semibold tabular-nums mt-1 ${accent === "good" ? "text-emerald-600" : ""}`}>{value}</p>
+      {hint && <p className="text-xs text-muted-foreground mt-0.5">{hint}</p>}
+    </div>
+  );
+}
+
+function ModelOption({ value, current, onSelect, icon: Icon, title, desc, example }: {
+  value: SalesModel; current: SalesModel; onSelect: (v: SalesModel) => void;
+  icon: typeof Building2; title: string; desc: string; example: string;
+}) {
+  const active = value === current;
+  return (
+    <button
+      onClick={() => onSelect(value)}
+      className={`text-left rounded-lg p-4 border-2 transition-colors ${active ? "border-primary bg-primary/5" : "border-border bg-card hover:border-primary/40"}`}
+      data-testid={`model-option-${value}`}
+    >
+      <Icon className={`w-4 h-4 mb-2 ${active ? "text-primary" : "text-muted-foreground"}`} />
+      <p className="text-sm font-medium mb-1">{title}</p>
+      <p className="text-xs text-muted-foreground mb-2 leading-relaxed">{desc}</p>
+      <p className="text-[10px] text-muted-foreground italic">пример: {example}</p>
+    </button>
   );
 }
