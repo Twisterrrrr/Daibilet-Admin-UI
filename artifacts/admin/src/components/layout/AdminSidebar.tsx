@@ -21,6 +21,10 @@ import {
   Tags,
   Activity,
   Plug,
+  Wallet,
+  ArrowLeftRight,
+  Scale,
+  PieChart,
 } from "lucide-react";
 
 interface NavGroup {
@@ -57,6 +61,19 @@ const navGroups: NavGroup[] = [
       { label: "Поставщики", href: "/admin/suppliers", icon: Users },
       { label: "Интеграции", href: "/admin/integrations", icon: Plug },
     ],
+  },
+  {
+    label: "Финансы",
+    items: [
+      { label: "Дашборд финансов", href: "/admin/finance", icon: Wallet },
+      { label: "Транзакции", href: "/admin/finance/transactions", icon: ArrowLeftRight },
+      { label: "Выплаты", href: "/admin/finance/payouts", icon: Wallet },
+      { label: "Сверки", href: "/admin/finance/reconciliation", icon: Scale },
+    ],
+  },
+  {
+    label: "Аналитика",
+    items: [{ label: "Отчёты", href: "/admin/reports", icon: PieChart }],
   },
   {
     label: "Маркетинг",

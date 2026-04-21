@@ -35,6 +35,14 @@ import SeoAudit from "@/pages/admin/SeoAudit";
 import CategoriesList from "@/pages/admin/CategoriesList";
 import Logs from "@/pages/admin/Logs";
 import Integrations from "@/pages/admin/Integrations";
+import FinanceDashboard from "@/pages/admin/FinanceDashboard";
+import Transactions from "@/pages/admin/Transactions";
+import PayoutsList from "@/pages/admin/PayoutsList";
+import PayoutDetail from "@/pages/admin/PayoutDetail";
+import Reconciliation from "@/pages/admin/Reconciliation";
+import ReportsHub from "@/pages/admin/ReportsHub";
+import SalesReport from "@/pages/admin/SalesReport";
+import ChannelReport from "@/pages/admin/ChannelReport";
 
 import SupplierDashboard from "@/pages/supplier/SupplierDashboard";
 import SupplierEventsList from "@/pages/supplier/SupplierEventsList";
@@ -43,6 +51,7 @@ import SupplierOrders from "@/pages/supplier/SupplierOrders";
 import SupplierRefunds from "@/pages/supplier/SupplierRefunds";
 import SupplierProfile from "@/pages/supplier/SupplierProfile";
 import SupplierReports from "@/pages/supplier/SupplierReports";
+import SupplierFinance from "@/pages/supplier/SupplierFinance";
 import SupplierSupport from "@/pages/supplier/SupplierSupport";
 
 const queryClient = new QueryClient();
@@ -87,12 +96,25 @@ function Router() {
       <Route path="/admin/logs" component={Logs} />
       <Route path="/admin/settings" component={Settings} />
 
+      {/* Finance */}
+      <Route path="/admin/finance" component={FinanceDashboard} />
+      <Route path="/admin/finance/transactions" component={Transactions} />
+      <Route path="/admin/finance/payouts" component={PayoutsList} />
+      <Route path="/admin/finance/payouts/:id" component={PayoutDetail} />
+      <Route path="/admin/finance/reconciliation" component={Reconciliation} />
+
+      {/* Reports */}
+      <Route path="/admin/reports" component={ReportsHub} />
+      <Route path="/admin/reports/sales" component={SalesReport} />
+      <Route path="/admin/reports/channels" component={ChannelReport} />
+
       {/* Supplier cabinet routes */}
       <Route path="/supplier" component={SupplierDashboard} />
       <Route path="/supplier/events" component={SupplierEventsList} />
       <Route path="/supplier/events/:id" component={SupplierEventDetail} />
       <Route path="/supplier/orders" component={SupplierOrders} />
       <Route path="/supplier/refunds" component={SupplierRefunds} />
+      <Route path="/supplier/finance" component={SupplierFinance} />
       <Route path="/supplier/profile" component={SupplierProfile} />
       <Route path="/supplier/reports" component={SupplierReports} />
       <Route path="/supplier/support" component={SupplierSupport} />

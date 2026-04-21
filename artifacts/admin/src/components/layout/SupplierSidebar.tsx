@@ -10,6 +10,7 @@ import {
   Ticket,
   ShieldCheck,
   RotateCcw,
+  Wallet,
 } from "lucide-react";
 
 const supplierNav = [
@@ -17,6 +18,7 @@ const supplierNav = [
   { label: "Мои события", href: "/supplier/events", icon: CalendarDays },
   { label: "Заказы", href: "/supplier/orders", icon: ShoppingCart },
   { label: "Возвраты", href: "/supplier/refunds", icon: RotateCcw },
+  { label: "Финансы", href: "/supplier/finance", icon: Wallet },
   { label: "Отчёты", href: "/supplier/reports", icon: BarChart2 },
   { label: "Профиль / Компания", href: "/supplier/profile", icon: User },
   { label: "Обращения", href: "/supplier/support", icon: MessageSquare },

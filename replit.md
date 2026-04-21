@@ -49,6 +49,17 @@ pnpm workspace monorepo using TypeScript. Daibilet Admin V3 + Supplier Cabinet f
 - `/admin/collections` + `/:id` — event collections with ordering
 - `/admin/seo-audit` — aggregated SEO issues across events/landings/venues/articles with score
 
+**Финансы**
+- `/admin/finance` — KPI dashboard (GMV, выручка, к выплате, возвраты), channel breakdown, providers, alerts
+- `/admin/finance/transactions` — журнал платежей/возвратов/выплат/корректировок с фильтрами по провайдеру/типу/статусу
+- `/admin/finance/payouts` + `/:id` — акты выплат (PayoutStatus pending|processing|paid|failed|held), бимесячный цикл (15/30), детализация по заказам и возвратам, аудит, кнопки send-to-bank / mark-as-paid / hold
+- `/admin/finance/reconciliation` — сверки с провайдерами (Kaspi/Halyk/Wooppay/Forte): сравнение итогов, дельта, расхождения построчно
+
+**Аналитика**
+- `/admin/reports` — хаб со всеми отчётами (продажи, источники, конверсия, поставщики, площадки, города, возвраты, календарь)
+- `/admin/reports/sales` — pivot по событиям/городам/поставщикам/категориям/неделям с share bars и Δ
+- `/admin/reports/channels` — оборот по inventorySource (manual/imported/api/hybrid) и salesMode (internal_checkout/external_redirect/mirror/hybrid)
+
 **Поддержка / Система**
 - `/admin/support` + `/:id` — ticket inbox with priority + reply flow
 - `/admin/logs` — system events (sync, checkout, payment, audit) with level/source filters
@@ -58,6 +69,8 @@ pnpm workspace monorepo using TypeScript. Daibilet Admin V3 + Supplier Cabinet f
 - `/supplier` — Dashboard
 - `/supplier/events` + `/:id` — manual vs imported vs hybrid awareness; imported events show read-only Lock alert + dedicated «Запрос на коррекцию» tab
 - `/supplier/orders` — Own orders
+- `/supplier/finance` — баланс, расчёт ближайшей выплаты (gross − комиссия − возвраты = net), история актов (PDF), структура комиссии
+- `/supplier/reports` — KPI (оборот/билеты/заказы/средний чек), топ событий, заполняемость, динамика по дням
 - `/supplier/refunds` — Refund requests on supplier's events (read-only — admin decides)
 - `/supplier/profile`, `/supplier/reports`, `/supplier/support`
 - Note: Integrations management is admin-only — suppliers do not configure their own integrations.
