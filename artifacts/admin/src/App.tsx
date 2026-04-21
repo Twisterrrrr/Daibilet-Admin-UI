@@ -43,6 +43,10 @@ import Reconciliation from "@/pages/admin/Reconciliation";
 import ReportsHub from "@/pages/admin/ReportsHub";
 import SalesReport from "@/pages/admin/SalesReport";
 import ChannelReport from "@/pages/admin/ChannelReport";
+import ChatInbox from "@/pages/admin/ChatInbox";
+import ChatConversation from "@/pages/admin/ChatConversation";
+import StaffList from "@/pages/admin/StaffList";
+import StaffDetail from "@/pages/admin/StaffDetail";
 
 import SupplierDashboard from "@/pages/supplier/SupplierDashboard";
 import SupplierEventsList from "@/pages/supplier/SupplierEventsList";
@@ -107,6 +111,14 @@ function Router() {
       <Route path="/admin/reports" component={ReportsHub} />
       <Route path="/admin/reports/sales" component={SalesReport} />
       <Route path="/admin/reports/channels" component={ChannelReport} />
+
+      {/* Chat */}
+      <Route path="/admin/chat" component={ChatInbox} />
+      <Route path="/admin/chat/:id" component={ChatConversation} />
+
+      {/* Staff RBAC */}
+      <Route path="/admin/staff" component={StaffList} />
+      <Route path="/admin/staff/:id" component={StaffDetail} />
 
       {/* Supplier cabinet routes */}
       <Route path="/supplier" component={SupplierDashboard} />

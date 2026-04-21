@@ -25,6 +25,8 @@ import {
   ArrowLeftRight,
   Scale,
   PieChart,
+  MessageCircle,
+  ShieldCheck,
 } from "lucide-react";
 
 interface NavGroup {
@@ -52,7 +54,6 @@ const navGroups: NavGroup[] = [
       { label: "Заказы", href: "/admin/orders", icon: ShoppingCart },
       { label: "Возвраты", href: "/admin/refunds", icon: RotateCcw },
       { label: "Покупатели", href: "/admin/users", icon: UserCircle },
-      { label: "Отзывы", href: "/admin/reviews", icon: Star },
     ],
   },
   {
@@ -87,11 +88,16 @@ const navGroups: NavGroup[] = [
   },
   {
     label: "Поддержка",
-    items: [{ label: "Обращения", href: "/admin/support", icon: LifeBuoy }],
+    items: [
+      { label: "Чат с сайта", href: "/admin/chat", icon: MessageCircle },
+      { label: "Обращения", href: "/admin/support", icon: LifeBuoy },
+      { label: "Отзывы", href: "/admin/reviews", icon: Star },
+    ],
   },
   {
     label: "Система",
     items: [
+      { label: "Сотрудники / RBAC", href: "/admin/staff", icon: ShieldCheck },
       { label: "Логи / диагностика", href: "/admin/logs", icon: Activity },
       { label: "Настройки", href: "/admin/settings", icon: Settings },
     ],
