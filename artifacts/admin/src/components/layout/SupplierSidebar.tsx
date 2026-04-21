@@ -9,7 +9,6 @@ import {
   MessageSquare,
   Ticket,
   ShieldCheck,
-  Plug,
   RotateCcw,
 } from "lucide-react";
 
@@ -18,7 +17,6 @@ const supplierNav = [
   { label: "Мои события", href: "/supplier/events", icon: CalendarDays },
   { label: "Заказы", href: "/supplier/orders", icon: ShoppingCart },
   { label: "Возвраты", href: "/supplier/refunds", icon: RotateCcw },
-  { label: "Интеграции", href: "/supplier/integrations", icon: Plug },
   { label: "Отчёты", href: "/supplier/reports", icon: BarChart2 },
   { label: "Профиль / Компания", href: "/supplier/profile", icon: User },
   { label: "Обращения", href: "/supplier/support", icon: MessageSquare },

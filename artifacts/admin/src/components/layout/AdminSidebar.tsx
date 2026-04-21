@@ -20,6 +20,7 @@ import {
   Search,
   Tags,
   Activity,
+  Plug,
 } from "lucide-react";
 
 interface NavGroup {
@@ -52,7 +53,10 @@ const navGroups: NavGroup[] = [
   },
   {
     label: "Партнёры",
-    items: [{ label: "Поставщики", href: "/admin/suppliers", icon: Users }],
+    items: [
+      { label: "Поставщики", href: "/admin/suppliers", icon: Users },
+      { label: "Интеграции", href: "/admin/integrations", icon: Plug },
+    ],
   },
   {
     label: "Маркетинг",

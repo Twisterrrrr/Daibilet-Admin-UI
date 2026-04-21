@@ -34,13 +34,13 @@ import CollectionDetail from "@/pages/admin/CollectionDetail";
 import SeoAudit from "@/pages/admin/SeoAudit";
 import CategoriesList from "@/pages/admin/CategoriesList";
 import Logs from "@/pages/admin/Logs";
+import Integrations from "@/pages/admin/Integrations";
 
 import SupplierDashboard from "@/pages/supplier/SupplierDashboard";
 import SupplierEventsList from "@/pages/supplier/SupplierEventsList";
 import SupplierEventDetail from "@/pages/supplier/SupplierEventDetail";
 import SupplierOrders from "@/pages/supplier/SupplierOrders";
 import SupplierRefunds from "@/pages/supplier/SupplierRefunds";
-import SupplierIntegrations from "@/pages/supplier/SupplierIntegrations";
 import SupplierProfile from "@/pages/supplier/SupplierProfile";
 import SupplierReports from "@/pages/supplier/SupplierReports";
 import SupplierSupport from "@/pages/supplier/SupplierSupport";
@@ -65,6 +65,7 @@ function Router() {
       <Route path="/admin/categories" component={CategoriesList} />
       <Route path="/admin/suppliers" component={SuppliersList} />
       <Route path="/admin/suppliers/:id" component={SupplierDetail} />
+      <Route path="/admin/integrations" component={Integrations} />
       <Route path="/admin/orders" component={OrdersList} />
       <Route path="/admin/orders/:id" component={OrderDetail} />
       <Route path="/admin/refunds" component={RefundsList} />
@@ -92,7 +93,6 @@ function Router() {
       <Route path="/supplier/events/:id" component={SupplierEventDetail} />
       <Route path="/supplier/orders" component={SupplierOrders} />
       <Route path="/supplier/refunds" component={SupplierRefunds} />
-      <Route path="/supplier/integrations" component={SupplierIntegrations} />
       <Route path="/supplier/profile" component={SupplierProfile} />
       <Route path="/supplier/reports" component={SupplierReports} />
       <Route path="/supplier/support" component={SupplierSupport} />

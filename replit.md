@@ -40,7 +40,8 @@ pnpm workspace monorepo using TypeScript. Daibilet Admin V3 + Supplier Cabinet f
 - `/admin/reviews` — moderation queue
 
 **Партнёры**
-- `/admin/suppliers` + `/:id`
+- `/admin/suppliers` + `/:id` — list shows Тип/Роль (import_only | internal | api) + ЛК активен/нет; detail shows role badge, role description alert, ЛК activation status, and integration summary (when role ≠ internal) with link to Integrations
+- `/admin/integrations` — connected sources (Ticketon mirror, Ticketscloud API, etc.) with sync status, diagnostics, frequency; managed centrally in admin (NOT in supplier cabinet)
 
 **Маркетинг**
 - `/admin/landings` + `/:id`, `/admin/promo-blocks` + `/:id`
@@ -53,13 +54,18 @@ pnpm workspace monorepo using TypeScript. Daibilet Admin V3 + Supplier Cabinet f
 - `/admin/logs` — system events (sync, checkout, payment, audit) with level/source filters
 - `/admin/settings`
 
-### Supplier Cabinet Pages
+### Supplier Cabinet Pages (only for suppliers with cabinetActive=true)
 - `/supplier` — Dashboard
 - `/supplier/events` + `/:id` — manual vs imported vs hybrid awareness; imported events show read-only Lock alert + dedicated «Запрос на коррекцию» tab
 - `/supplier/orders` — Own orders
 - `/supplier/refunds` — Refund requests on supplier's events (read-only — admin decides)
-- `/supplier/integrations` — Connected sources (Ticketon mirror, Ticketscloud API, etc.) with sync status and diagnostics
 - `/supplier/profile`, `/supplier/reports`, `/supplier/support`
+- Note: Integrations management is admin-only — suppliers do not configure their own integrations.
+
+### Supplier Roles (`SupplierRole`)
+- `import_only` — events come from external mirror; **ЛК не активен** (no cabinet user). Shown in admin only.
+- `internal` — supplier creates events themselves in own cabinet; **полный ЛК**.
+- `api` — events arrive via partner API; **ЛК опционален** (cabinetActive flag determines if they can log in to view orders/reports).
 
 ### Shared Components (`src/components/`)
 - `layout/AdminLayout.tsx`, `SupplierLayout.tsx`, `Topbar.tsx`
@@ -68,6 +74,7 @@ pnpm workspace monorepo using TypeScript. Daibilet Admin V3 + Supplier Cabinet f
 - `shared/StatCard.tsx`, `DataTable.tsx`, `StatusBadge.tsx`, `PageHeader.tsx` (accepts ReactNode description), `FilterBar.tsx`, `DetailField.tsx`
 - `shared/SourceBadge.tsx` — `InventorySource` (manual|imported|api|hybrid) + `SalesMode` (internal_checkout|external_redirect|mirror|hybrid) badges
 - `shared/SyncStatusBadge.tsx` — sync status pill (ok|stale|error|syncing|never)
+- `shared/SupplierRoleBadge.tsx` — role badge for supplier type (import_only|internal|api) with tooltip description
 - `shared/IssueList.tsx` + `IssueCount` — typed issues (critical|warning|info) for SEO/quality surfaces
 - `shared/Tabs.tsx` — tab strip used in event/order detail tabs
 
