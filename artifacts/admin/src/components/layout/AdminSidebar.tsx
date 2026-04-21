@@ -45,7 +45,8 @@ const navGroups: NavGroup[] = [
       { label: "События", href: "/admin/events", icon: CalendarDays },
       { label: "Площадки", href: "/admin/venues", icon: Building2 },
       { label: "Города", href: "/admin/cities", icon: Globe },
-      { label: "Категории", href: "/admin/categories", icon: Tags },
+      { label: "Категории", href: "/admin/categories", icon: FolderTree },
+      { label: "Теги", href: "/admin/tags", icon: Tags },
     ],
   },
   {

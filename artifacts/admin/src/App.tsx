@@ -33,6 +33,7 @@ import CollectionsList from "@/pages/admin/CollectionsList";
 import CollectionDetail from "@/pages/admin/CollectionDetail";
 import SeoAudit from "@/pages/admin/SeoAudit";
 import CategoriesList from "@/pages/admin/CategoriesList";
+import TagsList from "@/pages/admin/TagsList";
 import Logs from "@/pages/admin/Logs";
 import Integrations from "@/pages/admin/Integrations";
 import FinanceDashboard from "@/pages/admin/FinanceDashboard";
@@ -76,6 +77,7 @@ function Router() {
       <Route path="/admin/cities" component={CitiesList} />
       <Route path="/admin/cities/:id" component={CityDetail} />
       <Route path="/admin/categories" component={CategoriesList} />
+      <Route path="/admin/tags" component={TagsList} />
       <Route path="/admin/suppliers" component={SuppliersList} />
       <Route path="/admin/suppliers/:id" component={SupplierDetail} />
       <Route path="/admin/integrations" component={Integrations} />
