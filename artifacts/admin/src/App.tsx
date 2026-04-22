@@ -9,6 +9,8 @@ import EventsList from "@/pages/admin/EventsList";
 import EventDetail from "@/pages/admin/EventDetail";
 import VenuesList from "@/pages/admin/VenuesList";
 import VenueDetail from "@/pages/admin/VenueDetail";
+import VenueCandidates from "@/pages/admin/VenueCandidates";
+import VenueDuplicates from "@/pages/admin/VenueDuplicates";
 import CitiesList from "@/pages/admin/CitiesList";
 import CityDetail from "@/pages/admin/CityDetail";
 import SuppliersList from "@/pages/admin/SuppliersList";
@@ -73,6 +75,8 @@ function Router() {
       <Route path="/admin/events" component={EventsList} />
       <Route path="/admin/events/:id" component={EventDetail} />
       <Route path="/admin/venues" component={VenuesList} />
+      <Route path="/admin/venues/candidates" component={VenueCandidates} />
+      <Route path="/admin/venues/duplicates" component={VenueDuplicates} />
       <Route path="/admin/venues/:id" component={VenueDetail} />
       <Route path="/admin/cities" component={CitiesList} />
       <Route path="/admin/cities/:id" component={CityDetail} />

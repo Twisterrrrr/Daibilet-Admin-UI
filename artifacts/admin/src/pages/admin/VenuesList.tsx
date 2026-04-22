@@ -8,7 +8,7 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { FilterBar } from "@/components/shared/FilterBar";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Plus, ArrowUp, ArrowDown, CalendarRange, Building2, Sparkles } from "lucide-react";
+import { Plus, ArrowUp, ArrowDown, CalendarRange, Building2, Sparkles, Inbox, GitMerge } from "lucide-react";
 import { formatNumber } from "@/lib/utils";
 
 type SalesModel = "event_only" | "standalone" | "hybrid";
@@ -124,6 +124,41 @@ export default function VenuesList() {
         description={`${mockVenues.length} площадок · ${standaloneCount} с прямыми продажами · ${hybridCount} гибридных · ${formatNumber(totalVisits)} визитов / 30 дн`}
         actions={<Button size="sm" data-testid="button-create-venue"><Plus className="w-4 h-4 mr-1.5" /> Добавить площадку</Button>}
       />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+        <button
+          onClick={() => setLocation("/admin/venues/candidates")}
+          className="text-left bg-card border border-card-border rounded-lg p-3 hover:border-primary transition-colors"
+          data-testid="link-candidates"
+        >
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center"><Inbox className="w-4 h-4" /></div>
+              <div>
+                <p className="text-sm font-medium">Очередь кандидатов <span className="ml-1 inline-flex items-center text-[10px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-semibold">12</span></p>
+                <p className="text-xs text-muted-foreground">Новые записи из импортов / API ждут разбора</p>
+              </div>
+            </div>
+            <span className="text-xs text-primary self-center">Открыть →</span>
+          </div>
+        </button>
+        <button
+          onClick={() => setLocation("/admin/venues/duplicates")}
+          className="text-left bg-card border border-card-border rounded-lg p-3 hover:border-primary transition-colors"
+          data-testid="link-duplicates"
+        >
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-md bg-violet-100 text-violet-700 flex items-center justify-center"><GitMerge className="w-4 h-4" /></div>
+              <div>
+                <p className="text-sm font-medium">Кластеры дублей <span className="ml-1 inline-flex items-center text-[10px] bg-violet-100 text-violet-700 px-1.5 py-0.5 rounded font-semibold">3</span></p>
+                <p className="text-xs text-muted-foreground">Возможные дубликаты уже в каталоге — слияние</p>
+              </div>
+            </div>
+            <span className="text-xs text-primary self-center">Открыть →</span>
+          </div>
+        </button>
+      </div>
 
       <div className="bg-violet-50 dark:bg-violet-950/20 border border-violet-200 dark:border-violet-900 rounded-lg p-4 mb-4 text-sm text-violet-900 dark:text-violet-200">
         <p className="mb-2">
