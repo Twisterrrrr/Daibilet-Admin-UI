@@ -83,7 +83,7 @@ const navGroups: NavGroup[] = [
     items: [
       { label: "Лендинги", href: "/admin/landings", icon: Globe },
       { label: "Промо-блоки", href: "/admin/promo-blocks", icon: Megaphone },
-      { label: "Promo-размещения", href: "/admin/promo-placements", icon: LayoutDashboard },
+      { label: "Промо-размещения", href: "/admin/promo-placements", icon: LayoutDashboard },
       { label: "Статьи / Блог", href: "/admin/articles", icon: FileText },
       { label: "Подборки", href: "/admin/collections", icon: FolderTree },
       { label: "SEO Аудит", href: "/admin/seo-audit", icon: Search },

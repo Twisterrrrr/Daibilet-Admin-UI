@@ -33,7 +33,7 @@ const DEFAULT_HREFS: Record<string, string> = {
   "Подборки": "/admin/collections",
   "Статьи": "/admin/articles",
   "Promo-блоки": "/admin/promo-blocks",
-  "Promo-размещения": "/admin/promo-placements",
+  "Промо-размещения": "/admin/promo-placements",
   "SEO-аудит": "/admin/seo-audit",
   "Отзывы": "/admin/reviews",
   "Чат с сайта": "/admin/chat",

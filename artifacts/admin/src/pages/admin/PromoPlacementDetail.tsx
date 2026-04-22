@@ -128,7 +128,7 @@ export default function PromoPlacementDetail() {
       title={slot.position}
       breadcrumbs={[
         { label: "Администратор" },
-        { label: "Promo-размещения", href: "/admin/promo-placements" },
+        { label: "Промо-размещения", href: "/admin/promo-placements" },
         { label: slot.id },
       ]}
     >

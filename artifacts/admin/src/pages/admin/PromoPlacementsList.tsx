@@ -106,11 +106,11 @@ export default function PromoPlacementsList() {
 
   return (
     <AdminLayout
-      title="Promo-размещения"
-      breadcrumbs={[{ label: "Администратор" }, { label: "Promo-размещения" }]}
+      title="Промо-размещения"
+      breadcrumbs={[{ label: "Администратор" }, { label: "Промо-размещения" }]}
     >
       <PageHeader
-        title="Promo-размещения (Placements)"
+        title="Промо-размещения (Placements)"
         description="Слоты на сайте, в которых соревнуются промо-блоки. Здесь видно, кто победил, кто на скамейке запасных, и почему именно так."
         actions={
           <Button size="sm" variant="outline" onClick={() => setLocation("/admin/promo-blocks")}>
