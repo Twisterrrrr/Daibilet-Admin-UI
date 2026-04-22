@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import { EmptyState, ErrorState } from "./SystemStates";
+import { Inbox } from "lucide-react";
 
 export interface Column<T> {
   key: string;
@@ -11,7 +13,12 @@ interface DataTableProps<T> {
   columns: Column<T>[];
   data: T[];
   isLoading?: boolean;
+  error?: string | null;
+  onRetry?: () => void;
   emptyMessage?: string;
+  emptyTitle?: string;
+  emptyDescription?: string;
+  emptyAction?: React.ReactNode;
   onRowClick?: (row: T) => void;
   "data-testid"?: string;
 }
@@ -20,10 +27,28 @@ export function DataTable<T>({
   columns,
   data,
   isLoading,
-  emptyMessage = "Нет данных",
+  error,
+  onRetry,
+  emptyMessage,
+  emptyTitle,
+  emptyDescription,
+  emptyAction,
   onRowClick,
   "data-testid": testId,
 }: DataTableProps<T>) {
+  if (error && !isLoading) {
+    return (
+      <ErrorState
+        title="Не удалось загрузить список"
+        description={error}
+        onRetry={onRetry}
+      />
+    );
+  }
+
+  const showInlineEmpty = !isLoading && data.length === 0;
+  const renderInlineEmpty = showInlineEmpty && (emptyTitle || emptyDescription || emptyAction);
+
   return (
     <div
       className="border border-border rounded-lg overflow-hidden bg-card"
@@ -59,11 +84,22 @@ export function DataTable<T>({
               ))
             ) : data.length === 0 ? (
               <tr>
-                <td
-                  colSpan={columns.length}
-                  className="px-4 py-12 text-center text-muted-foreground"
-                >
-                  {emptyMessage}
+                <td colSpan={columns.length} className="p-0">
+                  {renderInlineEmpty ? (
+                    <div className="p-4">
+                      <EmptyState
+                        icon={Inbox}
+                        title={emptyTitle ?? emptyMessage ?? "Нет данных"}
+                        description={emptyDescription}
+                        action={emptyAction}
+                        variant="no-results"
+                      />
+                    </div>
+                  ) : (
+                    <div className="px-4 py-12 text-center text-muted-foreground">
+                      {emptyMessage ?? "Нет данных"}
+                    </div>
+                  )}
                 </td>
               </tr>
             ) : (

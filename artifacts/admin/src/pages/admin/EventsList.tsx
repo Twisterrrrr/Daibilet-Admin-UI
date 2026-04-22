@@ -12,6 +12,7 @@ import { formatDate, formatCurrency } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Plus, Download, Lock, Pencil } from "lucide-react";
+import { PartialErrorBanner, parseStateParam } from "@/components/shared/SystemStates";
 
 interface Event {
   id: string;
@@ -99,9 +100,15 @@ export default function EventsList() {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
   const [sourceFilter, setSourceFilter] = useState("all");
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
+  const state = parseStateParam(typeof window !== "undefined" ? window.location.search : "");
+  const isLoading = state === "loading";
+  const isError = state === "error";
+  const isEmpty = state === "empty";
+  const isPartial = state === "partial";
 
-  const filtered = mockEvents.filter((e) => {
+  const baseList = isEmpty ? [] : mockEvents;
+  const filtered = baseList.filter((e) => {
     const matchSearch =
       !search ||
       e.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -186,6 +193,15 @@ export default function EventsList() {
         }
       />
 
+      {isPartial && (
+        <PartialErrorBanner
+          className="mb-3"
+          message="Не удалось получить свежие данные из части источников. Показаны последние успешные значения."
+          failedSources={["ticketscloud", "kassir.ru"]}
+          onRetry={() => setLocation(location.split("?")[0])}
+        />
+      )}
+
       <FilterBar
         search={search}
         onSearchChange={setSearch}
@@ -223,7 +239,23 @@ export default function EventsList() {
       <DataTable
         columns={columns}
         data={filtered}
+        isLoading={isLoading}
+        error={isError ? "Сервис каталога не отвечает (HTTP 503). Попробуйте обновить через минуту." : null}
+        onRetry={() => setLocation(location.split("?")[0])}
         onRowClick={(r) => setLocation(`/admin/events/${r.id}`)}
+        emptyTitle={isEmpty ? "Пока нет ни одного события" : "Ничего не найдено"}
+        emptyDescription={
+          isEmpty
+            ? "Создайте первое событие вручную или подключите источник для импорта."
+            : "Попробуйте изменить фильтры или поисковый запрос."
+        }
+        emptyAction={
+          isEmpty ? (
+            <Button size="sm" data-testid="button-empty-create-event">
+              <Plus className="w-4 h-4 mr-1.5" /> Создать событие
+            </Button>
+          ) : undefined
+        }
         emptyMessage="Нет событий по заданным фильтрам"
         data-testid="table-events"
       />

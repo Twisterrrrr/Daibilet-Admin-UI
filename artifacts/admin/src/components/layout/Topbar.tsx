@@ -40,6 +40,7 @@ const DEFAULT_HREFS: Record<string, string> = {
   "Обращения": "/admin/support",
   "Сотрудники": "/admin/staff",
   "Логи / диагностика": "/admin/logs",
+  "Системные состояния": "/admin/system-states",
   "Настройки": "/admin/settings",
   "Дубликаты площадок": "/admin/venues/duplicates",
   "Кандидаты площадок": "/admin/venues/candidates",

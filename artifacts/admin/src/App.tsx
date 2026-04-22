@@ -40,6 +40,7 @@ import SeoAudit from "@/pages/admin/SeoAudit";
 import CategoriesList from "@/pages/admin/CategoriesList";
 import TagsList from "@/pages/admin/TagsList";
 import Logs from "@/pages/admin/Logs";
+import SystemStatesShowcase from "@/pages/admin/SystemStatesShowcase";
 import Integrations from "@/pages/admin/Integrations";
 import FinanceDashboard from "@/pages/admin/FinanceDashboard";
 import Transactions from "@/pages/admin/Transactions";
@@ -109,6 +110,7 @@ function Router() {
       <Route path="/admin/promo-placements" component={PromoPlacementsList} />
       <Route path="/admin/promo-placements/:id" component={PromoPlacementDetail} />
       <Route path="/admin/logs" component={Logs} />
+      <Route path="/admin/system-states" component={SystemStatesShowcase} />
       <Route path="/admin/settings" component={Settings} />
       <Route path="/admin/settings/locale" component={SettingsLocale} />
 

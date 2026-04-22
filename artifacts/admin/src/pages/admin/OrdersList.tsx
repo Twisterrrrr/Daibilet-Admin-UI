@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { formatCurrency, formatDateTime } from "@/lib/utils";
 import { Download, AlertTriangle, UserCheck, UserX } from "lucide-react";
+import { PartialErrorBanner, parseStateParam } from "@/components/shared/SystemStates";
 
 interface Order {
   id: string;
@@ -52,9 +53,15 @@ export default function OrdersList() {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
   const [channelFilter, setChannelFilter] = useState("all");
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
+  const state = parseStateParam(typeof window !== "undefined" ? window.location.search : "");
+  const isLoading = state === "loading";
+  const isError = state === "error";
+  const isEmpty = state === "empty";
+  const isPartial = state === "partial";
 
-  const filtered = mockOrders.filter((o) => {
+  const baseList = isEmpty ? [] : mockOrders;
+  const filtered = baseList.filter((o) => {
     const matchSearch =
       !search ||
       o.id.toLowerCase().includes(search.toLowerCase()) ||
@@ -144,6 +151,15 @@ export default function OrdersList() {
           </Button>
         }
       />
+      {isPartial && (
+        <PartialErrorBanner
+          className="mb-3"
+          message="Часть платёжных провайдеров вернула таймаут. Статусы оплаты могут быть неактуальны для отдельных заказов."
+          failedSources={["Тинькофф Касса", "СБП"]}
+          onRetry={() => setLocation(location.split("?")[0])}
+        />
+      )}
+
       <FilterBar
         search={search}
         onSearchChange={setSearch}

@@ -27,6 +27,7 @@ import {
   PieChart,
   MessageCircle,
   ShieldCheck,
+  AlertCircle,
 } from "lucide-react";
 
 interface NavGroup {
@@ -101,6 +102,7 @@ const navGroups: NavGroup[] = [
     items: [
       { label: "Сотрудники / RBAC", href: "/admin/staff", icon: ShieldCheck },
       { label: "Логи / диагностика", href: "/admin/logs", icon: Activity },
+      { label: "Системные состояния", href: "/admin/system-states", icon: AlertCircle },
       { label: "Настройки", href: "/admin/settings", icon: Settings },
       { label: "Локаль и форматы", href: "/admin/settings/locale", icon: Globe },
     ],
