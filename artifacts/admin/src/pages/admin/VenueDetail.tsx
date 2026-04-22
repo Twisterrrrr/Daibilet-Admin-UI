@@ -16,9 +16,9 @@ import { HubGraph } from "@/components/shared/HubGraph";
 
 const venue = {
   id: "VEN-007",
-  name: "Музей Кастеева",
+  name: "Третьяковская галерея",
   slug: "kasteev-museum",
-  city: "Алматы", citySlug: "almaty",
+  city: "Москва", citySlug: "moscow",
   address: "мкр. Коктем-3, 22",
   lat: "43.2120", lng: "76.9020",
   capacity: 600,
@@ -32,8 +32,8 @@ const venue = {
   sourceId: null as string | null,
   // hub content
   h1: "Государственный музей искусств им. А. Кастеева",
-  intro: "Крупнейший художественный музей Казахстана. Постоянная экспозиция, временные выставки, экскурсии и мастер-классы. Купите билет онлайн без очереди.",
-  description: "Основан в 1976 году, коллекция насчитывает более 25 000 произведений. Залы казахстанского, российского и западноевропейского искусства, прикладное искусство Востока.",
+  intro: "Крупнейший художественный музей России. Постоянная экспозиция, временные выставки, экскурсии и мастер-классы. Купите билет онлайн без очереди.",
+  description: "Основан в 1976 году, коллекция насчитывает более 25 000 произведений. Залы российского, российского и западноевропейского искусства, прикладное искусство Востока.",
   hasSeatingMap: false,
   // standalone admission settings
   admissionPolicy: {
@@ -54,14 +54,14 @@ const venue = {
   ],
   upcomingEvents: [
     { id: "EVT-101", title: "Выставка «Степь и небо»", date: "2026-05-01", type: "exhibition" },
-    { id: "EVT-102", title: "Лекция: казахстанский авангард", date: "2026-05-08", type: "lecture" },
+    { id: "EVT-102", title: "Лекция: российский авангард", date: "2026-05-08", type: "lecture" },
     { id: "EVT-103", title: "Ночь музеев 2026", date: "2026-05-18", type: "special" },
   ],
   // SEO
-  metaTitle: "Музей Кастеева в Алматы — билеты онлайн | Daibilet",
+  metaTitle: "Третьяковская галерея в Москве — билеты онлайн | Daibilet",
   metaDescription: "Купите билет в Государственный музей искусств им. А. Кастеева онлайн. Цены, расписание, выставки. Без очереди.",
   ogImage: true,
-  canonical: "https://daibilet.kz/almaty/venues/kasteev-museum/",
+  canonical: "https://daibilet.ru/moscow/venues/kasteev-museum/",
   blocks: [
     { type: "intro", title: "Описание музея" },
     { type: "admission_pricing", title: "Стоимость билетов" },
@@ -118,7 +118,7 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
             <SalesModelBadge model={salesModel} />
             <ContentHubBadge isHub={hubEnabled} />
             <StatusBadge status={venue.status} />
-            <span className="text-sm text-muted-foreground font-normal font-mono">daibilet.kz/{venue.citySlug}/venues/{venue.slug}/</span>
+            <span className="text-sm text-muted-foreground font-normal font-mono">daibilet.ru/{venue.citySlug}/venues/{venue.slug}/</span>
           </span>
         }
         description={`${venue.category} · ${venue.city} · ${venue.capacity.toLocaleString()} мест · ${formatNumber(venue.traffic.visits30d)} визитов / 30 дн`}
@@ -185,7 +185,7 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
               <ModelOption value="event_only" current={salesModel} onSelect={setSalesModel}
                 icon={CalendarRange} title="Только события"
                 desc="Концертные залы, арены, театры — продаются только билеты на конкретные события."
-                example="Алатау Арена, Barys Arena" />
+                example="ВТБ Арена, Barys Arena" />
               <ModelOption value="standalone" current={salesModel} onSelect={setSalesModel}
                 icon={Building2} title="Прямые продажи"
                 desc="Музеи, зоопарки, океанариумы — посетители покупают билет «на вход» по открытой цене, без привязки к событию."
@@ -193,7 +193,7 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
               <ModelOption value="hybrid" current={salesModel} onSelect={setSalesModel}
                 icon={Sparkles} title="Гибрид"
                 desc="Постоянная экспозиция (открытая цена) + временные выставки и события."
-                example="Музей Кастеева, центр современного искусства" />
+                example="Третьяковская галерея, центр современного искусства" />
             </div>
           </div>
 
@@ -445,11 +445,11 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
             { group: "Город",               label: venue.city,                                  href: `/admin/cities/CTY-001`,                          hint: venue.citySlug },
             { group: "Поставщик / куратор",  label: "Daibilet (внутренний)",                      href: "/admin/suppliers/SUP-01",                         hint: "internal" },
             { group: "События на площадке", label: "Выставка «Степь и небо»",                    href: "/admin/events/EVT-101",                            hint: "01.05" },
-            { group: "События на площадке", label: "Лекция: казахстанский авангард",              href: "/admin/events/EVT-102",                            hint: "08.05" },
+            { group: "События на площадке", label: "Лекция: российский авангард",              href: "/admin/events/EVT-102",                            hint: "08.05" },
             { group: "События на площадке", label: "Ночь музеев 2026",                            href: "/admin/events/EVT-103",                            hint: "18.05" },
             { group: "События на площадке", label: "Все события Музея Кастеева",                  href: `/admin/events?venue=${venue.id}`, count: 14 },
-            { group: "Лендинги с площадкой", label: "Главная Алматы",                              href: "/admin/landings/LND-001",                          hint: "блок «Площадки»" },
-            { group: "Лендинги с площадкой", label: "Музеи Алматы",                                 href: "/admin/landings/LND-014",                          hint: "single_city" },
+            { group: "Лендинги с площадкой", label: "Главная Москвы",                              href: "/admin/landings/LND-001",                          hint: "блок «Площадки»" },
+            { group: "Лендинги с площадкой", label: "Музеи Москвы",                                 href: "/admin/landings/LND-014",                          hint: "single_city" },
             { group: "Заказы",                label: "Билеты на площадку",                          href: `/admin/orders?venue=${venue.id}`, count: 1248, hint: "30 дн" },
             { group: "Финансы",                label: "Выплаты по площадке",                          href: `/admin/finance/payouts?venue=${venue.id}`, count: 4 },
             { group: "Дубли / качество",      label: "Записей-кандидатов",                            href: "/admin/venues/candidates", count: 0, hint: "ok" },

@@ -27,11 +27,11 @@ interface Landing {
 }
 
 const mockLandings: Landing[] = [
-  { id: "LND-001", title: "Главная страница Алматы",        slug: "almaty",                       type: "city",        status: "published", scope: "single_city", cities: ["almaty"],                          visits30d: 184_200, delta: 12.4, avgPosition: 3.2,  updatedAt: "2026-04-01" },
-  { id: "LND-003", title: "Главная страница Астаны",        slug: "astana",                       type: "city",        status: "published", scope: "single_city", cities: ["astana"],                          visits30d: 92_400,  delta: 8.1,  avgPosition: 4.1,  updatedAt: "2026-03-20" },
-  { id: "LND-002", title: "Концерты Алматы — весна 2025",   slug: "concerts-spring-2025",         type: "collection",  status: "published", scope: "single_city", cities: ["almaty"],                          visits30d: 38_100,  delta: 22.7, avgPosition: 5.4,  updatedAt: "2026-04-15" },
-  { id: "LND-007", title: "Stand Up афиша по Казахстану",   slug: "standup",                      type: "category",    status: "published", scope: "multi_city",  cities: ["almaty", "astana", "shymkent"],   visits30d: 26_400,  delta: 14.0, avgPosition: 6.2,  updatedAt: "2026-04-10" },
-  { id: "LND-008", title: "Театры Казахстана",              slug: "theatres",                     type: "category",    status: "published", scope: "multi_city",  cities: ["almaty", "astana"],               visits30d: 14_800,  delta: 5.6,  avgPosition: 8.1,  updatedAt: "2026-04-05" },
+  { id: "LND-001", title: "Главная страница Москва",        slug: "moscow",                       type: "city",        status: "published", scope: "single_city", cities: ["moscow"],                          visits30d: 184_200, delta: 12.4, avgPosition: 3.2,  updatedAt: "2026-04-01" },
+  { id: "LND-003", title: "Главная страница Санкт-Петербурга",        slug: "saint-petersburg",                       type: "city",        status: "published", scope: "single_city", cities: ["saint-petersburg"],                          visits30d: 92_400,  delta: 8.1,  avgPosition: 4.1,  updatedAt: "2026-03-20" },
+  { id: "LND-002", title: "Концерты Москвы — весна 2025",   slug: "concerts-moscow-spring-2025",         type: "collection",  status: "published", scope: "single_city", cities: ["moscow"],                          visits30d: 38_100,  delta: 22.7, avgPosition: 5.4,  updatedAt: "2026-04-15" },
+  { id: "LND-007", title: "Stand Up афиша по России",   slug: "standup",                      type: "category",    status: "published", scope: "multi_city",  cities: ["moscow", "saint-petersburg", "kazan"],   visits30d: 26_400,  delta: 14.0, avgPosition: 6.2,  updatedAt: "2026-04-10" },
+  { id: "LND-008", title: "Театры России",              slug: "theatres",                     type: "category",    status: "published", scope: "multi_city",  cities: ["moscow", "saint-petersburg"],               visits30d: 14_800,  delta: 5.6,  avgPosition: 8.1,  updatedAt: "2026-04-05" },
   { id: "LND-004", title: "Фестивали лета 2025",            slug: "summer-festivals-2025",        type: "promo",       status: "draft",     scope: "global",      cities: [],                                  visits30d: 0,       delta: 0,    avgPosition: null, updatedAt: "2026-04-18" },
   { id: "LND-009", title: "Главная Daibilet",               slug: "",                              type: "homepage",    status: "published", scope: "global",      cities: [],                                  visits30d: 220_400, delta: 6.8,  avgPosition: 2.1,  updatedAt: "2026-03-01" },
 ];
@@ -52,10 +52,10 @@ function ScopeBadge({ scope }: { scope: Scope }) {
 }
 
 function formatUrl(l: Landing): string {
-  if (l.scope === "global") return l.slug ? `daibilet.kz/${l.slug}/` : `daibilet.kz/`;
-  if (l.scope === "multi_city") return `daibilet.kz/{city}/${l.slug}/`;
+  if (l.scope === "global") return l.slug ? `daibilet.ru/${l.slug}/` : `daibilet.ru/`;
+  if (l.scope === "multi_city") return `daibilet.ru/{city}/${l.slug}/`;
   // single_city
-  return `daibilet.kz/${l.cities[0] ?? ""}/${l.slug === l.cities[0] ? "" : l.slug + "/"}`.replace(/\/+/g, "/");
+  return `daibilet.ru/${l.cities[0] ?? ""}/${l.slug === l.cities[0] ? "" : l.slug + "/"}`.replace(/\/+/g, "/");
 }
 
 export default function LandingsList() {

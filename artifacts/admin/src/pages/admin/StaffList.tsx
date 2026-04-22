@@ -36,17 +36,17 @@ interface Staff {
 }
 
 const mockStaff: Staff[] = [
-  { id: "USR-001", name: "Сергей Ким",       email: "ceo@daibilet.kz",      role: "owner",    status: "active",    lastLoginAt: "2026-04-21T18:42:00Z", twoFA: true,  scopes: [], createdAt: "2024-01-10" },
-  { id: "USR-002", name: "Алия Жакупова",    email: "aliya@daibilet.kz",    role: "admin",    status: "active",    lastLoginAt: "2026-04-21T19:30:00Z", twoFA: true,  scopes: [], createdAt: "2024-02-01" },
-  { id: "USR-003", name: "Динара Омарова",   email: "dinara@daibilet.kz",   role: "support",  status: "active",    lastLoginAt: "2026-04-21T19:44:00Z", twoFA: false, scopes: [], createdAt: "2024-05-12" },
-  { id: "USR-004", name: "Аскар Бектуров",   email: "askar@daibilet.kz",    role: "support",  status: "active",    lastLoginAt: "2026-04-21T16:10:00Z", twoFA: true,  scopes: [], createdAt: "2024-08-22" },
-  { id: "USR-005", name: "Мария Костенко",   email: "maria@daibilet.kz",    role: "editor",   status: "active",    lastLoginAt: "2026-04-21T11:20:00Z", twoFA: false, scopes: ["Алматы"], createdAt: "2024-11-04" },
-  { id: "USR-006", name: "Тимур Сатпаев",    email: "timur@daibilet.kz",    role: "finance",  status: "active",    lastLoginAt: "2026-04-20T17:00:00Z", twoFA: true,  scopes: [], createdAt: "2024-09-01" },
-  { id: "USR-007", name: "Жанар Касимова",   email: "zhanar@daibilet.kz",   role: "manager",  status: "active",    lastLoginAt: "2026-04-21T10:00:00Z", twoFA: true,  scopes: ["Театр", "Концерты"], createdAt: "2025-01-15" },
-  { id: "USR-008", name: "Айдос Бекенов",    email: "aidos@daibilet.kz",    role: "analyst",  status: "active",    lastLoginAt: "2026-04-19T14:25:00Z", twoFA: true,  scopes: [], createdAt: "2025-02-20" },
+  { id: "USR-001", name: "Сергей Ким",       email: "ceo@daibilet.ru",      role: "owner",    status: "active",    lastLoginAt: "2026-04-21T18:42:00Z", twoFA: true,  scopes: [], createdAt: "2024-01-10" },
+  { id: "USR-002", name: "Алия Жакупова",    email: "aliya@daibilet.ru",    role: "admin",    status: "active",    lastLoginAt: "2026-04-21T19:30:00Z", twoFA: true,  scopes: [], createdAt: "2024-02-01" },
+  { id: "USR-003", name: "Динара Омарова",   email: "dinara@daibilet.ru",   role: "support",  status: "active",    lastLoginAt: "2026-04-21T19:44:00Z", twoFA: false, scopes: [], createdAt: "2024-05-12" },
+  { id: "USR-004", name: "Аскар Бектуров",   email: "askar@daibilet.ru",    role: "support",  status: "active",    lastLoginAt: "2026-04-21T16:10:00Z", twoFA: true,  scopes: [], createdAt: "2024-08-22" },
+  { id: "USR-005", name: "Мария Костенко",   email: "maria@daibilet.ru",    role: "editor",   status: "active",    lastLoginAt: "2026-04-21T11:20:00Z", twoFA: false, scopes: ["Москва"], createdAt: "2024-11-04" },
+  { id: "USR-006", name: "Тимур Сатпаев",    email: "timur@daibilet.ru",    role: "finance",  status: "active",    lastLoginAt: "2026-04-20T17:00:00Z", twoFA: true,  scopes: [], createdAt: "2024-09-01" },
+  { id: "USR-007", name: "Жанар Касимова",   email: "zhanar@daibilet.ru",   role: "manager",  status: "active",    lastLoginAt: "2026-04-21T10:00:00Z", twoFA: true,  scopes: ["Театр", "Концерты"], createdAt: "2025-01-15" },
+  { id: "USR-008", name: "Айдос Бекенов",    email: "aidos@daibilet.ru",    role: "analyst",  status: "active",    lastLoginAt: "2026-04-19T14:25:00Z", twoFA: true,  scopes: [], createdAt: "2025-02-20" },
   { id: "USR-009", name: "Гость-аудитор",    email: "audit@partner.kz",     role: "readonly", status: "active",    lastLoginAt: "2026-04-15T09:00:00Z", twoFA: false, scopes: ["Финансы"], createdAt: "2026-03-10" },
-  { id: "USR-010", name: "Новый сотрудник",  email: "new@daibilet.kz",      role: "support",  status: "invited",   lastLoginAt: null,                    twoFA: false, scopes: [], createdAt: "2026-04-21" },
-  { id: "USR-011", name: "Бывший сотрудник", email: "former@daibilet.kz",   role: "manager",  status: "suspended", lastLoginAt: "2026-03-12T10:00:00Z", twoFA: false, scopes: [], createdAt: "2024-06-01" },
+  { id: "USR-010", name: "Новый сотрудник",  email: "new@daibilet.ru",      role: "support",  status: "invited",   lastLoginAt: null,                    twoFA: false, scopes: [], createdAt: "2026-04-21" },
+  { id: "USR-011", name: "Бывший сотрудник", email: "former@daibilet.ru",   role: "manager",  status: "suspended", lastLoginAt: "2026-03-12T10:00:00Z", twoFA: false, scopes: [], createdAt: "2024-06-01" },
 ];
 
 export function RoleBadge({ role }: { role: StaffRole }) {

@@ -17,7 +17,7 @@ const mockRefund = {
   buyerEmail: "aliya@gmail.com",
   event: "Ночь музыки 2025",
   eventId: "EVT-001",
-  supplier: "ArtPro Kazakhstan",
+  supplier: "АртПро Концерты",
   supplierId: "SUP-01",
   amount: 18000,
   serviceFee: 1800,

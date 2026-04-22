@@ -66,7 +66,7 @@ export const mockSlots: Slot[] = [
     conflict: "ok", impressions24h: 42_100, ctr24h: 3.6,
   },
   {
-    id: "PLC-LND001-HOTS", page: "landing", pageRef: { label: "Главная Москва (LND-001)", href: "/admin/landings/LND-001" },
+    id: "PLC-LND001-HOTS", page: "landing", pageRef: { label: "Главная Москвы (LND-001)", href: "/admin/landings/LND-001" },
     position: "Блок «Хиты» (события-чемпионы)", area: "fold-1", size: "1240×420", type: "carousel", capacity: 8, candidates: 18,
     winnerId: "EVT-001", winnerTitle: "Ночь музыки 2025 + ещё 7", winnerScore: 81,
     conflict: "competition", impressions24h: 52_400, ctr24h: 6.2,
@@ -75,7 +75,7 @@ export const mockSlots: Slot[] = [
     id: "PLC-LND007-FEAT", page: "landing", pageRef: { label: "Stand Up афиша по КЗ (LND-007)", href: "/admin/landings/LND-007" },
     position: "Featured (вверху подборки)", area: "fold-1", size: "1240×320", type: "single", capacity: 1, candidates: 0,
     winnerId: null, winnerTitle: null, conflict: "scheduled",
-    scheduledNext: { startsAt: "2026-05-01", title: "Большой Stand Up — Алматы" },
+    scheduledNext: { startsAt: "2026-05-01", title: "Большой Stand Up — Москва" },
   },
 ];
 

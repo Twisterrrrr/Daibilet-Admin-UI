@@ -22,7 +22,7 @@ interface Collection {
 const mockCollections: Collection[] = [
   { id: "COL-08", title: "Лето 2025", slug: "leto-2025", eventsCount: 24, status: "published", pinned: true, updatedAt: "2025-04-20T11:00:00Z" },
   { id: "COL-07", title: "Семейные мероприятия", slug: "family", eventsCount: 11, status: "published", pinned: false, updatedAt: "2025-04-15T11:00:00Z" },
-  { id: "COL-06", title: "Концерты в Астане", slug: "astana-concerts", eventsCount: 7, status: "published", pinned: false, updatedAt: "2025-04-10T11:00:00Z" },
+  { id: "COL-06", title: "Концерты в Санкт-Петербурге", slug: "saint-petersburg-concerts", eventsCount: 7, status: "published", pinned: false, updatedAt: "2025-04-10T11:00:00Z" },
   { id: "COL-05", title: "Test draft", slug: "test-draft", eventsCount: 0, status: "draft", pinned: false, updatedAt: "2025-04-21T11:00:00Z" },
 ];
 

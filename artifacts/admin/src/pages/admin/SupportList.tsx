@@ -22,9 +22,9 @@ interface Ticket {
 
 const mockTickets: Ticket[] = [
   { id: "SUP-301", subject: "Не пришёл билет на e-mail", fromType: "buyer", fromName: "Алия Бекова", category: "Заказы", priority: "high", status: "new", createdAt: "2025-04-21T10:00:00Z" },
-  { id: "SUP-300", subject: "Запрос на перенос даты события", fromType: "supplier", fromName: "ArtPro Kazakhstan", category: "События", priority: "normal", status: "processing", assignedTo: "manager@daibilet.kz", createdAt: "2025-04-21T08:00:00Z" },
-  { id: "SUP-299", subject: "Ошибка при оплате через СБП", fromType: "buyer", fromName: "Тимур Захаров", category: "Платежи", priority: "urgent", status: "processing", assignedTo: "support@daibilet.kz", createdAt: "2025-04-20T20:00:00Z" },
-  { id: "SUP-298", subject: "Как загрузить логотип", fromType: "supplier", fromName: "KidsFest LLP", category: "Профиль", priority: "low", status: "completed", assignedTo: "support@daibilet.kz", createdAt: "2025-04-19T14:00:00Z" },
+  { id: "SUP-300", subject: "Запрос на перенос даты события", fromType: "supplier", fromName: "АртПро Концерты", category: "События", priority: "normal", status: "processing", assignedTo: "manager@daibilet.ru", createdAt: "2025-04-21T08:00:00Z" },
+  { id: "SUP-299", subject: "Ошибка при оплате через СБП", fromType: "buyer", fromName: "Тимур Захаров", category: "Платежи", priority: "urgent", status: "processing", assignedTo: "support@daibilet.ru", createdAt: "2025-04-20T20:00:00Z" },
+  { id: "SUP-298", subject: "Как загрузить логотип", fromType: "supplier", fromName: "КидсФест ООО", category: "Профиль", priority: "low", status: "completed", assignedTo: "support@daibilet.ru", createdAt: "2025-04-19T14:00:00Z" },
 ];
 
 const priorityStyles: Record<Ticket["priority"], string> = {

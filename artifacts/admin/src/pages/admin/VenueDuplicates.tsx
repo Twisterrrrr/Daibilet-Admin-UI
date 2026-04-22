@@ -36,8 +36,8 @@ const mockClusters: DuplicateCluster[] = [
     status: "open",
     detectedAt: "2026-04-21T08:00:00Z",
     venues: [
-      { id: "VEN-001",  name: "Алатау Арена",     address: "ул. Алтынсарина, 31",  city: "Алматы", phone: "+7 727 357-11-22", capacity: 12000, eventsCount: 8, createdAt: "2024-02-10", sources: ["ticketon", "manual"], trust: 95 },
-      { id: "VEN-201",  name: "Alatau Arena",      address: "Алтынсарина 31",        city: "Алматы", phone: "+7 727 357-11-22", capacity: 12000, eventsCount: 1, createdAt: "2026-03-14", sources: ["sxodim"],            trust: 68 },
+      { id: "VEN-001",  name: "ВТБ Арена",     address: "ул. Алтынсарина, 31",  city: "Москва", phone: "+7 727 357-11-22", capacity: 12000, eventsCount: 8, createdAt: "2024-02-10", sources: ["ticketon", "manual"], trust: 95 },
+      { id: "VEN-201",  name: "Alatau Arena",      address: "Алтынсарина 31",        city: "Москва", phone: "+7 727 357-11-22", capacity: 12000, eventsCount: 1, createdAt: "2026-03-14", sources: ["sxodim"],            trust: 68 },
     ],
   },
   {
@@ -47,9 +47,9 @@ const mockClusters: DuplicateCluster[] = [
     status: "open",
     detectedAt: "2026-04-20T16:42:00Z",
     venues: [
-      { id: "VEN-007",  name: "Музей Кастеева",                       address: "мкр. Коктем-3, 22", city: "Алматы", phone: "+7 727 247-82-46", capacity: 600, eventsCount: 3, createdAt: "2024-04-22", sources: ["manual"],   trust: 92 },
-      { id: "VEN-188",  name: "Государственный музей искусств Кастеева", address: "Коктем-3, 22",      city: "Алматы", phone: "+7 727 247-82-46", capacity: 600, eventsCount: 0, createdAt: "2026-02-01", sources: ["csv_import"], trust: 60 },
-      { id: "VEN-244",  name: "Kasteev Museum",                          address: "Кoktem-3, 22",      city: "Almaty", phone: "+77272478246",     capacity:   0, eventsCount: 0, createdAt: "2026-04-12", sources: ["kassir_api"], trust: 70 },
+      { id: "VEN-007",  name: "Третьяковская галерея",                       address: "мкр. Коктем-3, 22", city: "Москва", phone: "+7 727 247-82-46", capacity: 600, eventsCount: 3, createdAt: "2024-04-22", sources: ["manual"],   trust: 92 },
+      { id: "VEN-188",  name: "Государственный музей искусств Кастеева", address: "Коктем-3, 22",      city: "Москва", phone: "+7 727 247-82-46", capacity: 600, eventsCount: 0, createdAt: "2026-02-01", sources: ["csv_import"], trust: 60 },
+      { id: "VEN-244",  name: "Kasteev Museum",                          address: "Кoktem-3, 22",      city: "Moscow", phone: "+77272478246",     capacity:   0, eventsCount: 0, createdAt: "2026-04-12", sources: ["kassir_api"], trust: 70 },
     ],
   },
   {
@@ -59,8 +59,8 @@ const mockClusters: DuplicateCluster[] = [
     status: "open",
     detectedAt: "2026-04-19T11:00:00Z",
     venues: [
-      { id: "VEN-003",  name: "Мега Silk Way",  address: "ул. Розыбакиева, 247а",  city: "Алматы", capacity: 2500, eventsCount: 12, createdAt: "2024-05-10", sources: ["manual"],   trust: 90 },
-      { id: "VEN-211",  name: "Mega Hall",       address: "Розыбакиева 247А, ТРЦ Mega", city: "Алматы", capacity: 2500, eventsCount: 0, createdAt: "2026-03-22", sources: ["sxodim"], trust: 64 },
+      { id: "VEN-003",  name: "Крокус Сити Холл",  address: "ул. Розыбакиева, 247а",  city: "Москва", capacity: 2500, eventsCount: 12, createdAt: "2024-05-10", sources: ["manual"],   trust: 90 },
+      { id: "VEN-211",  name: "Mega Hall",       address: "Розыбакиева 247А, ТРЦ Mega", city: "Москва", capacity: 2500, eventsCount: 0, createdAt: "2026-03-22", sources: ["sxodim"], trust: 64 },
     ],
   },
   {
@@ -70,8 +70,8 @@ const mockClusters: DuplicateCluster[] = [
     status: "not_duplicate",
     detectedAt: "2026-04-15T10:00:00Z",
     venues: [
-      { id: "VEN-052", name: "Park Hall", address: "пр. Республики, 44", city: "Шымкент", capacity: 1500, eventsCount: 5, createdAt: "2024-08-01", sources: ["manual"], trust: 88 },
-      { id: "VEN-053", name: "Park Hall", address: "пр. Достык, 12",     city: "Астана",  capacity: 800,  eventsCount: 3, createdAt: "2024-09-12", sources: ["manual"], trust: 88 },
+      { id: "VEN-052", name: "Park Hall", address: "пр. Республики, 44", city: "Казань", capacity: 1500, eventsCount: 5, createdAt: "2024-08-01", sources: ["manual"], trust: 88 },
+      { id: "VEN-053", name: "Park Hall", address: "пр. Достык, 12",     city: "Санкт-Петербург",  capacity: 800,  eventsCount: 3, createdAt: "2024-09-12", sources: ["manual"], trust: 88 },
     ],
   },
 ];
@@ -223,7 +223,7 @@ export default function VenueDuplicates() {
                 <p className="text-[11px] text-muted-foreground mb-2">Выберите значение для каждого расходящегося поля.</p>
                 <div className="border border-border rounded overflow-hidden">
                   {[
-                    { field: "name",     a: "Алатау Арена",            b: "Alatau Arena" },
+                    { field: "name",     a: "ВТБ Арена",            b: "Alatau Arena" },
                     { field: "address",  a: "ул. Алтынсарина, 31",      b: "Алтынсарина 31" },
                     { field: "capacity", a: "12 000",                    b: "12 000" },
                     { field: "phone",    a: "+7 727 357-11-22",          b: "+7 727 357-11-22" },

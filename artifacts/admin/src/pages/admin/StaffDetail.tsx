@@ -14,24 +14,24 @@ import { roleMeta, RoleBadge, type StaffRole } from "./StaffList";
 const user = {
   id: "USR-007",
   name: "Жанар Касимова",
-  email: "zhanar@daibilet.kz",
+  email: "zhanar@daibilet.ru",
   role: "manager" as StaffRole,
   status: "active",
   twoFA: true,
   createdAt: "2025-01-15T10:00:00Z",
   lastLoginAt: "2026-04-21T10:00:00Z",
   invitedBy: "Алия Жакупова",
-  scopeCities: ["Алматы"],
+  scopeCities: ["Москва"],
   scopeCategories: ["Театр", "Концерты"],
   scopeSuppliers: [] as string[],
   sessions: [
-    { id: "S1", device: "Chrome 124 · macOS",   ip: "85.234.12.41",  city: "Алматы",  current: true,  lastSeen: "2026-04-21T19:30:00Z" },
-    { id: "S2", device: "Safari · iPhone 14",   ip: "212.45.88.10",  city: "Астана",  current: false, lastSeen: "2026-04-20T14:20:00Z" },
+    { id: "S1", device: "Chrome 124 · macOS",   ip: "85.234.12.41",  city: "Москва",  current: true,  lastSeen: "2026-04-21T19:30:00Z" },
+    { id: "S2", device: "Safari · iPhone 14",   ip: "212.45.88.10",  city: "Санкт-Петербург",  current: false, lastSeen: "2026-04-20T14:20:00Z" },
   ],
   recentActivity: [
     { t: "2026-04-21T19:30:00Z", a: "event.updated",     o: "EVT-118 «Forum на Arena»" },
     { t: "2026-04-21T18:42:00Z", a: "order.refunded",    o: "ORD-58092" },
-    { t: "2026-04-21T16:10:00Z", a: "supplier.contacted",o: "SUP-014 Star Events" },
+    { t: "2026-04-21T16:10:00Z", a: "supplier.contacted",o: "SUP-014 Стар Ивентс" },
     { t: "2026-04-21T14:00:00Z", a: "auth.login",        o: "—" },
   ],
 };
@@ -131,7 +131,7 @@ export default function StaffDetail({ params: _params }: { params?: { id?: strin
           </DetailSection>
 
           <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900 rounded-lg p-4 text-sm text-blue-900 dark:text-blue-200">
-            Sсope-ограничения сужают видимость данных. Например, при ограничении «Алматы» сотрудник видит только события, заказы и поставщиков, относящиеся к Алматы.
+            Sсope-ограничения сужают видимость данных. Например, при ограничении «Москва» сотрудник видит только события, заказы и поставщиков, относящиеся к Москва.
           </div>
         </div>
       )}

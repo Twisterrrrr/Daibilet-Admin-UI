@@ -11,7 +11,7 @@ import { formatCurrency, formatNumber } from "@/lib/utils";
 const channelBreakdown = [
   { channel: "Internal checkout", gross: 38_420_000, share: 64, fee: 3_842_000 },
   { channel: "External redirect", gross: 12_180_000, share: 20, fee: 365_400 },
-  { channel: "Mirror (Ticketon)",  gross: 7_400_000,  share: 12, fee: 222_000 },
+  { channel: "Mirror (Kassir.ru)",  gross: 7_400_000,  share: 12, fee: 222_000 },
   { channel: "Hybrid",             gross: 2_300_000,  share: 4,  fee: 184_000 },
 ];
 
@@ -25,7 +25,7 @@ const providerSummary = [
 const recentAlerts = [
   { id: 1, severity: "critical", text: "Расхождение со сверкой ЮKassa за 19.04 — 142 000 ₽", href: "/admin/finance/reconciliation" },
   { id: 2, severity: "warning",  text: "3 выплаты ожидают подтверждения свыше 48 часов", href: "/admin/finance/payouts" },
-  { id: 3, severity: "info",     text: "Выплата SUP-02 (Star Events) запланирована на завтра", href: "/admin/finance/payouts" },
+  { id: 3, severity: "info",     text: "Выплата SUP-02 (Стар Ивентс) запланирована на завтра", href: "/admin/finance/payouts" },
 ];
 
 export default function FinanceDashboard() {

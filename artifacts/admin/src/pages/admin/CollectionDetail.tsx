@@ -16,9 +16,9 @@ const mockCollection = {
   pinned: true,
   description: "Самые ожидаемые события лета 2025 года.",
   events: [
-    { id: "EVT-001", order: 1, title: "Ночь музыки 2025", city: "Алматы", date: "2025-05-15", status: "published" },
-    { id: "EVT-002", order: 2, title: "Forum на Arena", city: "Астана", date: "2025-06-02", status: "published" },
-    { id: "EVT-004", order: 3, title: "Astana Jazz", city: "Астана", date: "2025-07-10", status: "published" },
+    { id: "EVT-001", order: 1, title: "Ночь музыки 2025", city: "Москва", date: "2025-05-15", status: "published" },
+    { id: "EVT-002", order: 2, title: "Forum на Arena", city: "Санкт-Петербург", date: "2025-06-02", status: "published" },
+    { id: "EVT-004", order: 3, title: "Saint Petersburg Jazz", city: "Санкт-Петербург", date: "2025-07-10", status: "published" },
   ],
 };
 

@@ -9,16 +9,16 @@ import { ArrowLeft, Edit2 } from "lucide-react";
 
 const mockArticle = {
   id: "ART-12",
-  title: "Топ-10 концертов мая в Алматы",
-  slug: "top-10-koncertov-maya-almaty",
-  author: "editor@daibilet.kz",
+  title: "Топ-10 концертов мая в Москве",
+  slug: "top-10-koncertov-maya-moscow",
+  author: "editor@daibilet.ru",
   status: "published",
   views: 4821,
   publishedAt: "2025-04-15T10:00:00Z",
   updatedAt: "2025-04-15T10:00:00Z",
-  metaTitle: "Топ-10 концертов мая в Алматы — обзор | Daibilet",
-  metaDescription: "Подборка лучших музыкальных мероприятий Алматы на май 2025 года.",
-  content: "В мае 2025 года Алматы ждёт насыщенный концертный сезон. В подборке — десять самых ярких событий…",
+  metaTitle: "Топ-10 концертов мая в Москве — обзор | Daibilet",
+  metaDescription: "Подборка лучших музыкальных мероприятий Москва на май 2025 года.",
+  content: "В мае 2025 года Москва ждёт насыщенный концертный сезон. В подборке — десять самых ярких событий…",
 };
 
 export default function ArticleDetail({ params }: { params?: { id?: string } }) {

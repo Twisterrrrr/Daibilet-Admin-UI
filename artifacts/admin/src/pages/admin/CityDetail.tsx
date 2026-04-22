@@ -15,20 +15,20 @@ import { HubGraph } from "@/components/shared/HubGraph";
 
 const city = {
   id: "CTY-001",
-  name: "Almaty", nameRu: "Алматы", nameKk: "Алматы",
-  slug: "almaty",
-  country: "Kazakhstan", countryCode: "KZ",
-  timezone: "Asia/Almaty",
+  name: "Moscow", nameRu: "Москва", nameEn: "Moscow",
+  slug: "moscow",
+  country: "Россия", countryCode: "RU",
+  timezone: "Europe/Moscow",
   status: "active",
   isContentHub: true,
-  lat: "43.2220", lng: "76.8512",
-  importedSource: "geonames", sourceId: "1526273",
+  lat: "55.7558", lng: "37.6173",
+  importedSource: "geonames", sourceId: "524901",
   // hub content
-  h1: "Афиша событий в Алматы",
-  intro: "Купите билеты на концерты, театр, фестивали, спорт и шоу в Алматы. Обновляемая ежедневно афиша, гарантия подлинности и возможность возврата.",
-  heroImage: "/images/hero-almaty.jpg",
+  h1: "Афиша событий в Москве",
+  intro: "Купите билеты на концерты, театр, фестивали, спорт и шоу в Москве. Обновляемая ежедневно афиша, гарантия подлинности и возможность возврата.",
+  heroImage: "/images/hero-moscow.jpg",
   faqs: [
-    { q: "Как купить билет на событие в Алматы?", a: "Выберите событие, забронируйте места и оплатите онлайн любым удобным способом." },
+    { q: "Как купить билет на событие в Москве?", a: "Выберите событие, забронируйте места и оплатите онлайн любым удобным способом." },
     { q: "Можно ли вернуть билет?", a: "Да, возврат возможен в соответствии с правилами организатора, как правило не позднее чем за 3 дня до события." },
     { q: "Где забрать билет?", a: "Электронные билеты приходят на e-mail сразу после оплаты. Бумажный билет не нужен." },
   ],
@@ -37,14 +37,14 @@ const city = {
     { type: "promo_block", title: "Главные концерты весны" },
     { type: "venues_grid", title: "Популярные площадки" },
     { type: "categories_grid", title: "По категориям" },
-    { type: "articles_list", title: "Статьи об Алматы" },
+    { type: "articles_list", title: "Статьи о Москве" },
     { type: "faq", title: "Вопросы и ответы" },
   ],
   // SEO
-  metaTitle: "Афиша Алматы — концерты, театр, события | Daibilet",
-  metaDescription: "Купите билеты на лучшие события Алматы онлайн. Концерты, фестивали, театр, спорт.",
+  metaTitle: "Афиша Москвы — концерты, театр, события | Daibilet",
+  metaDescription: "Купите билеты на лучшие события Москвы онлайн. Концерты, фестивали, театр, спорт.",
   ogImage: true,
-  canonical: "https://daibilet.kz/almaty/",
+  canonical: "https://daibilet.ru/moscow/",
   // traffic
   traffic: {
     visits30d: 184_200,
@@ -53,21 +53,21 @@ const city = {
     ctr: 6.8,
     delta: 12.4,
     topKeywords: [
-      { kw: "концерты алматы", pos: 2, visits: 31_200 },
-      { kw: "афиша алматы", pos: 3, visits: 24_800 },
-      { kw: "купить билет алматы", pos: 4, visits: 18_400 },
-      { kw: "театр алматы", pos: 6, visits: 11_900 },
-      { kw: "куда сходить в алматы", pos: 5, visits: 9_400 },
+      { kw: "концерты москва", pos: 2, visits: 31_200 },
+      { kw: "афиша москва", pos: 3, visits: 24_800 },
+      { kw: "купить билет москва", pos: 4, visits: 18_400 },
+      { kw: "театр москва", pos: 6, visits: 11_900 },
+      { kw: "куда сходить в москве", pos: 5, visits: 9_400 },
     ],
   },
   relatedLandings: [
-    { id: "LND-001", title: "Главная Алматы", slug: "almaty", scope: "single_city" },
-    { id: "LND-002", title: "Концерты Алматы — весна 2025", slug: "concerts-almaty-spring-2025", scope: "single_city" },
-    { id: "LND-007", title: "Stand Up афиша по Казахстану", slug: "standup", scope: "multi_city" },
+    { id: "LND-001", title: "Главная Москвы", slug: "moscow", scope: "single_city" },
+    { id: "LND-002", title: "Концерты Москвы — весна 2025", slug: "concerts-moscow-spring-2025", scope: "single_city" },
+    { id: "LND-007", title: "Stand Up афиша по России", slug: "standup", scope: "multi_city" },
   ],
   topVenues: [
-    { id: "VEN-001", name: "Алатау Арена", events: 8 },
-    { id: "VEN-003", name: "Мега Silk Way", events: 12 },
+    { id: "VEN-001", name: "ВТБ Арена", events: 18 },
+    { id: "VEN-003", name: "Крокус Сити Холл", events: 22 },
   ],
   seoIssues: [
     { id: "1", severity: "warning" as const, title: "Description короче 120 символов", description: "Текущая длина — 88 символов. Рекомендуется 120–160." },
@@ -95,7 +95,7 @@ export default function CityDetail({ params: _params }: { params?: { id?: string
             {city.nameRu}
             <ContentHubBadge isHub={hubEnabled} />
             <StatusBadge status={city.status} />
-            <span className="text-sm text-muted-foreground font-normal font-mono">daibilet.kz/{city.slug}/</span>
+            <span className="text-sm text-muted-foreground font-normal font-mono">daibilet.ru/{city.slug}/</span>
           </span>
         }
         description={`${formatNumber(city.traffic.visits30d)} визитов / 30 дн · средняя позиция ${city.traffic.avgPosition.toFixed(1)} · ${city.traffic.organicShare}% organic`}
@@ -285,18 +285,18 @@ export default function CityDetail({ params: _params }: { params?: { id?: string
         <HubGraph
           subject={`${city.nameRu} (${city.id})`}
           links={[
-            { group: "Площадки города",  label: "Алатау Арена",                href: "/admin/venues/VEN-001", count: 8,  hint: "ивент-only" },
-            { group: "Площадки города",  label: "Музей Кастеева",               href: "/admin/venues/VEN-007", count: 3,  hint: "hybrid" },
-            { group: "Площадки города",  label: "Мега Silk Way",                href: "/admin/venues/VEN-003", count: 12 },
-            { group: "Площадки города",  label: "Все площадки в Алматы",        href: "/admin/venues?city=almaty", count: 47 },
-            { group: "Лендинги",          label: "Главная Алматы",               href: "/admin/landings/LND-001", hint: "single_city" },
-            { group: "Лендинги",          label: "Концерты Алматы — весна 2025", href: "/admin/landings/LND-002", hint: "single_city" },
-            { group: "Лендинги",          label: "Stand Up афиша по Казахстану", href: "/admin/landings/LND-007", hint: "multi_city" },
-            { group: "События",           label: "Ближайшие в Алматы",           href: "/admin/events?city=almaty", count: 184, hint: "30 дн" },
+            { group: "Площадки города",  label: "ВТБ Арена",                href: "/admin/venues/VEN-001", count: 8,  hint: "ивент-only" },
+            { group: "Площадки города",  label: "Третьяковская галерея",               href: "/admin/venues/VEN-007", count: 3,  hint: "hybrid" },
+            { group: "Площадки города",  label: "Крокус Сити Холл",                href: "/admin/venues/VEN-003", count: 12 },
+            { group: "Площадки города",  label: "Все площадки в Москве",        href: "/admin/venues?city=moscow", count: 47 },
+            { group: "Лендинги",          label: "Главная Москвы",               href: "/admin/landings/LND-001", hint: "single_city" },
+            { group: "Лендинги",          label: "Концерты Москвы — весна 2025", href: "/admin/landings/LND-002", hint: "single_city" },
+            { group: "Лендинги",          label: "Stand Up афиша по России", href: "/admin/landings/LND-007", hint: "multi_city" },
+            { group: "События",           label: "Ближайшие в Москве",           href: "/admin/events?city=moscow", count: 184, hint: "30 дн" },
             { group: "События",           label: "Ночь музыки 2025",             href: "/admin/events/EVT-001",     hint: "VEN-12 · 15.05" },
-            { group: "Контент",           label: "Подборка «Лучшее в Алматы»",    href: "/admin/collections/COL-001" },
-            { group: "Контент",           label: "Статьи о городе",               href: "/admin/articles?city=almaty", count: 12 },
-            { group: "Заказы",             label: "Заказы по городу",              href: "/admin/orders?city=almaty",   count: 4214, hint: "30 дн" },
+            { group: "Контент",           label: "Подборка «Лучшее в Москве»",    href: "/admin/collections/COL-001" },
+            { group: "Контент",           label: "Статьи о городе",               href: "/admin/articles?city=moscow", count: 12 },
+            { group: "Заказы",             label: "Заказы по городу",              href: "/admin/orders?city=moscow",   count: 4214, hint: "30 дн" },
           ]}
           warning={!city.isContentHub ? "Контент-хаб выключен — кросс-страницы не индексируются" : undefined}
         />

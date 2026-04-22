@@ -38,7 +38,7 @@ interface Candidate {
 }
 
 const sourceMeta: Record<Source, { label: string; className: string }> = {
-  ticketon:      { label: "Ticketon",       className: "bg-blue-100 text-blue-700" },
+  ticketon:      { label: "Kassir.ru",       className: "bg-blue-100 text-blue-700" },
   sxodim:        { label: "Sxodim",         className: "bg-violet-100 text-violet-700" },
   kassir_api:    { label: "Kassir API",     className: "bg-emerald-100 text-emerald-700" },
   csv_import:    { label: "CSV-импорт",     className: "bg-slate-100 text-slate-700" },
@@ -57,58 +57,58 @@ const statusMeta: Record<CandidateStatus, { label: string; className: string }> 
 const mockCandidates: Candidate[] = [
   {
     id: "VCN-1042", source: "ticketon", sourceRef: "tk_v_19284",
-    rawName: "Алатау Арена", rawAddress: "Алматы, ул. Алтынсарина 31", rawCity: "Алматы",
+    rawName: "ВТБ Арена", rawAddress: "Москва, ул. Алтынсарина 31", rawCity: "Москва",
     rawPhone: "+7 727 357 11 22", rawCoords: { lat: 43.2333, lng: 76.8919 },
     importedAt: "2026-04-21T14:22:00Z", status: "auto_matched", trustScore: 92, eventsAttached: 4,
     suggestions: [
-      { venueId: "VEN-001", venueName: "Алатау Арена", city: "Алматы", similarity: 98, reasons: ["имя 100%", "адрес 95%", "координаты в 50м", "телефон совпадает"] },
+      { venueId: "VEN-001", venueName: "ВТБ Арена", city: "Москва", similarity: 98, reasons: ["имя 100%", "адрес 95%", "координаты в 50м", "телефон совпадает"] },
     ],
   },
   {
     id: "VCN-1041", source: "sxodim", sourceRef: "sx_place_8821",
-    rawName: "ALATAY ARENA", rawAddress: "г. Алматы, Алтынсарина", rawCity: "Алматы",
+    rawName: "ALATAY ARENA", rawAddress: "г. Москва, Алтынсарина", rawCity: "Москва",
     importedAt: "2026-04-21T14:18:00Z", status: "needs_review", trustScore: 64, eventsAttached: 2,
     suggestions: [
-      { venueId: "VEN-001", venueName: "Алатау Арена",     city: "Алматы", similarity: 84, reasons: ["имя 82% (транслит)", "адрес 70% (без номера дома)"] },
-      { venueId: "VEN-099", venueName: "Алатау Resort",     city: "Алматы", similarity: 41, reasons: ["имя содержит «Алатау»"] },
+      { venueId: "VEN-001", venueName: "ВТБ Арена",     city: "Москва", similarity: 84, reasons: ["имя 82% (транслит)", "адрес 70% (без номера дома)"] },
+      { venueId: "VEN-099", venueName: "Алатау Resort",     city: "Москва", similarity: 41, reasons: ["имя содержит «Алатау»"] },
     ],
   },
   {
     id: "VCN-1040", source: "kassir_api", sourceRef: "ka_2026_4448",
-    rawName: "Concert Hall Astana", rawAddress: "пр. Туран 49", rawCity: "Astana",
+    rawName: "Concert Hall Saint Petersburg", rawAddress: "пр. Туран 49", rawCity: "Saint Petersburg",
     rawCoords: { lat: 51.0907, lng: 71.4187 },
     importedAt: "2026-04-21T13:55:00Z", status: "needs_review", trustScore: 71, eventsAttached: 1,
     suggestions: [
-      { venueId: "VEN-002", venueName: "Barys Arena", city: "Астана", similarity: 56, reasons: ["адрес совпадает", "имя не совпадает"] },
+      { venueId: "VEN-002", venueName: "Barys Arena", city: "Санкт-Петербург", similarity: 56, reasons: ["адрес совпадает", "имя не совпадает"] },
     ],
   },
   {
     id: "VCN-1039", source: "supplier_form", sourceRef: "SUP-024 / form",
-    rawName: "ARENA PRO Almaty",  rawAddress: "ул. Сатпаева 18Б", rawCity: "Алматы",
+    rawName: "ARENA PRO Moscow",  rawAddress: "ул. Сатпаева 18Б", rawCity: "Москва",
     rawPhone: "+7 707 111 22 33",
     importedAt: "2026-04-21T13:30:00Z", status: "new", trustScore: 50, eventsAttached: 0,
     suggestions: [],
   },
   {
     id: "VCN-1038", source: "csv_import", sourceRef: "import_2026-04-21.csv #14",
-    rawName: "Музей Кастеева — Главное здание", rawAddress: "мкр. Коктем-3, д.22", rawCity: "Алматы",
+    rawName: "Третьяковская галерея — Главное здание", rawAddress: "мкр. Коктем-3, д.22", rawCity: "Москва",
     importedAt: "2026-04-21T11:00:00Z", status: "auto_matched", trustScore: 88, eventsAttached: 0,
     suggestions: [
-      { venueId: "VEN-007", venueName: "Музей Кастеева", city: "Алматы", similarity: 91, reasons: ["имя 88%", "адрес 100%", "город совпадает"] },
+      { venueId: "VEN-007", venueName: "Третьяковская галерея", city: "Москва", similarity: 91, reasons: ["имя 88%", "адрес 100%", "город совпадает"] },
     ],
   },
   {
     id: "VCN-1037", source: "ticketon", sourceRef: "tk_v_19101",
-    rawName: "Old Square Open Air", rawAddress: "—", rawCity: "Шымкент",
+    rawName: "Old Square Open Air", rawAddress: "—", rawCity: "Казань",
     importedAt: "2026-04-21T10:42:00Z", status: "rejected", trustScore: 28, eventsAttached: 0,
     suggestions: [], reviewedBy: "Динара О.",
   },
   {
     id: "VCN-1036", source: "sxodim", sourceRef: "sx_place_8801",
-    rawName: "DUMAN — океанариум", rawAddress: "пр. Кабанбай батыра 6", rawCity: "Астана",
+    rawName: "DUMAN — океанариум", rawAddress: "пр. Кабанбай батыра 6", rawCity: "Санкт-Петербург",
     importedAt: "2026-04-21T10:14:00Z", status: "merged", trustScore: 86, eventsAttached: 0,
     suggestions: [
-      { venueId: "VEN-008", venueName: "Океанариум Думан", city: "Астана", similarity: 89, reasons: ["адрес 100%", "имя 75%"] },
+      { venueId: "VEN-008", venueName: "Океанариум Думан", city: "Санкт-Петербург", similarity: 89, reasons: ["адрес 100%", "имя 75%"] },
     ], reviewedBy: "Аскар Б.",
   },
 ];

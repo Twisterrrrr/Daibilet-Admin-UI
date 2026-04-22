@@ -10,10 +10,10 @@ import { useState } from "react";
 
 const supplierData = {
   id: "SUP-01",
-  name: "ArtPro Kazakhstan",
-  legalName: 'ТОО "АртПро Казахстан"',
+  name: "АртПро Концерты",
+  legalName: 'ТОО "АртПро Россия"',
   bin: "180940001234",
-  city: "Алматы",
+  city: "Москва",
   address: "ул. Жибек Жолы, 48, офис 305",
   contactEmail: "info@artpro.kz",
   contactPhone: "+7 727 355-66-77",

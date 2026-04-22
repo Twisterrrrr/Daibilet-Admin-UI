@@ -27,11 +27,11 @@ interface City {
 }
 
 const mockCities: City[] = [
-  { id: "CTY-001", name: "Almaty",  nameRu: "Алматы",   slug: "almaty",   country: "KZ", status: "active",   isContentHub: true,  venuesCount: 12, eventsCount: 54, visits30d: 184_200, delta: 12.4, avgPosition: 3.2 },
-  { id: "CTY-002", name: "Astana",  nameRu: "Астана",   slug: "astana",   country: "KZ", status: "active",   isContentHub: true,  venuesCount: 7,  eventsCount: 28, visits30d: 92_400,  delta: 8.1,  avgPosition: 4.1 },
-  { id: "CTY-003", name: "Shymkent",nameRu: "Шымкент",  slug: "shymkent", country: "KZ", status: "active",   isContentHub: true,  venuesCount: 3,  eventsCount: 8,  visits30d: 18_900,  delta: 22.6, avgPosition: 6.5 },
-  { id: "CTY-004", name: "Karaganda",nameRu:"Караганда", slug: "karaganda", country: "KZ", status: "active",   isContentHub: false, venuesCount: 2,  eventsCount: 0,  visits30d: 1_240,   delta: -8.3, avgPosition: 18.2 },
-  { id: "CTY-005", name: "Aktobe",  nameRu: "Актобе",   slug: "aktobe",   country: "KZ", status: "inactive", isContentHub: false, venuesCount: 0,  eventsCount: 0,  visits30d: 0,       delta: 0,    avgPosition: null },
+  { id: "CTY-001", name: "Moscow",  nameRu: "Москва",   slug: "moscow",   country: "RU", status: "active",   isContentHub: true,  venuesCount: 12, eventsCount: 54, visits30d: 184_200, delta: 12.4, avgPosition: 3.2 },
+  { id: "CTY-002", name: "Saint Petersburg",  nameRu: "Санкт-Петербург",   slug: "saint-petersburg",   country: "RU", status: "active",   isContentHub: true,  venuesCount: 7,  eventsCount: 28, visits30d: 92_400,  delta: 8.1,  avgPosition: 4.1 },
+  { id: "CTY-003", name: "Kazan",nameRu: "Казань",  slug: "kazan", country: "RU", status: "active",   isContentHub: true,  venuesCount: 3,  eventsCount: 8,  visits30d: 18_900,  delta: 22.6, avgPosition: 6.5 },
+  { id: "CTY-004", name: "Karaganda",nameRu:"Караганда", slug: "karaganda", country: "RU", status: "active",   isContentHub: false, venuesCount: 2,  eventsCount: 0,  visits30d: 1_240,   delta: -8.3, avgPosition: 18.2 },
+  { id: "CTY-005", name: "Aktobe",  nameRu: "Актобе",   slug: "aktobe",   country: "RU", status: "inactive", isContentHub: false, venuesCount: 0,  eventsCount: 0,  visits30d: 0,       delta: 0,    avgPosition: null },
 ];
 
 export default function CitiesList() {

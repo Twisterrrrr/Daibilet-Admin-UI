@@ -25,7 +25,7 @@ const mockUser = {
 
 const recentOrders = [
   { id: "ORD-1041", event: "Ночь музыки 2025", amount: 18000, status: "completed", date: "2025-04-20T14:22:00Z" },
-  { id: "ORD-0992", event: "Astana Jazz", amount: 31000, status: "completed", date: "2025-03-12T18:00:00Z" },
+  { id: "ORD-0992", event: "Saint Petersburg Jazz", amount: 31000, status: "completed", date: "2025-03-12T18:00:00Z" },
   { id: "ORD-0944", event: "Stand Up Night", amount: 9000, status: "cancelled", date: "2025-02-08T19:00:00Z" },
 ];
 

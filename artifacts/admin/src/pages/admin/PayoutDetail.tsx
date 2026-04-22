@@ -12,7 +12,7 @@ import { formatDate, formatDateTime, formatCurrency } from "@/lib/utils";
 
 const payout = {
   id: "PO-2026-04-19-002",
-  supplier: "Star Events",
+  supplier: "Стар Ивентс",
   supplierId: "SUP-02",
   period: "01.04 — 15.04.2026",
   status: "processing" as const,
@@ -24,7 +24,7 @@ const payout = {
   orders: [
     { id: "ORD-1040", date: "2026-04-19", event: "Forum на Arena", gross: 8500, fee: 255, net: 8245 },
     { id: "ORD-1031", date: "2026-04-15", event: "Forum на Arena", gross: 17000, fee: 510, net: 16490 },
-    { id: "ORD-1024", date: "2026-04-12", event: "Almaty Theatre Week", gross: 25000, fee: 750, net: 24250 },
+    { id: "ORD-1024", date: "2026-04-12", event: "Moscow Theatre Week", gross: 25000, fee: 750, net: 24250 },
   ],
   refunds: [
     { id: "REF-441", date: "2026-04-14", order: "ORD-1018", amount: 11500, reason: "Отмена покупателем" },

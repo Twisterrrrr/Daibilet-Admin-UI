@@ -17,7 +17,7 @@ const summary = {
 
 const eventsBreakdown = [
   { id: "EVT-002", name: "Forum на Arena",      orders: 88, tickets: 176, gross: 880_000, fillRate: 78 },
-  { id: "EVT-007", name: "Almaty Theatre Week", orders: 41, tickets: 82,  gross: 246_000, fillRate: 58 },
+  { id: "EVT-007", name: "Moscow Theatre Week", orders: 41, tickets: 82,  gross: 246_000, fillRate: 58 },
   { id: "EVT-014", name: "Spring Showcase",     orders: 27, tickets: 54,  gross: 114_000, fillRate: 42 },
 ];
 

@@ -28,15 +28,15 @@ interface Integration {
 
 const integrations: Integration[] = [
   {
-    id: "INT-01", name: "Ticketon mirror", source: "imported",
-    supplier: "ArtPro Kazakhstan", supplierId: "SUP-01",
+    id: "INT-01", name: "Kassir.ru mirror", source: "imported",
+    supplier: "АртПро Концерты", supplierId: "SUP-01",
     status: "ok", eventsCount: 8,
     lastSyncAt: "2026-04-21T08:15:00Z", nextSyncAt: "2026-04-21T08:30:00Z",
     syncFrequency: "Каждые 15 минут", diagnostics: [],
   },
   {
     id: "INT-02", name: "Ticketscloud API", source: "api",
-    supplier: "Star Events", supplierId: "SUP-02",
+    supplier: "Стар Ивентс", supplierId: "SUP-02",
     status: "stale", eventsCount: 3,
     lastSyncAt: "2026-04-21T02:00:00Z", nextSyncAt: "2026-04-21T08:30:00Z",
     syncFrequency: "Каждые 30 минут",
@@ -47,7 +47,7 @@ const integrations: Integration[] = [
   },
   {
     id: "INT-03", name: "Teplohod API", source: "api",
-    supplier: "JazzMedia", supplierId: "SUP-04",
+    supplier: "ДжазМедиа", supplierId: "SUP-04",
     status: "error", eventsCount: 5,
     lastSyncAt: "2026-04-21T07:50:00Z", nextSyncAt: "2026-04-21T08:35:00Z",
     syncFrequency: "Каждые 5 минут",

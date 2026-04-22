@@ -27,12 +27,12 @@ interface Payout {
 }
 
 const payouts: Payout[] = [
-  { id: "PO-2026-04-19-001", supplier: "ArtPro Kazakhstan", supplierId: "SUP-01", period: "01.04 — 15.04.2026", status: "pending",    ordersCount: 88, gross: 1_200_000, fee: 36_000, refunds: 24_000, net: 1_140_000, scheduledAt: "2026-04-22T10:00:00Z" },
-  { id: "PO-2026-04-19-002", supplier: "Star Events",       supplierId: "SUP-02", period: "01.04 — 15.04.2026", status: "processing", ordersCount: 41, gross: 880_000,   fee: 26_400, refunds: 11_500, net: 842_100,   scheduledAt: "2026-04-21T18:00:00Z" },
-  { id: "PO-2026-04-19-003", supplier: "Comedy House",      supplierId: "SUP-03", period: "01.04 — 15.04.2026", status: "paid",       ordersCount: 22, gross: 280_000,   fee: 8_400,  refunds: 3_500,  net: 268_100,   scheduledAt: "2026-04-19T18:00:00Z", paidAt: "2026-04-19T18:14:00Z" },
-  { id: "PO-2026-04-19-004", supplier: "JazzMedia",         supplierId: "SUP-04", period: "01.04 — 15.04.2026", status: "held",       ordersCount: 18, gross: 360_000,   fee: 10_800, refunds: 0,      net: 349_200,   scheduledAt: "2026-04-22T10:00:00Z" },
-  { id: "PO-2026-04-04-001", supplier: "ArtPro Kazakhstan", supplierId: "SUP-01", period: "16.03 — 31.03.2026", status: "paid",       ordersCount: 102,gross: 1_540_000, fee: 46_200, refunds: 18_000, net: 1_475_800, scheduledAt: "2026-04-04T18:00:00Z", paidAt: "2026-04-04T18:21:00Z" },
-  { id: "PO-2026-04-04-002", supplier: "Star Events",       supplierId: "SUP-02", period: "16.03 — 31.03.2026", status: "failed",     ordersCount: 0,  gross: 0,         fee: 0,      refunds: 0,      net: 0,         scheduledAt: "2026-04-04T18:00:00Z" },
+  { id: "PO-2026-04-19-001", supplier: "АртПро Концерты", supplierId: "SUP-01", period: "01.04 — 15.04.2026", status: "pending",    ordersCount: 88, gross: 1_200_000, fee: 36_000, refunds: 24_000, net: 1_140_000, scheduledAt: "2026-04-22T10:00:00Z" },
+  { id: "PO-2026-04-19-002", supplier: "Стар Ивентс",       supplierId: "SUP-02", period: "01.04 — 15.04.2026", status: "processing", ordersCount: 41, gross: 880_000,   fee: 26_400, refunds: 11_500, net: 842_100,   scheduledAt: "2026-04-21T18:00:00Z" },
+  { id: "PO-2026-04-19-003", supplier: "Комеди Хаус",      supplierId: "SUP-03", period: "01.04 — 15.04.2026", status: "paid",       ordersCount: 22, gross: 280_000,   fee: 8_400,  refunds: 3_500,  net: 268_100,   scheduledAt: "2026-04-19T18:00:00Z", paidAt: "2026-04-19T18:14:00Z" },
+  { id: "PO-2026-04-19-004", supplier: "ДжазМедиа",         supplierId: "SUP-04", period: "01.04 — 15.04.2026", status: "held",       ordersCount: 18, gross: 360_000,   fee: 10_800, refunds: 0,      net: 349_200,   scheduledAt: "2026-04-22T10:00:00Z" },
+  { id: "PO-2026-04-04-001", supplier: "АртПро Концерты", supplierId: "SUP-01", period: "16.03 — 31.03.2026", status: "paid",       ordersCount: 102,gross: 1_540_000, fee: 46_200, refunds: 18_000, net: 1_475_800, scheduledAt: "2026-04-04T18:00:00Z", paidAt: "2026-04-04T18:21:00Z" },
+  { id: "PO-2026-04-04-002", supplier: "Стар Ивентс",       supplierId: "SUP-02", period: "16.03 — 31.03.2026", status: "failed",     ordersCount: 0,  gross: 0,         fee: 0,      refunds: 0,      net: 0,         scheduledAt: "2026-04-04T18:00:00Z" },
 ];
 
 export default function PayoutsList() {

@@ -34,8 +34,8 @@ const mockAudits: AuditRow[] = [
   { id: "LND-02", entityType: "landing", entityTitle: "Лендинг Forum на Arena", url: "/landings/forum-arena", score: 91, issues: [
     { severity: "info", message: "можно увеличить плотность ключевых слов" },
   ]},
-  { id: "ART-12", entityType: "article", entityTitle: "Топ-10 концертов мая в Алматы", url: "/blog/top-10", score: 96, issues: [] },
-  { id: "VEN-12", entityType: "venue", entityTitle: "Алатау Арена", url: "/venues/alatau-arena", score: 88, issues: [] },
+  { id: "ART-12", entityType: "article", entityTitle: "Топ-10 концертов мая в Москве", url: "/blog/top-10", score: 96, issues: [] },
+  { id: "VEN-12", entityType: "venue", entityTitle: "ВТБ Арена", url: "/venues/alatau-arena", score: 88, issues: [] },
 ];
 
 const entityLabels: Record<string, string> = {

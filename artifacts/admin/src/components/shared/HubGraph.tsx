@@ -4,7 +4,7 @@ import { Network, ArrowUpRight } from "lucide-react";
 export interface HubGraphLink {
   /** Logical group, e.g. "Город", "Площадка", "Лендинги". */
   group: string;
-  /** Top-level node id like "VEN-001" or "Алматы". */
+  /** Top-level node id like "VEN-001" or "Москва". */
   label: string;
   /** Total count when group is a list (e.g. 12 событий). */
   count?: number;
@@ -15,7 +15,7 @@ export interface HubGraphLink {
 }
 
 interface HubGraphProps {
-  /** Subject of this graph (e.g. "Алматы (CTY-001)"). */
+  /** Subject of this graph (e.g. "Москва (CTY-001)"). */
   subject: string;
   /** All connected entities organised by group. */
   links: HubGraphLink[];

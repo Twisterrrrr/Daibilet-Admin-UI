@@ -22,7 +22,7 @@ const mockLogs: LogEntry[] = [
   { ts: "2026-04-21T08:15:23Z", level: "info", source: "sync/ticketon", message: "Sync OK для EVT-001 (3 цены, 1 секция)", context: "TKT-98221" },
   { ts: "2026-04-21T08:14:11Z", level: "error", source: "sync/ticketscloud", message: "Connection timeout после 30s", context: "thr-882" },
   { ts: "2026-04-21T08:12:00Z", level: "warn", source: "checkout", message: "Платёж задержан более 60с — ЮKassa", context: "ORD-1041" },
-  { ts: "2026-04-21T08:10:00Z", level: "info", source: "audit", message: "Override применён к EVT-001 (поля: title, metaTitle)", context: "admin@daibilet.kz" },
+  { ts: "2026-04-21T08:10:00Z", level: "info", source: "audit", message: "Override применён к EVT-001 (поля: title, metaTitle)", context: "admin@daibilet.ru" },
   { ts: "2026-04-21T08:05:00Z", level: "warn", source: "import/teplohod", message: "Sync stale более 6 часов", context: "ev-7711" },
   { ts: "2026-04-21T07:50:00Z", level: "error", source: "payment/kaspi", message: "Webhook signature invalid", context: "KP-482112230" },
   { ts: "2026-04-21T07:30:00Z", level: "info", source: "auth", message: "Поставщик SUP-04 успешно вошёл" },

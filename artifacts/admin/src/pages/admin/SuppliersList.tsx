@@ -25,12 +25,12 @@ interface Supplier {
 }
 
 const mockSuppliers: Supplier[] = [
-  { id: "SUP-01", name: "ArtPro Kazakhstan", legalName: 'ТОО "АртПро Казахстан"', city: "Алматы", contactEmail: "info@artpro.kz", status: "active", role: "import_only", cabinetActive: false, eventsCount: 14, createdAt: "2024-01-15" },
-  { id: "SUP-02", name: "Star Events", legalName: 'ТОО "Стар Эвентс"', city: "Астана", contactEmail: "events@star.kz", status: "active", role: "api", cabinetActive: true, eventsCount: 8, createdAt: "2024-03-20" },
-  { id: "SUP-03", name: "Comedy House", legalName: 'ИП Ахметов А.К.', city: "Алматы", contactEmail: "comedy@house.kz", status: "active", role: "internal", cabinetActive: true, eventsCount: 5, createdAt: "2024-06-01" },
-  { id: "SUP-04", name: "JazzMedia", legalName: 'ТОО "ДжазМедиа"', city: "Астана", contactEmail: "jazzmedia@kz.com", status: "active", role: "api", cabinetActive: false, eventsCount: 3, createdAt: "2024-07-11" },
-  { id: "SUP-05", name: "KidsFest LLP", legalName: 'ТОО "КидсФест"', city: "Шымкент", contactEmail: "hello@kidsfest.kz", status: "inactive", role: "internal", cabinetActive: true, eventsCount: 0, createdAt: "2024-09-05" },
-  { id: "SUP-06", name: "NewTalent Studio", legalName: 'ИП Сейткали Д.М.', city: "Алматы", contactEmail: "nt@studio.kz", status: "pending", role: "internal", cabinetActive: true, eventsCount: 0, createdAt: "2025-02-01" },
+  { id: "SUP-01", name: "АртПро Концерты", legalName: 'ТОО "АртПро Россия"', city: "Москва", contactEmail: "info@artpro.kz", status: "active", role: "import_only", cabinetActive: false, eventsCount: 14, createdAt: "2024-01-15" },
+  { id: "SUP-02", name: "Стар Ивентс", legalName: 'ТОО "Стар Эвентс"', city: "Санкт-Петербург", contactEmail: "events@star.kz", status: "active", role: "api", cabinetActive: true, eventsCount: 8, createdAt: "2024-03-20" },
+  { id: "SUP-03", name: "Комеди Хаус", legalName: 'ИП Ахметов А.К.', city: "Москва", contactEmail: "comedy@house.kz", status: "active", role: "internal", cabinetActive: true, eventsCount: 5, createdAt: "2024-06-01" },
+  { id: "SUP-04", name: "ДжазМедиа", legalName: 'ТОО "ДжазМедиа"', city: "Санкт-Петербург", contactEmail: "jazzmedia@mail.ru", status: "active", role: "api", cabinetActive: false, eventsCount: 3, createdAt: "2024-07-11" },
+  { id: "SUP-05", name: "КидсФест ООО", legalName: 'ТОО "КидсФест"', city: "Казань", contactEmail: "hello@kidsfest.kz", status: "inactive", role: "internal", cabinetActive: true, eventsCount: 0, createdAt: "2024-09-05" },
+  { id: "SUP-06", name: "NewTalent Studio", legalName: 'ИП Сейткали Д.М.', city: "Москва", contactEmail: "nt@studio.kz", status: "pending", role: "internal", cabinetActive: true, eventsCount: 0, createdAt: "2025-02-01" },
 ];
 
 export default function SuppliersList() {

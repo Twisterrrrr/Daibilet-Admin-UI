@@ -26,7 +26,7 @@ const mockUsers: UserRow[] = [
   { id: "USR-1182", name: "Алия Бекова", email: "aliya@gmail.com", phone: "+7 701 555-12-34", ordersCount: 7, totalSpent: 142000, status: "active", createdAt: "2024-09-12T10:00:00Z", lastLogin: "2025-04-21T08:14:00Z" },
   { id: "USR-1181", name: "Данияр Сейткали", email: "d.seitkali@mail.ru", phone: "+7 700 222-11-09", ordersCount: 3, totalSpent: 81000, status: "active", createdAt: "2024-11-03T11:00:00Z", lastLogin: "2025-04-20T13:10:00Z" },
   { id: "USR-1175", name: "Мария Петрова", email: "petrova@yandex.ru", phone: "+7 778 432-89-12", ordersCount: 2, totalSpent: 18000, status: "blocked", createdAt: "2024-12-21T16:00:00Z", lastLogin: "2025-04-15T09:00:00Z" },
-  { id: "USR-1170", name: "Темирлан Жумабаев", email: "t.zhu@kz.com", phone: "+7 701 778-90-12", ordersCount: 5, totalSpent: 95500, status: "active", createdAt: "2025-01-04T18:30:00Z", lastLogin: "2025-04-19T20:00:00Z" },
+  { id: "USR-1170", name: "Темирлан Жумабаев", email: "t.zhu@mail.ru", phone: "+7 701 778-90-12", ordersCount: 5, totalSpent: 95500, status: "active", createdAt: "2025-01-04T18:30:00Z", lastLogin: "2025-04-19T20:00:00Z" },
 ];
 
 export default function UsersList() {

@@ -17,15 +17,15 @@ type Scope = "global" | "single_city" | "multi_city";
 
 const initial = {
   id: "LND-007",
-  title: "Stand Up афиша по Казахстану",
+  title: "Stand Up афиша по России",
   slug: "standup",
   type: "category",
   status: "published",
   scope: "multi_city" as Scope,
   cities: [
-    { slug: "almaty",   name: "Алматы",  visits30d: 12_400, position: 4.2, lastDeployed: "2026-04-15" },
-    { slug: "astana",   name: "Астана",  visits30d: 9_800,  position: 5.1, lastDeployed: "2026-04-15" },
-    { slug: "shymkent", name: "Шымкент", visits30d: 4_200,  position: 8.4, lastDeployed: "2026-04-15" },
+    { slug: "moscow",   name: "Москва",  visits30d: 12_400, position: 4.2, lastDeployed: "2026-04-15" },
+    { slug: "saint-petersburg",   name: "Санкт-Петербург",  visits30d: 9_800,  position: 5.1, lastDeployed: "2026-04-15" },
+    { slug: "kazan", name: "Казань", visits30d: 4_200,  position: 8.4, lastDeployed: "2026-04-15" },
   ],
   availableCities: [
     { slug: "karaganda", name: "Караганда" },
@@ -47,7 +47,7 @@ const initial = {
     { q: "Можно ли вернуть билет?", a: "Да, согласно правилам организатора. Уточните на странице события." },
   ],
   ogImageTemplate: "/og/standup-{city}.jpg",
-  canonicalTemplate: "https://daibilet.kz/{city}/standup/",
+  canonicalTemplate: "https://daibilet.ru/{city}/standup/",
   traffic: {
     visits30d: 26_400,
     organicShare: 88,
@@ -64,7 +64,7 @@ const initial = {
   },
   seoIssues: [
     { id: "1", severity: "warning" as const, title: "Шаблон H1 не использует {city_loc}", description: "Сейчас в H1 используется {city_nom}. Рекомендуется добавить локативную форму." },
-    { id: "2", severity: "info" as const,    title: "Не настроена гиперлокализация в Шымкенте", description: "Для города visits30d ниже среднего на 60%." },
+    { id: "2", severity: "info" as const,    title: "Не настроена гиперлокализация в Казани", description: "Для города visits30d ниже среднего на 60%." },
   ],
   createdAt: "2026-01-10",
   updatedAt: "2026-04-10",
@@ -77,9 +77,9 @@ export default function LandingDetail({ params: _params }: { params?: { id?: str
   const [cities, setCities] = useState(initial.cities);
 
   const previewUrl = (() => {
-    if (scope === "global") return initial.slug ? `daibilet.kz/${initial.slug}/` : `daibilet.kz/`;
-    if (scope === "multi_city") return `daibilet.kz/{city}/${initial.slug}/`;
-    return `daibilet.kz/${cities[0]?.slug ?? "{city}"}/${initial.slug}/`;
+    if (scope === "global") return initial.slug ? `daibilet.ru/${initial.slug}/` : `daibilet.ru/`;
+    if (scope === "multi_city") return `daibilet.ru/{city}/${initial.slug}/`;
+    return `daibilet.ru/${cities[0]?.slug ?? "{city}"}/${initial.slug}/`;
   })();
 
   const totalCityVisits = cities.reduce((s, c) => s + c.visits30d, 0);
@@ -170,7 +170,7 @@ export default function LandingDetail({ params: _params }: { params?: { id?: str
             <h3 className="text-sm font-semibold mb-3">Тип развёртывания</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
               <ScopeOption value="global"      current={scope} onSelect={setScope} icon={Globe2} title="Глобальный"        desc="Одна страница на весь сайт" example={initial.slug ? `/${initial.slug}/` : "/"} />
-              <ScopeOption value="single_city" current={scope} onSelect={setScope} icon={MapPin} title="Один город"         desc="Жёсткая привязка к одному городу" example={`/${cities[0]?.slug ?? "almaty"}/${initial.slug}/`} />
+              <ScopeOption value="single_city" current={scope} onSelect={setScope} icon={MapPin} title="Один город"         desc="Жёсткая привязка к одному городу" example={`/${cities[0]?.slug ?? "moscow"}/${initial.slug}/`} />
               <ScopeOption value="multi_city"  current={scope} onSelect={setScope} icon={Layers} title="Мульти-городовой"  desc="Один шаблон, развёрнутый на N городов"   example={`/{city}/${initial.slug}/`} />
             </div>
           </div>
@@ -223,9 +223,9 @@ export default function LandingDetail({ params: _params }: { params?: { id?: str
           {scope === "multi_city" && (
             <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900 rounded-lg p-4 text-sm text-blue-900 dark:text-blue-200">
               <strong>Подсказка по гиперлокализации:</strong> в шаблонах H1, intro, meta-тегов и FAQ доступны переменные:
-              <code className="bg-blue-100 dark:bg-blue-900/40 px-1 rounded mx-1">{"{city_nom}"}</code>(Алматы),
-              <code className="bg-blue-100 dark:bg-blue-900/40 px-1 rounded mx-1">{"{city_loc}"}</code>(Алматы),
-              <code className="bg-blue-100 dark:bg-blue-900/40 px-1 rounded mx-1">{"{city_gen}"}</code>(Алматы).
+              <code className="bg-blue-100 dark:bg-blue-900/40 px-1 rounded mx-1">{"{city_nom}"}</code>(Москва),
+              <code className="bg-blue-100 dark:bg-blue-900/40 px-1 rounded mx-1">{"{city_loc}"}</code>(Москва),
+              <code className="bg-blue-100 dark:bg-blue-900/40 px-1 rounded mx-1">{"{city_gen}"}</code>(Москва).
               При деплое значения подставляются автоматически.
             </div>
           )}
@@ -308,13 +308,13 @@ export default function LandingDetail({ params: _params }: { params?: { id?: str
           subject={`${initial.title} (${initial.id})`}
           links={[
             ...initial.cities.map((c) => ({ group: "Города в скоупе", label: c.name, href: `/admin/cities/${c.slug.toUpperCase()}`, count: c.visits30d, hint: `pos ${c.position}` })),
-            { group: "Площадки в подборке", label: "Loft (Алматы)",       href: "/admin/venues/VEN-021", hint: "stand-up" },
-            { group: "Площадки в подборке", label: "Hardrock Cafe Astana", href: "/admin/venues/VEN-018", hint: "stand-up" },
-            { group: "События в подборке",   label: "Stand Up Almaty — апрель", href: "/admin/events/EVT-200" },
-            { group: "События в подборке",   label: "Stand Up Astana — май",     href: "/admin/events/EVT-201" },
+            { group: "Площадки в подборке", label: "Loft (Москва)",       href: "/admin/venues/VEN-021", hint: "stand-up" },
+            { group: "Площадки в подборке", label: "Hardrock Cafe Saint Petersburg", href: "/admin/venues/VEN-018", hint: "stand-up" },
+            { group: "События в подборке",   label: "Stand Up Moscow — апрель", href: "/admin/events/EVT-200" },
+            { group: "События в подборке",   label: "Stand Up Saint Petersburg — май",     href: "/admin/events/EVT-201" },
             { group: "События в подборке",   label: "Все Stand Up события",       href: "/admin/events?tag=standup", count: 24 },
-            { group: "Связанные лендинги",    label: "Главная Алматы",             href: "/admin/landings/LND-001", hint: "ссылается" },
-            { group: "Связанные лендинги",    label: "Главная Астана",              href: "/admin/landings/LND-003", hint: "ссылается" },
+            { group: "Связанные лендинги",    label: "Главная Москвы",             href: "/admin/landings/LND-001", hint: "ссылается" },
+            { group: "Связанные лендинги",    label: "Главная Санкт-Петербург",              href: "/admin/landings/LND-003", hint: "ссылается" },
             { group: "Контент",                label: "Промо-блок «Главные Stand Up»", href: "/admin/promo-blocks/PRB-007" },
             { group: "Контент",                label: "Статья «Stand Up в КЗ — гид»",  href: "/admin/articles/ART-014" },
           ]}

@@ -9,16 +9,16 @@ import { formatDateTime } from "@/lib/utils";
 
 const conv = {
   id: "CHT-1024",
-  visitor: { name: "Айгерим Касымова", isAuth: true, email: "aigerim.k@example.kz", phone: "+7 707 *** ** 21", city: "Алматы", device: "iPhone 14 · Safari", since: "2025-08-12" },
+  visitor: { name: "Анна Ковалёва", isAuth: true, email: "anna.k@example.ru", phone: "+7 916 *** ** 21", city: "Москва", device: "iPhone 14 · Safari", since: "2025-08-12" },
   channel: "web",
   status: "waiting",
   assignedTo: null as string | null,
-  page: "/almaty/events/forum-on-arena",
+  page: "/moscow/events/forum-on-arena",
   relatedOrderId: "ORD-58234",
   tags: ["возврат"],
   startedAt: "2026-04-21T19:42:00Z",
   messages: [
-    { id: "M1", by: "system",   text: "Посетитель открыл страницу /almaty/events/forum-on-arena", at: "2026-04-21T19:41:30Z" },
+    { id: "M1", by: "system",   text: "Посетитель открыл страницу /moscow/events/forum-on-arena", at: "2026-04-21T19:41:30Z" },
     { id: "M2", by: "bot",      text: "Здравствуйте! Я бот Daibilet. Чем могу помочь?", at: "2026-04-21T19:41:32Z" },
     { id: "M3", by: "visitor",  text: "Добрый день!", at: "2026-04-21T19:42:00Z" },
     { id: "M4", by: "visitor",  text: "Можно ли вернуть билет, если событие перенесли на 2 недели?", at: "2026-04-21T19:42:10Z" },

@@ -14,7 +14,7 @@ const mockBlock = {
   position: "hero",
   status: "active",
   landingId: "LND-001",
-  landingTitle: "Главная страница Алматы",
+  landingTitle: "Главная страница Москва",
   startsAt: "2025-05-01",
   endsAt: "2025-08-31",
   priority: 1,

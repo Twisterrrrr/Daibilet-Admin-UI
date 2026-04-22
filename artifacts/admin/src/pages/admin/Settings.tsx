@@ -26,7 +26,7 @@ export default function Settings() {
             </div>
             <div className="flex flex-col gap-1.5">
               <Label htmlFor="support-email">E-mail поддержки</Label>
-              <Input id="support-email" type="email" defaultValue="support@daibilet.kz" data-testid="input-support-email" />
+              <Input id="support-email" type="email" defaultValue="support@daibilet.ru" data-testid="input-support-email" />
             </div>
             <div className="flex flex-col gap-1.5">
               <Label htmlFor="service-fee">Сервисный сбор (%)</Label>

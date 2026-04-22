@@ -29,7 +29,7 @@ export default function SupplierDashboard() {
       breadcrumbs={[{ label: "Кабинет поставщика" }, { label: "Дашборд" }]}
     >
       <PageHeader
-        title="Добро пожаловать, ArtPro Kazakhstan"
+        title="Добро пожаловать, АртПро Концерты"
         description="Обзор вашей активности за последние 30 дней"
       />
 

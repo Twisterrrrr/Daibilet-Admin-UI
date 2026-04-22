@@ -18,10 +18,10 @@ const mockEvent = {
   id: "EVT-001",
   title: "Ночь музыки 2025",
   slug: "noch-muzyki-2025",
-  city: "Алматы",
-  venue: "Алатау Арена",
+  city: "Москва",
+  venue: "ВТБ Арена",
   venueId: "VEN-12",
-  supplier: "ArtPro Kazakhstan",
+  supplier: "АртПро Концерты",
   supplierId: "SUP-01",
   startDate: "2025-05-15T20:00:00Z",
   endDate: "2025-05-15T23:00:00Z",
@@ -34,9 +34,9 @@ const mockEvent = {
   ageRating: "16+",
   inventorySource: "imported" as const,
   salesMode: "internal_checkout" as const,
-  externalSource: "ticketon.kz",
+  externalSource: "kassir.ru",
   externalId: "TKT-98221",
-  externalUrl: "https://ticketon.kz/events/TKT-98221",
+  externalUrl: "https://kassir.ru/events/TKT-98221",
   syncStatus: "ok" as const,
   lastSyncAt: "2026-04-21T08:15:00Z",
   syncFrequency: "Каждые 15 минут",
@@ -44,8 +44,8 @@ const mockEvent = {
   overriddenFields: ["title", "description", "metaTitle"],
   createdAt: "2025-03-10T12:00:00Z",
   updatedAt: "2025-04-18T09:30:00Z",
-  description: "Ежегодный фестиваль классической и джазовой музыки в исполнении лучших оркестров Казахстана и мира.",
-  metaTitle: "Ночь музыки 2025 — Алматы | Daibilet",
+  description: "Ежегодный фестиваль классической и джазовой музыки в исполнении лучших оркестров России и мира.",
+  metaTitle: "Ночь музыки 2025 — Москва | Daibilet",
   metaDescription: "Купить билеты",
   ogImage: null as string | null,
 };
@@ -59,9 +59,9 @@ const qualityIssues: Issue[] = [
 ];
 
 const auditLog = [
-  { ts: "2026-04-21T08:15:00Z", actor: "system/sync", action: "sync OK от ticketon.kz" },
-  { ts: "2026-04-18T09:30:00Z", actor: "admin@daibilet.kz", action: "override title и metaTitle" },
-  { ts: "2025-03-10T12:00:00Z", actor: "system/import", action: "import создан из ticketon.kz" },
+  { ts: "2026-04-21T08:15:00Z", actor: "system/sync", action: "sync OK от kassir.ru" },
+  { ts: "2026-04-18T09:30:00Z", actor: "admin@daibilet.ru", action: "override title и metaTitle" },
+  { ts: "2025-03-10T12:00:00Z", actor: "system/import", action: "import создан из kassir.ru" },
 ];
 
 export default function EventDetail({ params }: { params?: { id?: string } }) {
@@ -282,12 +282,12 @@ export default function EventDetail({ params }: { params?: { id?: string } }) {
         <HubGraph
           subject={`${mockEvent.title} (${mockEvent.id})`}
           links={[
-            { group: "Город",       label: mockEvent.city,             href: "/admin/cities/CTY-001",                              hint: "almaty" },
+            { group: "Город",       label: mockEvent.city,             href: "/admin/cities/CTY-001",                              hint: "moscow" },
             { group: "Площадка",    label: mockEvent.venue,            href: `/admin/venues/${mockEvent.venueId}`,                  hint: "ивент-only" },
             { group: "Поставщик",   label: mockEvent.supplier,         href: `/admin/suppliers/${mockEvent.supplierId}`,            hint: "API · ticketon" },
             { group: "Категория",   label: mockEvent.category,          href: "/admin/categories",                                    },
             { group: "Теги",         label: "Музыка · 16+ · Сидячие",     href: "/admin/tags",                                         },
-            { group: "Лендинги",      label: "Главная Алматы (блок «Хиты»)", href: "/admin/landings/LND-001",                              hint: "приоритет 3" },
+            { group: "Лендинги",      label: "Главная Москвы (блок «Хиты»)", href: "/admin/landings/LND-001",                              hint: "приоритет 3" },
             { group: "Лендинги",      label: "Концерты весна 2025",          href: "/admin/landings/LND-002",                              hint: "ручной выбор" },
             { group: "Промо",         label: "Главные концерты весны",        href: "/admin/promo-blocks/PRB-002",                          hint: "слот A1" },
             { group: "Заказы",         label: "Заказы по событию",              href: `/admin/orders?event=${mockEvent.id}`, count: mockEvent.soldCount },

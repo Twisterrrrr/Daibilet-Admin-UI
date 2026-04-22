@@ -21,9 +21,9 @@ interface Article {
 }
 
 const mockArticles: Article[] = [
-  { id: "ART-12", title: "Топ-10 концертов мая в Алматы", slug: "top-10-koncertov-maya-almaty", author: "editor@daibilet.kz", status: "published", views: 4821, publishedAt: "2025-04-15T10:00:00Z", updatedAt: "2025-04-15T10:00:00Z" },
-  { id: "ART-11", title: "Гид по фестивалям Казахстана 2025", slug: "festivali-kz-2025", author: "editor@daibilet.kz", status: "published", views: 9120, publishedAt: "2025-04-01T09:00:00Z", updatedAt: "2025-04-08T14:00:00Z" },
-  { id: "ART-10", title: "Как выбрать билет: лайфхаки", slug: "kak-vybrat-bilet", author: "marketing@daibilet.kz", status: "draft", views: 0, updatedAt: "2025-04-20T16:00:00Z" },
+  { id: "ART-12", title: "Топ-10 концертов мая в Москве", slug: "top-10-koncertov-maya-moscow", author: "editor@daibilet.ru", status: "published", views: 4821, publishedAt: "2025-04-15T10:00:00Z", updatedAt: "2025-04-15T10:00:00Z" },
+  { id: "ART-11", title: "Гид по фестивалям России 2025", slug: "festivali-kz-2025", author: "editor@daibilet.ru", status: "published", views: 9120, publishedAt: "2025-04-01T09:00:00Z", updatedAt: "2025-04-08T14:00:00Z" },
+  { id: "ART-10", title: "Как выбрать билет: лайфхаки", slug: "kak-vybrat-bilet", author: "marketing@daibilet.ru", status: "draft", views: 0, updatedAt: "2025-04-20T16:00:00Z" },
 ];
 
 export default function ArticlesList() {

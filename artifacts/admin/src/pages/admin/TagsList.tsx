@@ -138,7 +138,7 @@ export default function TagsList() {
           Теги — это <em>сквозные</em> признаки: возраст, формат, язык, спецметки, сезон. На событии может быть много тегов из разных групп.
         </p>
         <p>
-          Теги влияют на: <strong>фильтры в каталоге</strong>, <strong>schema.org</strong> (audience/inLanguage), <strong>автоподборки</strong> и <strong>SEO-лендинги</strong> (например, <code className="bg-violet-100 dark:bg-violet-900/40 px-1 rounded">/almaty/open-air/</code>).
+          Теги влияют на: <strong>фильтры в каталоге</strong>, <strong>schema.org</strong> (audience/inLanguage), <strong>автоподборки</strong> и <strong>SEO-лендинги</strong> (например, <code className="bg-violet-100 dark:bg-violet-900/40 px-1 rounded">/moscow/open-air/</code>).
         </p>
       </div>
 

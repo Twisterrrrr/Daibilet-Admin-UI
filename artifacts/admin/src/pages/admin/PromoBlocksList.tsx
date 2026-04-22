@@ -24,7 +24,7 @@ interface PromoBlock {
 const mockPromoBlocks: PromoBlock[] = [
   { id: "PRB-001", title: "Летние фестивали — главный баннер", type: "banner", position: "hero", status: "active", landingId: "LND-001", startsAt: "2025-05-01", endsAt: "2025-08-31", priority: 1 },
   { id: "PRB-002", title: "Подборка джазовых концертов", type: "collection", position: "section_1", status: "active", landingId: "LND-001", startsAt: null, endsAt: null, priority: 2 },
-  { id: "PRB-003", title: "Рекомендации Алматы", type: "recommendation", position: "sidebar", status: "inactive", landingId: "LND-001", startsAt: null, endsAt: null, priority: 5 },
+  { id: "PRB-003", title: "Рекомендации Москва", type: "recommendation", position: "sidebar", status: "inactive", landingId: "LND-001", startsAt: null, endsAt: null, priority: 5 },
   { id: "PRB-004", title: "Акция: скидка 15% на weekend", type: "promo", position: "header_strip", status: "draft", landingId: null, startsAt: "2025-05-02", endsAt: "2025-05-04", priority: 1 },
 ];
 

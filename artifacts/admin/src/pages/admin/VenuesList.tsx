@@ -33,14 +33,14 @@ interface Venue {
 }
 
 const mockVenues: Venue[] = [
-  { id: "VEN-001", name: "Алатау Арена",          slug: "alatau-arena",      citySlug: "almaty",   city: "Алматы",   address: "ул. Алтынсарина, 31",   capacity: 12000, status: "active",   isContentHub: true,  salesModel: "event_only", category: "Концертная площадка", eventsCount: 8,  admissionTypesCount: 0, visits30d: 24_800, delta: 18.2, avgPosition: 4.1 },
-  { id: "VEN-002", name: "Barys Arena",           slug: "barys-arena",       citySlug: "astana",   city: "Астана",   address: "пр. Туран, 49",          capacity: 10000, status: "active",   isContentHub: true,  salesModel: "event_only", category: "Спортивная арена",    eventsCount: 5,  admissionTypesCount: 0, visits30d: 14_200, delta: 9.4,  avgPosition: 5.2 },
-  { id: "VEN-003", name: "Мега Silk Way",         slug: "mega-silk-way",     citySlug: "almaty",   city: "Алматы",   address: "ул. Розыбакиева, 247а",  capacity: 2500,  status: "active",   isContentHub: true,  salesModel: "event_only", category: "Концертная площадка", eventsCount: 12, admissionTypesCount: 0, visits30d: 18_400, delta: 22.7, avgPosition: 3.8 },
-  { id: "VEN-006", name: "Алматинский зоопарк",   slug: "almaty-zoo",        citySlug: "almaty",   city: "Алматы",   address: "ул. Есенберлина, 166",   capacity: 8000,  status: "active",   isContentHub: true,  salesModel: "standalone", category: "Зоопарк",             eventsCount: 0,  admissionTypesCount: 4, visits30d: 41_200, delta: 28.4, avgPosition: 2.3 },
-  { id: "VEN-007", name: "Музей Кастеева",        slug: "kasteev-museum",    citySlug: "almaty",   city: "Алматы",   address: "мкр. Коктем-3, 22",      capacity: 600,   status: "active",   isContentHub: true,  salesModel: "hybrid",     category: "Музей",               eventsCount: 3,  admissionTypesCount: 5, visits30d: 12_800, delta: 14.2, avgPosition: 4.4 },
-  { id: "VEN-008", name: "Океанариум Думан",      slug: "duman-oceanarium",  citySlug: "astana",   city: "Астана",   address: "пр. Кабанбай батыра, 6", capacity: 1200,  status: "active",   isContentHub: true,  salesModel: "standalone", category: "Океанариум",          eventsCount: 0,  admissionTypesCount: 3, visits30d: 22_400, delta: 11.8, avgPosition: 3.6 },
-  { id: "VEN-004", name: "Конгресс Холл",         slug: "kongress-hall",     citySlug: "astana",   city: "Астана",   address: "пр. Достык, 12",          capacity: 3000,  status: "active",   isContentHub: false, salesModel: "event_only", category: "Конгресс-центр",      eventsCount: 3,  admissionTypesCount: 0, visits30d: 1_840,  delta: -4.2, avgPosition: 14.0 },
-  { id: "VEN-005", name: "Park Hall",             slug: "park-hall",         citySlug: "shymkent", city: "Шымкент",  address: "пр. Республики, 44",      capacity: 1500,  status: "inactive", isContentHub: false, salesModel: "event_only", category: "Концертная площадка", eventsCount: 0,  admissionTypesCount: 0, visits30d: 120,    delta: -25,  avgPosition: null },
+  { id: "VEN-001", name: "ВТБ Арена",          slug: "alatau-arena",      citySlug: "moscow",   city: "Москва",   address: "ул. Алтынсарина, 31",   capacity: 12000, status: "active",   isContentHub: true,  salesModel: "event_only", category: "Концертная площадка", eventsCount: 8,  admissionTypesCount: 0, visits30d: 24_800, delta: 18.2, avgPosition: 4.1 },
+  { id: "VEN-002", name: "Barys Arena",           slug: "barys-arena",       citySlug: "saint-petersburg",   city: "Санкт-Петербург",   address: "пр. Туран, 49",          capacity: 10000, status: "active",   isContentHub: true,  salesModel: "event_only", category: "Спортивная арена",    eventsCount: 5,  admissionTypesCount: 0, visits30d: 14_200, delta: 9.4,  avgPosition: 5.2 },
+  { id: "VEN-003", name: "Крокус Сити Холл",         slug: "mega-silk-way",     citySlug: "moscow",   city: "Москва",   address: "ул. Розыбакиева, 247а",  capacity: 2500,  status: "active",   isContentHub: true,  salesModel: "event_only", category: "Концертная площадка", eventsCount: 12, admissionTypesCount: 0, visits30d: 18_400, delta: 22.7, avgPosition: 3.8 },
+  { id: "VEN-006", name: "Алматинский зоопарк",   slug: "almaty-zoo",        citySlug: "moscow",   city: "Москва",   address: "ул. Есенберлина, 166",   capacity: 8000,  status: "active",   isContentHub: true,  salesModel: "standalone", category: "Зоопарк",             eventsCount: 0,  admissionTypesCount: 4, visits30d: 41_200, delta: 28.4, avgPosition: 2.3 },
+  { id: "VEN-007", name: "Третьяковская галерея",        slug: "kasteev-museum",    citySlug: "moscow",   city: "Москва",   address: "мкр. Коктем-3, 22",      capacity: 600,   status: "active",   isContentHub: true,  salesModel: "hybrid",     category: "Музей",               eventsCount: 3,  admissionTypesCount: 5, visits30d: 12_800, delta: 14.2, avgPosition: 4.4 },
+  { id: "VEN-008", name: "Океанариум Думан",      slug: "duman-oceanarium",  citySlug: "saint-petersburg",   city: "Санкт-Петербург",   address: "пр. Кабанбай батыра, 6", capacity: 1200,  status: "active",   isContentHub: true,  salesModel: "standalone", category: "Океанариум",          eventsCount: 0,  admissionTypesCount: 3, visits30d: 22_400, delta: 11.8, avgPosition: 3.6 },
+  { id: "VEN-004", name: "Конгресс Холл",         slug: "kongress-hall",     citySlug: "saint-petersburg",   city: "Санкт-Петербург",   address: "пр. Достык, 12",          capacity: 3000,  status: "active",   isContentHub: false, salesModel: "event_only", category: "Конгресс-центр",      eventsCount: 3,  admissionTypesCount: 0, visits30d: 1_840,  delta: -4.2, avgPosition: 14.0 },
+  { id: "VEN-005", name: "Park Hall",             slug: "park-hall",         citySlug: "kazan", city: "Казань",  address: "пр. Республики, 44",      capacity: 1500,  status: "inactive", isContentHub: false, salesModel: "event_only", category: "Концертная площадка", eventsCount: 0,  admissionTypesCount: 0, visits30d: 120,    delta: -25,  avgPosition: null },
 ];
 
 const salesModelMeta: Record<SalesModel, { label: string; icon: typeof CalendarRange; className: string; hint: string }> = {
@@ -183,9 +183,9 @@ export default function VenuesList() {
               <SelectTrigger className="w-36" data-testid="select-venue-city"><SelectValue /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">Все города</SelectItem>
-                <SelectItem value="Алматы">Алматы</SelectItem>
-                <SelectItem value="Астана">Астана</SelectItem>
-                <SelectItem value="Шымкент">Шымкент</SelectItem>
+                <SelectItem value="Москва">Москва</SelectItem>
+                <SelectItem value="Санкт-Петербург">Санкт-Петербург</SelectItem>
+                <SelectItem value="Казань">Казань</SelectItem>
               </SelectContent>
             </Select>
             <Select value={model} onValueChange={setModel}>

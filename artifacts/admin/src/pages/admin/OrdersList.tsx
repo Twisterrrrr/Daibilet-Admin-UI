@@ -35,17 +35,17 @@ const channelLabels: Record<Order["channel"], string> = {
   internal_checkout: "Internal checkout",
   ticketscloud_mirror: "Ticketscloud mirror",
   teplohod_api: "Teplohod API",
-  ticketon_mirror: "Ticketon mirror",
+  ticketon_mirror: "Kassir.ru mirror",
   manual: "Manual",
 };
 
 const mockOrders: Order[] = [
-  { id: "ORD-1041", buyer: "Алия Бекова", buyerEmail: "aliya@gmail.com", buyerLinked: true, event: "Ночь музыки 2025", supplier: "ArtPro Kazakhstan", channel: "internal_checkout", inventoryOwner: "imported", paymentProvider: "ЮKassa", amount: 18000, ticketsCount: 2, status: "completed", paymentStatus: "paid", hasRefundRequest: true, visibleInBuyerAccount: true, visibleInSupplierCabinet: true, createdAt: "2025-04-20T14:22:00Z" },
-  { id: "ORD-1040", buyer: "Данияр Сейткали", buyerEmail: "d.seitkali@mail.ru", buyerLinked: true, event: "Forum на Arena", supplier: "Star Events", channel: "ticketscloud_mirror", inventoryOwner: "api", paymentProvider: "Ticketscloud", amount: 42500, ticketsCount: 2, status: "processing", paymentStatus: "paid", hasRefundRequest: false, visibleInBuyerAccount: true, visibleInSupplierCabinet: true, createdAt: "2025-04-20T13:10:00Z" },
-  { id: "ORD-1039", buyer: "Мария Петрова", buyerEmail: "petrova@yandex.ru", buyerLinked: false, event: "Stand Up Night", supplier: "Comedy House", channel: "internal_checkout", inventoryOwner: "manual", paymentProvider: "Тинькофф Касса", amount: 9000, ticketsCount: 2, status: "cancelled", paymentStatus: "refunded", hasRefundRequest: false, visibleInBuyerAccount: false, visibleInSupplierCabinet: true, createdAt: "2025-04-20T11:45:00Z" },
-  { id: "ORD-1038", buyer: "Темирлан Жумабаев", buyerEmail: "t.zhu@kz.com", buyerLinked: true, event: "Astana Jazz", supplier: "JazzMedia", channel: "teplohod_api", inventoryOwner: "hybrid", paymentProvider: "Teplohod gateway", amount: 31000, ticketsCount: 2, status: "completed", paymentStatus: "paid", hasRefundRequest: false, visibleInBuyerAccount: true, visibleInSupplierCabinet: true, createdAt: "2025-04-19T20:00:00Z" },
-  { id: "ORD-1037", buyer: "Сания Нурланова", buyerEmail: "s.nurlanova@test.kz", buyerLinked: true, event: "Ночь музыки 2025", supplier: "ArtPro Kazakhstan", channel: "ticketon_mirror", inventoryOwner: "imported", paymentProvider: "Ticketon", amount: 15500, ticketsCount: 1, status: "cancelled", paymentStatus: "refunded", hasRefundRequest: false, visibleInBuyerAccount: true, visibleInSupplierCabinet: true, createdAt: "2025-04-19T18:30:00Z" },
-  { id: "ORD-1036", buyer: "Арман Дюсенов", buyerEmail: "arman@gmail.com", buyerLinked: true, event: "Детский фестиваль", supplier: "KidsFest LLP", channel: "internal_checkout", inventoryOwner: "manual", paymentProvider: "СБП", amount: 6000, ticketsCount: 2, status: "completed", paymentStatus: "paid", hasRefundRequest: false, visibleInBuyerAccount: true, visibleInSupplierCabinet: true, createdAt: "2025-04-18T09:15:00Z" },
+  { id: "ORD-1041", buyer: "Алия Бекова", buyerEmail: "aliya@gmail.com", buyerLinked: true, event: "Ночь музыки 2025", supplier: "АртПро Концерты", channel: "internal_checkout", inventoryOwner: "imported", paymentProvider: "ЮKassa", amount: 18000, ticketsCount: 2, status: "completed", paymentStatus: "paid", hasRefundRequest: true, visibleInBuyerAccount: true, visibleInSupplierCabinet: true, createdAt: "2025-04-20T14:22:00Z" },
+  { id: "ORD-1040", buyer: "Данияр Сейткали", buyerEmail: "d.seitkali@mail.ru", buyerLinked: true, event: "Forum на Arena", supplier: "Стар Ивентс", channel: "ticketscloud_mirror", inventoryOwner: "api", paymentProvider: "Ticketscloud", amount: 42500, ticketsCount: 2, status: "processing", paymentStatus: "paid", hasRefundRequest: false, visibleInBuyerAccount: true, visibleInSupplierCabinet: true, createdAt: "2025-04-20T13:10:00Z" },
+  { id: "ORD-1039", buyer: "Мария Петрова", buyerEmail: "petrova@yandex.ru", buyerLinked: false, event: "Stand Up Night", supplier: "Комеди Хаус", channel: "internal_checkout", inventoryOwner: "manual", paymentProvider: "Тинькофф Касса", amount: 9000, ticketsCount: 2, status: "cancelled", paymentStatus: "refunded", hasRefundRequest: false, visibleInBuyerAccount: false, visibleInSupplierCabinet: true, createdAt: "2025-04-20T11:45:00Z" },
+  { id: "ORD-1038", buyer: "Темирлан Жумабаев", buyerEmail: "t.zhu@mail.ru", buyerLinked: true, event: "Saint Petersburg Jazz", supplier: "ДжазМедиа", channel: "teplohod_api", inventoryOwner: "hybrid", paymentProvider: "Teplohod gateway", amount: 31000, ticketsCount: 2, status: "completed", paymentStatus: "paid", hasRefundRequest: false, visibleInBuyerAccount: true, visibleInSupplierCabinet: true, createdAt: "2025-04-19T20:00:00Z" },
+  { id: "ORD-1037", buyer: "Сания Нурланова", buyerEmail: "s.nurlanova@test.ru", buyerLinked: true, event: "Ночь музыки 2025", supplier: "АртПро Концерты", channel: "ticketon_mirror", inventoryOwner: "imported", paymentProvider: "Kassir.ru", amount: 15500, ticketsCount: 1, status: "cancelled", paymentStatus: "refunded", hasRefundRequest: false, visibleInBuyerAccount: true, visibleInSupplierCabinet: true, createdAt: "2025-04-19T18:30:00Z" },
+  { id: "ORD-1036", buyer: "Арман Дюсенов", buyerEmail: "arman@gmail.com", buyerLinked: true, event: "Детский фестиваль", supplier: "КидсФест ООО", channel: "internal_checkout", inventoryOwner: "manual", paymentProvider: "СБП", amount: 6000, ticketsCount: 2, status: "completed", paymentStatus: "paid", hasRefundRequest: false, visibleInBuyerAccount: true, visibleInSupplierCabinet: true, createdAt: "2025-04-18T09:15:00Z" },
 ];
 
 export default function OrdersList() {
@@ -170,7 +170,7 @@ export default function OrdersList() {
                 <SelectItem value="internal_checkout">Internal checkout</SelectItem>
                 <SelectItem value="ticketscloud_mirror">Ticketscloud mirror</SelectItem>
                 <SelectItem value="teplohod_api">Teplohod API</SelectItem>
-                <SelectItem value="ticketon_mirror">Ticketon mirror</SelectItem>
+                <SelectItem value="ticketon_mirror">Kassir.ru mirror</SelectItem>
               </SelectContent>
             </Select>
           </>

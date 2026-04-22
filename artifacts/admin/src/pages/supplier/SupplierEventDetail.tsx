@@ -16,8 +16,8 @@ import { ArrowLeft, Lock, Send } from "lucide-react";
 const mockEvent = {
   id: "EVT-001",
   title: "Ночь музыки 2025",
-  city: "Алматы",
-  venue: "Алатау Арена",
+  city: "Москва",
+  venue: "ВТБ Арена",
   startDate: "2025-05-15",
   status: "published",
   minPrice: 9000,
@@ -27,7 +27,7 @@ const mockEvent = {
   category: "Музыка",
   ageRating: "16+",
   inventorySource: "imported" as const,
-  externalSource: "ticketon.kz",
+  externalSource: "kassir.ru",
   syncStatus: "ok" as const,
   description: "Ежегодный фестиваль классической и джазовой музыки.",
 };

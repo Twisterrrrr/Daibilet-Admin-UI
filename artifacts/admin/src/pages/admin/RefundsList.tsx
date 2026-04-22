@@ -25,11 +25,11 @@ interface RefundRow {
 }
 
 const mockRefunds: RefundRow[] = [
-  { id: "REF-22", orderId: "ORD-1041", buyer: "Алия Бекова", event: "Ночь музыки 2025", supplier: "ArtPro Kazakhstan", amount: 18000, reason: "Не смогу посетить мероприятие", status: "pending", createdAt: "2025-04-21T10:00:00Z" },
-  { id: "REF-21", orderId: "ORD-1037", buyer: "Сания Нурланова", event: "Ночь музыки 2025", supplier: "ArtPro Kazakhstan", amount: 15500, reason: "Купил у конкурента", status: "approved", createdAt: "2025-04-19T19:00:00Z", decidedAt: "2025-04-19T20:30:00Z", decidedBy: "admin@daibilet.kz" },
-  { id: "REF-20", orderId: "ORD-1039", buyer: "Мария Петрова", event: "Stand Up Night", supplier: "Comedy House", amount: 9000, reason: "Изменились планы", status: "approved", createdAt: "2025-04-20T11:50:00Z", decidedAt: "2025-04-20T12:30:00Z", decidedBy: "admin@daibilet.kz" },
-  { id: "REF-19", orderId: "ORD-1024", buyer: "Бакыт Касенов", event: "Forum на Arena", supplier: "Star Events", amount: 21500, reason: "Купил два раза по ошибке", status: "rejected", createdAt: "2025-04-15T09:00:00Z", decidedAt: "2025-04-15T14:00:00Z", decidedBy: "admin@daibilet.kz" },
-  { id: "REF-18", orderId: "ORD-1019", buyer: "Айдана Кулжанова", event: "Astana Jazz", supplier: "JazzMedia", amount: 15000, reason: "Заболел", status: "processing", createdAt: "2025-04-21T11:00:00Z" },
+  { id: "REF-22", orderId: "ORD-1041", buyer: "Алия Бекова", event: "Ночь музыки 2025", supplier: "АртПро Концерты", amount: 18000, reason: "Не смогу посетить мероприятие", status: "pending", createdAt: "2025-04-21T10:00:00Z" },
+  { id: "REF-21", orderId: "ORD-1037", buyer: "Сания Нурланова", event: "Ночь музыки 2025", supplier: "АртПро Концерты", amount: 15500, reason: "Купил у конкурента", status: "approved", createdAt: "2025-04-19T19:00:00Z", decidedAt: "2025-04-19T20:30:00Z", decidedBy: "admin@daibilet.ru" },
+  { id: "REF-20", orderId: "ORD-1039", buyer: "Мария Петрова", event: "Stand Up Night", supplier: "Комеди Хаус", amount: 9000, reason: "Изменились планы", status: "approved", createdAt: "2025-04-20T11:50:00Z", decidedAt: "2025-04-20T12:30:00Z", decidedBy: "admin@daibilet.ru" },
+  { id: "REF-19", orderId: "ORD-1024", buyer: "Бакыт Касенов", event: "Forum на Arena", supplier: "Стар Ивентс", amount: 21500, reason: "Купил два раза по ошибке", status: "rejected", createdAt: "2025-04-15T09:00:00Z", decidedAt: "2025-04-15T14:00:00Z", decidedBy: "admin@daibilet.ru" },
+  { id: "REF-18", orderId: "ORD-1019", buyer: "Айдана Кулжанова", event: "Saint Petersburg Jazz", supplier: "ДжазМедиа", amount: 15000, reason: "Заболел", status: "processing", createdAt: "2025-04-21T11:00:00Z" },
 ];
 
 export default function RefundsList() {

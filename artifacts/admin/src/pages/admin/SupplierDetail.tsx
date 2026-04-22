@@ -31,10 +31,10 @@ const mockLegal: LegalRequisitesData = {
 
 const mockSupplier = {
   id: "SUP-02",
-  name: "Star Events",
+  name: "Стар Ивентс",
   legalName: 'ТОО "Стар Эвентс"',
   bin: "180940004411",
-  city: "Астана",
+  city: "Санкт-Петербург",
   address: "пр. Республики, 24, офис 1102",
   contactEmail: "events@star.kz",
   contactPhone: "+7 7172 555-44-22",
@@ -44,7 +44,7 @@ const mockSupplier = {
   cabinetActive: true,
   cabinetUserEmail: "manager@starevents.kz",
   managerName: "Сейткалиев Бауржан",
-  managerEmail: "b.seitkaliev@daibilet.kz",
+  managerEmail: "b.seitkaliev@daibilet.ru",
   createdAt: "2024-03-20",
   updatedAt: "2025-04-10",
   integration: {
@@ -59,7 +59,7 @@ const mockSupplier = {
 
 const mockEvents = [
   { id: "EVT-002", title: "Forum на Arena", date: "2025-06-02", status: "published", soldCount: 128, source: "api" as const },
-  { id: "EVT-007", title: "Almaty Theatre Week", date: "2025-09-12", status: "published", soldCount: 88, source: "api" as const },
+  { id: "EVT-007", title: "Moscow Theatre Week", date: "2025-09-12", status: "published", soldCount: 88, source: "api" as const },
 ];
 
 interface EventRow { id: string; title: string; date: string; status: string; soldCount: number; source: "manual" | "imported" | "api" | "hybrid"; }
@@ -206,11 +206,11 @@ export default function SupplierDetail({ params: _params }: { params?: { id?: st
         <HubGraph
           subject={`${mockSupplier.name} (${mockSupplier.id})`}
           links={[
-            { group: "Город регистрации",  label: mockSupplier.city,                    href: "/admin/cities/CTY-002",                hint: mockSupplier.city === "Астана" ? "Astana" : undefined },
-            { group: "Площадки поставщика", label: "Алатау Арена",                       href: "/admin/venues/VEN-001", count: 8 },
+            { group: "Город регистрации",  label: mockSupplier.city,                    href: "/admin/cities/CTY-002",                hint: mockSupplier.city === "Санкт-Петербург" ? "Saint Petersburg" : undefined },
+            { group: "Площадки поставщика", label: "ВТБ Арена",                       href: "/admin/venues/VEN-001", count: 8 },
             { group: "Площадки поставщика", label: "Барыс Арена",                        href: "/admin/venues/VEN-002", count: 5 },
             { group: "События",             label: "Forum на Arena",                     href: "/admin/events/EVT-002", hint: "06.2025" },
-            { group: "События",             label: "Almaty Theatre Week",                href: "/admin/events/EVT-007", hint: "09.2025" },
+            { group: "События",             label: "Moscow Theatre Week",                href: "/admin/events/EVT-007", hint: "09.2025" },
             { group: "Интеграция",          label: mockSupplier.integration.name,        href: "/admin/integrations",   hint: "API" },
             { group: "Финансы",              label: "Выплаты по поставщику",              href: "/admin/finance/payouts", count: 12, hint: "за 30д" },
             { group: "Финансы",              label: "Сверка за апрель",                    href: "/admin/finance/reconciliation",        hint: "акт-02-2026" },

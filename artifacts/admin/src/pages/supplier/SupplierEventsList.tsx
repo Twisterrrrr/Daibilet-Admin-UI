@@ -28,9 +28,9 @@ interface MyEvent {
 }
 
 const myEvents: MyEvent[] = [
-  { id: "EVT-001", title: "Ночь музыки 2025", city: "Алматы", venue: "Алатау Арена", date: "2025-05-15", status: "published", minPrice: 9000, soldCount: 412, capacity: 800, inventorySource: "imported", syncStatus: "ok" },
-  { id: "EVT-006", title: "Рок-фестиваль RockZone", city: "Алматы", venue: "Алматы Арена", date: "2025-08-01", status: "draft", minPrice: 12000, soldCount: 0, capacity: 3000, inventorySource: "manual" },
-  { id: "EVT-008", title: "Хиты лета", city: "Алматы", venue: "Mega Park", date: "2025-07-04", status: "pending", minPrice: 7500, soldCount: 0, capacity: 1500, inventorySource: "hybrid", syncStatus: "stale" },
+  { id: "EVT-001", title: "Ночь музыки 2025", city: "Москва", venue: "ВТБ Арена", date: "2025-05-15", status: "published", minPrice: 9000, soldCount: 412, capacity: 800, inventorySource: "imported", syncStatus: "ok" },
+  { id: "EVT-006", title: "Рок-фестиваль RockZone", city: "Москва", venue: "Москва Арена", date: "2025-08-01", status: "draft", minPrice: 12000, soldCount: 0, capacity: 3000, inventorySource: "manual" },
+  { id: "EVT-008", title: "Хиты лета", city: "Москва", venue: "Mega Park", date: "2025-07-04", status: "pending", minPrice: 7500, soldCount: 0, capacity: 1500, inventorySource: "hybrid", syncStatus: "stale" },
 ];
 
 export default function SupplierEventsList() {
