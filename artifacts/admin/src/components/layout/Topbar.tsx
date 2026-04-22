@@ -1,4 +1,5 @@
 import { PanelLeftClose, PanelLeftOpen, Bell, Moon, Sun } from "lucide-react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
 
@@ -33,14 +34,26 @@ export function Topbar({ title, sidebarCollapsed, onToggleSidebar, breadcrumbs }
       <div className="flex-1 min-w-0">
         {breadcrumbs && breadcrumbs.length > 0 ? (
           <div className="flex items-center gap-1 text-sm">
-            {breadcrumbs.map((crumb, i) => (
-              <span key={i} className="flex items-center gap-1">
-                {i > 0 && <span className="text-muted-foreground">/</span>}
-                <span className={i < breadcrumbs.length - 1 ? "text-muted-foreground" : "font-medium text-foreground"}>
-                  {crumb.label}
+            {breadcrumbs.map((crumb, i) => {
+              const isLast = i === breadcrumbs.length - 1;
+              const cls = isLast ? "font-medium text-foreground" : "text-muted-foreground";
+              return (
+                <span key={i} className="flex items-center gap-1">
+                  {i > 0 && <span className="text-muted-foreground">/</span>}
+                  {crumb.href && !isLast ? (
+                    <Link
+                      href={crumb.href}
+                      className={`${cls} hover:text-foreground hover:underline cursor-pointer`}
+                      data-testid={`breadcrumb-${i}`}
+                    >
+                      {crumb.label}
+                    </Link>
+                  ) : (
+                    <span className={cls}>{crumb.label}</span>
+                  )}
                 </span>
-              </span>
-            ))}
+              );
+            })}
           </div>
         ) : (
           <h1 className="text-sm font-semibold text-foreground truncate">{title}</h1>
