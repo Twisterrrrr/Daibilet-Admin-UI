@@ -25,7 +25,7 @@ export function formatDateTime(dateStr: string | null | undefined): string {
   });
 }
 
-export function formatCurrency(amount: number | null | undefined, currency = "KZT"): string {
+export function formatCurrency(amount: number | null | undefined, currency = "RUB"): string {
   if (amount == null) return "—";
   return new Intl.NumberFormat("ru-RU", {
     style: "currency",

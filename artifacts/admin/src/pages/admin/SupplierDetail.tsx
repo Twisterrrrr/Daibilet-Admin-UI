@@ -15,21 +15,18 @@ import { LegalRequisites, type LegalRequisitesData } from "@/components/shared/L
 import { HubGraph } from "@/components/shared/HubGraph";
 
 const mockLegal: LegalRequisitesData = {
-  country: "KZ",
-  form: "TOO",
-  legalName: 'ТОО "Стар Эвентс"',
-  bin: "180940004411",
-  kbe: "17",
-  isVatPayer: true,
-  vatCert: "сертификат № 12345 от 01.04.2024",
-  bankName: "Halyk Bank",
-  iban: "KZ206017131000123456",
-  bik: "HSBKKZKX",
-  legalAddress: "010000, г. Астана, пр. Республики, 24, офис 1102",
-  actualAddress: "010000, г. Астана, пр. Республики, 24, офис 1102",
+  country: "RU",
+  form: "OOO",
+  legalName: 'ООО "Стар Эвентс"',
+  inn: "7707083893",
+  kpp: "770701001",
+  ogrn: "1187746432198",
+  bankName: "Сбербанк России",
+  iban: "40702810900000012345",
+  bik: "044525225",
+  legalAddress: "115191, г. Москва, ул. Большая Тульская, д. 10, стр. 9, офис 1102",
+  actualAddress: "115191, г. Москва, ул. Большая Тульская, д. 10, стр. 9, офис 1102",
   sameAddress: true,
-  edoOperator: "ИС ЭСФ (esf.gov.kz)",
-  edoId: "KZ-EDO-580221",
 };
 
 const mockSupplier = {

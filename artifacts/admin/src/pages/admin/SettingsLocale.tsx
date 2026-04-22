@@ -24,8 +24,9 @@ export default function SettingsLocale() {
 
       <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900 rounded-lg p-4 mb-4 text-sm text-blue-900 dark:text-blue-200">
         <p>
-          <strong>Daibilet — KZ-платформа,</strong> но события могут продаваться на RU/UZ/KG аудиторию (трансграничный туризм, гастроли).
-          Здесь настраивается, какие форматы и юр. поля показывать оператору и какие проверки запускать на ввод.
+          <strong>Daibilet — российский агрегатор</strong> с расчётами в рублях и юр. лицом в РФ. Дополнительно подключаются рынки СНГ
+          (KZ/UZ/KG) — гастроли, трансграничный туризм, локальные поставщики. Здесь настраивается, какие форматы и юр. поля показывать
+          оператору и какие проверки запускать на ввод.
         </p>
       </div>
 
@@ -45,18 +46,19 @@ export default function SettingsLocale() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <Card icon={<Globe2 className="w-4 h-4" />} title="Основной регион">
             <Field label="Страна">
-              <span className="text-sm">🇰🇿 Казахстан (KZ)</span>
+              <span className="text-sm">🇷🇺 Россия (RU)</span>
             </Field>
             <Field label="Часовой пояс по умолчанию">
-              <span className="text-sm font-mono">Asia/Almaty (UTC+5)</span>
+              <span className="text-sm font-mono">Europe/Moscow (UTC+3)</span>
             </Field>
             <Field label="Дополнительные регионы продаж">
               <div className="flex flex-wrap gap-1.5">
                 {[
-                  { c: "🇷🇺 Россия (RU)",       on: true },
+                  { c: "🇰🇿 Казахстан (KZ)",     on: true },
                   { c: "🇺🇿 Узбекистан (UZ)",    on: true },
-                  { c: "🇰🇬 Кыргызстан (KG)",    on: false },
-                  { c: "🇹🇯 Таджикистан (TJ)",  on: false },
+                  { c: "🇰🇬 Кыргызстан (KG)",    on: true },
+                  { c: "🇧🇾 Беларусь (BY)",      on: false },
+                  { c: "🇦🇲 Армения (AM)",       on: false },
                 ].map((r, i) => (
                   <label key={i} className={`text-xs px-2 py-1 rounded border cursor-pointer ${r.on ? "border-primary bg-primary/5" : "border-border bg-background"}`}>
                     <input type="checkbox" defaultChecked={r.on} className="mr-1.5" /> {r.c}
@@ -67,12 +69,11 @@ export default function SettingsLocale() {
           </Card>
 
           <Card icon={<Languages className="w-4 h-4" />} title="Языки интерфейса">
-            <p className="text-xs text-muted-foreground mb-2">Казахстан двуязычен. Контент площадок и SEO-полей хранится в трёх языках.</p>
+            <p className="text-xs text-muted-foreground mb-2">Основной язык — русский. Для площадок и SEO-полей в KZ/UZ доступны локальные языки.</p>
             <Field label="Основной язык админки">
               <div className="flex gap-2">
                 {[
                   { code: "ru", label: "Русский" },
-                  { code: "kk", label: "Қазақша" },
                   { code: "en", label: "English" },
                 ].map((l) => (
                   <button
@@ -85,15 +86,15 @@ export default function SettingsLocale() {
                 ))}
               </div>
             </Field>
-            <Field label="Двуязычный режим (Казахстан)">
+            <Field label="Локальные языки контента (для СНГ-рынков)">
               <div className="flex items-center gap-3">
                 <Switch defaultChecked={showSecondary} onCheckedChange={setShowSecondary} />
-                <span className="text-xs text-muted-foreground">Показывать поля {primary === "ru" ? "Қазақша" : "русские"} рядом с основными</span>
+                <span className="text-xs text-muted-foreground">Включить поля Қазақша / O'zbekcha рядом с RU для событий в KZ/UZ</span>
               </div>
             </Field>
             <Field label="Языки витрины (видны покупателю)">
               <div className="flex flex-wrap gap-1.5">
-                {["ru", "kk", "en", "uz"].map((l) => (
+                {["ru", "en", "kk", "uz"].map((l) => (
                   <span key={l} className="text-[11px] px-2 py-1 bg-muted rounded">{l.toUpperCase()}</span>
                 ))}
               </div>
@@ -107,17 +108,18 @@ export default function SettingsLocale() {
           <Card icon={<Coins className="w-4 h-4" />} title="Валюты расчётов">
             <Field label="Основная валюта">
               <div className="flex items-center gap-2">
-                <span className="text-base font-medium">₸ KZT</span>
-                <span className="text-xs text-muted-foreground">тенге Республики Казахстан</span>
+                <span className="text-base font-medium">₽ RUB</span>
+                <span className="text-xs text-muted-foreground">российский рубль</span>
               </div>
             </Field>
-            <Field label="Дополнительный показ (для туристов)">
+            <Field label="Дополнительный показ (для СНГ-аудитории)">
               <div className="space-y-1.5">
                 {[
-                  { code: "RUB", on: true,  rate: "5.42 ₸"    },
-                  { code: "USD", on: true,  rate: "493 ₸"      },
-                  { code: "UZS", on: false, rate: "0.038 ₸"    },
-                  { code: "KGS", on: false, rate: "5.62 ₸"     },
+                  { code: "KZT", on: true,  rate: "0.18 ₽"    },
+                  { code: "USD", on: true,  rate: "92.40 ₽"    },
+                  { code: "EUR", on: false, rate: "100.10 ₽"   },
+                  { code: "UZS", on: false, rate: "0.0072 ₽"   },
+                  { code: "KGS", on: false, rate: "1.06 ₽"     },
                 ].map((c) => (
                   <label key={c.code} className="flex items-center justify-between gap-3 text-xs p-2 rounded border border-border">
                     <div className="flex items-center gap-2">
@@ -128,17 +130,17 @@ export default function SettingsLocale() {
                   </label>
                 ))}
               </div>
-              <p className="text-[10px] text-muted-foreground mt-2 inline-flex items-center gap-1"><Info className="w-3 h-3" /> Курс обновляется ежедневно от Нацбанка РК.</p>
+              <p className="text-[10px] text-muted-foreground mt-2 inline-flex items-center gap-1"><Info className="w-3 h-3" /> Курс обновляется ежедневно от ЦБ РФ.</p>
             </Field>
           </Card>
 
           <Card icon={<Coins className="w-4 h-4" />} title="Превью форматов">
-            <Preview label="Цена билета (KZT)"     value={formatCurrency(15000)} />
-            <Preview label="Сумма транзакции"       value={formatCurrency(1_242_500)} />
-            <Preview label="Бесплатно"               value={formatCurrency(0)} />
-            <Preview label="С отрицательной (refund)" value={formatCurrency(-3500)} />
-            <Preview label="Большое число (визиты)"  value={formatNumber(184_200)} />
-            <Preview label="Округление дробных"       value={formatNumber(12345.67)} />
+            <Preview label="Цена билета (RUB)"      value={`${(2500).toLocaleString("ru-RU")} ₽`} />
+            <Preview label="Сумма транзакции"        value={`${(184_500).toLocaleString("ru-RU")} ₽`} />
+            <Preview label="Бесплатно"                value="0 ₽" />
+            <Preview label="С отрицательной (refund)"  value={`${(-3500).toLocaleString("ru-RU")} ₽`} />
+            <Preview label="Большое число (визиты)"   value={formatNumber(184_200)} />
+            <Preview label="Округление дробных"        value={formatNumber(12345.67)} />
           </Card>
         </div>
       )}
@@ -150,13 +152,13 @@ export default function SettingsLocale() {
               <span className="text-xs font-mono bg-muted px-2 py-1 rounded">+7 (___) ___-__-__</span>
             </Field>
             <Field label="Региональный префикс по умолчанию">
-              <span className="text-xs">+7 (KZ — мобильные начинаются с 77)</span>
+              <span className="text-xs">+7 (RU — мобильные начинаются с 9)</span>
             </Field>
             <Field label="Допустимые регионы">
               <div className="flex flex-wrap gap-1.5 text-[11px]">
-                <span className="px-2 py-0.5 rounded bg-blue-100 text-blue-700">+7 7XX KZ моб.</span>
-                <span className="px-2 py-0.5 rounded bg-blue-100 text-blue-700">+7 7XX KZ гор.</span>
-                <span className="px-2 py-0.5 rounded bg-violet-100 text-violet-700">+7 9XX RU</span>
+                <span className="px-2 py-0.5 rounded bg-violet-100 text-violet-700">+7 9XX RU моб.</span>
+                <span className="px-2 py-0.5 rounded bg-violet-100 text-violet-700">+7 4XX/8XX RU гор.</span>
+                <span className="px-2 py-0.5 rounded bg-blue-100 text-blue-700">+7 7XX KZ</span>
                 <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-700">+998 UZ</span>
                 <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-700">+996 KG</span>
               </div>
@@ -170,12 +172,12 @@ export default function SettingsLocale() {
           </Card>
 
           <Card icon={<Phone className="w-4 h-4" />} title="Превью форматирования">
-            <Preview label="KZ мобильный"  value={formatPhone("77011234567")} />
-            <Preview label="KZ городской"   value={formatPhone("77272478246")} />
             <Preview label="RU мобильный"   value={formatPhone("79161234567")} />
-            <Preview label="UZ мобильный"   value={formatPhone("998901234567")} />
-            <Preview label="KG мобильный"   value={formatPhone("996700123456")} />
-            <Preview label="Не валиден"      value={formatPhone("12345")} mono />
+            <Preview label="RU городской"    value={formatPhone("74951234567")} />
+            <Preview label="KZ мобильный"    value={formatPhone("77011234567")} />
+            <Preview label="UZ мобильный"    value={formatPhone("998901234567")} />
+            <Preview label="KG мобильный"    value={formatPhone("996700123456")} />
+            <Preview label="Не валиден"       value={formatPhone("12345")} mono />
           </Card>
         </div>
       )}
@@ -185,15 +187,15 @@ export default function SettingsLocale() {
           <Card icon={<Calendar className="w-4 h-4" />} title="Форматы">
             <Field label="Дата">           <span className="text-sm font-mono">DD.MM.YYYY</span></Field>
             <Field label="Время">          <span className="text-sm font-mono">HH:mm (24ч)</span></Field>
-            <Field label="Разделитель тысяч"><span className="text-sm font-mono">пробел (12 345 ₸)</span></Field>
+            <Field label="Разделитель тысяч"><span className="text-sm font-mono">пробел (12 345 ₽)</span></Field>
             <Field label="Десятичный знак">  <span className="text-sm font-mono">запятая (1,5)</span></Field>
             <Field label="Первый день недели"><span className="text-sm">Понедельник</span></Field>
-            <Field label="Календарь"><span className="text-sm">Григорианский, события Наурыз/праздничные дни KZ подсвечены</span></Field>
+            <Field label="Календарь"><span className="text-sm">Григорианский, гос. праздники РФ подсвечены</span></Field>
           </Card>
           <Card icon={<Calendar className="w-4 h-4" />} title="Превью">
             <Preview label="Дата события"     value={new Date("2026-04-21").toLocaleDateString("ru-RU")} />
             <Preview label="Дата + время"     value={new Date("2026-04-21T20:30:00Z").toLocaleString("ru-RU")} />
-            <Preview label="Цена с тысячами" value={formatCurrency(125_000)} />
+            <Preview label="Цена с тысячами" value={`${(125_000).toLocaleString("ru-RU")} ₽`} />
             <Preview label="Большое число"    value={formatNumber(1_842_355)} />
             <Preview label="Дробное"           value={(1.5).toLocaleString("ru-RU")} />
           </Card>
@@ -205,8 +207,8 @@ export default function SettingsLocale() {
           <Card icon={<FileText className="w-4 h-4" />} title="Юридические поля поставщиков">
             <p className="text-xs text-muted-foreground mb-3">Какие наборы реквизитов доступны при создании поставщика. Видимость зависит от страны юрисдикции.</p>
             {[
-              { c: "🇰🇿 KZ", fields: "ТОО / АО / ИП · БИН/ИИН (12) · КБЕ · IBAN KZ20 · БИК · ОКЭД · ЭСФ" },
-              { c: "🇷🇺 RU", fields: "ООО / АО / ИП · ИНН (10/12) · КПП · ОГРН · р/с · БИК · ОКВЭД" },
+              { c: "🇷🇺 RU (по умолчанию)", fields: "ООО / АО / ИП / Самозанятый · ИНН (10/12) · КПП · ОГРН/ОГРНИП · р/с · БИК · ОКВЭД · НДС 20%" },
+              { c: "🇰🇿 KZ", fields: "ТОО / АО / ИП · БИН/ИИН (12) · КБЕ · IBAN KZ20 · БИК · ОКЭД · ЭСФ · НДС 12%" },
               { c: "🇺🇿 UZ", fields: "MChJ · ИНН (СТИР, 9) · ОКЭД · транзитный счёт · МФО банка" },
             ].map((r, i) => (
               <div key={i} className="text-xs p-2 rounded border border-border bg-background mb-1.5">
@@ -217,12 +219,14 @@ export default function SettingsLocale() {
           </Card>
 
           <Card icon={<FileText className="w-4 h-4" />} title="Превью реквизитов">
-            <Preview label="БИН (KZ)"          value={formatBin("180940004411")}  mono />
-            <Preview label="ИИН (KZ)"          value={formatBin("950315400123")}  mono />
-            <Preview label="IBAN KZ20"          value={formatIban("KZ206017131000123456")}  mono />
             <Preview label="ИНН (RU, ЮЛ)"      value="7707083893" mono />
-            <Preview label="ИНН (UZ, СТИР)"    value="123456789" mono />
-            <Preview label="Сумма + НДС"       value={`${formatCurrency(112_000)} (в т.ч. НДС 12% — ${formatCurrency(12_000)})`} />
+            <Preview label="ИНН (RU, ИП/ФЛ)"   value="772578401234" mono />
+            <Preview label="КПП"                 value="770701001" mono />
+            <Preview label="ОГРН"                value="1027700132195" mono />
+            <Preview label="БИН (KZ)"           value={formatBin("180940004411")}  mono />
+            <Preview label="IBAN KZ20"           value={formatIban("KZ206017131000123456")}  mono />
+            <Preview label="ИНН (UZ, СТИР)"     value="123456789" mono />
+            <Preview label="Сумма + НДС"        value={`${(120_000).toLocaleString("ru-RU")} ₽ (в т.ч. НДС 20% — ${(20_000).toLocaleString("ru-RU")} ₽)`} />
           </Card>
         </div>
       )}
