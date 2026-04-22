@@ -18,7 +18,7 @@ const payout = {
   status: "processing" as const,
   scheduledAt: "2026-04-21T18:00:00Z",
   paidAt: null as string | null,
-  bankAccount: "KZ123 4567 8901 2345 6789 (Halyk Bank)",
+  bankAccount: "40702 810 9 38000 012345 (Сбербанк)",
   iban: "KZ123456789012345678",
   bin: "180940004411",
   orders: [

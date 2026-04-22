@@ -37,7 +37,7 @@ const mockOrder = {
   ticketsCount: 2,
   status: "completed",
   paymentStatus: "paid",
-  paymentProvider: "Kaspi Pay",
+  paymentProvider: "ЮKassa",
   paymentId: "KP-482112233",
   checkoutSessionId: "cs_2x9F8K1jhA92",
   visibleInBuyerAccount: true,
@@ -58,7 +58,7 @@ const mockRefundRequests = [
 
 const auditLog = [
   { ts: "2025-04-21T10:00:00Z", actor: "buyer:USR-1182", action: "создан запрос на возврат REF-22" },
-  { ts: "2025-04-20T14:25:00Z", actor: "system/payment", action: "платёж подтверждён Kaspi Pay" },
+  { ts: "2025-04-20T14:25:00Z", actor: "system/payment", action: "платёж подтверждён ЮKassa" },
   { ts: "2025-04-20T14:22:00Z", actor: "buyer:USR-1182", action: "checkout session создана" },
 ];
 

@@ -145,7 +145,7 @@ export default function CityDetail({ params: _params }: { params?: { id?: string
             <DetailField label="Площадки" value={`${city.topVenues.length}+`} readOnly />
             <DetailField label="Активных событий" value={"54"} readOnly />
             <DetailField label="Лендинги" value={String(city.relatedLandings.length)} readOnly />
-            <DetailField label="GMV / 30 дн" value="22 410 000 ₸" readOnly />
+            <DetailField label="GMV / 30 дн" value="22 410 000 ₽" readOnly />
           </DetailSection>
         </div>
       )}

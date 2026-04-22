@@ -43,7 +43,7 @@ const payouts: PayoutRow[] = [
 const feeStructure = [
   { tier: "Internal checkout", fee: "10% от стоимости билета", apply: "Билет продан через сайт Daibilet" },
   { tier: "External redirect", fee: "3% (агентская комиссия)", apply: "Покупатель ушёл на сайт партнёра" },
-  { tier: "Refund handling fee", fee: "0 ₸ (для активных)",     apply: "Если возврат был инициирован покупателем" },
+  { tier: "Refund handling fee", fee: "0 ₽ (для активных)",     apply: "Если возврат был инициирован покупателем" },
 ];
 
 export default function SupplierFinance() {

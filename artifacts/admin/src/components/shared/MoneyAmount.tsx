@@ -27,7 +27,7 @@ const variantClass = {
 };
 
 export function MoneyAmount({
-  amount, currency = "KZT", className, size = "md", variant = "default", deltaPercent, subtitle,
+  amount, currency = "RUB", className, size = "md", variant = "default", deltaPercent, subtitle,
 }: MoneyAmountProps) {
   const isPositiveDelta = deltaPercent != null && deltaPercent >= 0;
   return (

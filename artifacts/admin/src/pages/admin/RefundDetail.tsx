@@ -24,7 +24,7 @@ const mockRefund = {
   reason: "Не смогу посетить мероприятие — командировка",
   comment: "Прошу одобрить, билет покупался заранее.",
   status: "pending",
-  paymentMethod: "Kaspi Pay",
+  paymentMethod: "ЮKassa",
   paymentRef: "KP-482112233",
   createdAt: "2025-04-21T10:00:00Z",
 };

@@ -27,13 +27,13 @@ interface Tx {
 }
 
 const txs: Tx[] = [
-  { id: "TX-90021", externalRef: "kaspi:8821-441", date: "2026-04-21T08:14:00Z", kind: "payment", status: "settled", provider: "Kaspi Pay", orderId: "ORD-1041", supplier: "ArtPro Kazakhstan", gross: 12000, fee: 360, net: 11640 },
-  { id: "TX-90020", externalRef: "halyk:tr-77a4",  date: "2026-04-21T07:55:00Z", kind: "payment", status: "settled", provider: "Halyk", orderId: "ORD-1040", supplier: "Star Events", gross: 8500, fee: 255, net: 8245 },
-  { id: "TX-90019", externalRef: "wooppay:f00210", date: "2026-04-21T07:12:00Z", kind: "refund",  status: "settled", provider: "Wooppay", orderId: "ORD-1029", supplier: "Comedy House", gross: -3500, fee: 0, net: -3500 },
-  { id: "TX-90018", externalRef: "kaspi:8821-440", date: "2026-04-21T06:48:00Z", kind: "payment", status: "pending", provider: "Kaspi Pay", orderId: "ORD-1039", supplier: "ArtPro Kazakhstan", gross: 14200, fee: 426, net: 13774 },
-  { id: "TX-90017", externalRef: "po-2026-04-20-sup02", date: "2026-04-20T20:00:00Z", kind: "payout", status: "settled", provider: "Bank transfer", supplier: "Star Events", gross: -842000, fee: 0, net: -842000 },
-  { id: "TX-90016", externalRef: "halyk:tr-77a3",  date: "2026-04-20T18:31:00Z", kind: "payment", status: "failed",  provider: "Halyk", orderId: "ORD-1038", supplier: "JazzMedia", gross: 6000, fee: 0, net: 0 },
-  { id: "TX-90015", externalRef: "manual-adj-12",  date: "2026-04-20T15:10:00Z", kind: "fee_adjustment", status: "settled", provider: "—", supplier: "ArtPro Kazakhstan", gross: 0, fee: -1200, net: 1200 },
+  { id: "TX-90021", externalRef: "yk:8821-441",       date: "2026-04-21T08:14:00Z", kind: "payment", status: "settled", provider: "ЮKassa",         orderId: "ORD-1041", supplier: "ArtPro", gross: 12000, fee: 360, net: 11640 },
+  { id: "TX-90020", externalRef: "tk:tr-77a4",        date: "2026-04-21T07:55:00Z", kind: "payment", status: "settled", provider: "Тинькофф Касса",  orderId: "ORD-1040", supplier: "Star Events", gross: 8500, fee: 255, net: 8245 },
+  { id: "TX-90019", externalRef: "cp:f00210",         date: "2026-04-21T07:12:00Z", kind: "refund",  status: "settled", provider: "CloudPayments",   orderId: "ORD-1029", supplier: "Comedy House", gross: -3500, fee: 0, net: -3500 },
+  { id: "TX-90018", externalRef: "sbp:8821-440",      date: "2026-04-21T06:48:00Z", kind: "payment", status: "pending", provider: "СБП",             orderId: "ORD-1039", supplier: "ArtPro", gross: 14200, fee: 71, net: 14129 },
+  { id: "TX-90017", externalRef: "po-2026-04-20-sup02", date: "2026-04-20T20:00:00Z", kind: "payout", status: "settled", provider: "Банковский перевод", supplier: "Star Events", gross: -842000, fee: 0, net: -842000 },
+  { id: "TX-90016", externalRef: "tk:tr-77a3",        date: "2026-04-20T18:31:00Z", kind: "payment", status: "failed",  provider: "Тинькофф Касса",  orderId: "ORD-1038", supplier: "JazzMedia", gross: 6000, fee: 0, net: 0 },
+  { id: "TX-90015", externalRef: "manual-adj-12",     date: "2026-04-20T15:10:00Z", kind: "fee_adjustment", status: "settled", provider: "—", supplier: "ArtPro", gross: 0, fee: -1200, net: 1200 },
 ];
 
 const kindMeta: Record<TxKind, { label: string; icon: typeof ArrowDownLeft; className: string }> = {
@@ -135,10 +135,11 @@ export default function Transactions() {
               <SelectTrigger className="w-40" data-testid="select-tx-provider"><SelectValue /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">Все провайдеры</SelectItem>
-                <SelectItem value="Kaspi Pay">Kaspi Pay</SelectItem>
-                <SelectItem value="Halyk">Halyk</SelectItem>
-                <SelectItem value="Wooppay">Wooppay</SelectItem>
-                <SelectItem value="Bank transfer">Bank transfer</SelectItem>
+                <SelectItem value="ЮKassa">ЮKassa</SelectItem>
+                <SelectItem value="Тинькофф Касса">Тинькофф Касса</SelectItem>
+                <SelectItem value="СБП">СБП</SelectItem>
+                <SelectItem value="CloudPayments">CloudPayments</SelectItem>
+                <SelectItem value="Банковский перевод">Банковский перевод</SelectItem>
               </SelectContent>
             </Select>
           </>

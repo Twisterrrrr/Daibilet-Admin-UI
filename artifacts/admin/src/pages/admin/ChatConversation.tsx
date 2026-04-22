@@ -198,7 +198,7 @@ export default function ChatConversation({ params: _params }: { params?: { id?: 
                   <ShoppingCart className="w-4 h-4 text-blue-600" />
                   <span className="font-mono text-sm font-medium">{conv.relatedOrderId}</span>
                 </div>
-                <p className="text-xs text-muted-foreground">Forum на Arena · 2 билета · 12 000 ₸</p>
+                <p className="text-xs text-muted-foreground">Forum на Arena · 2 билета · 4 800 ₽</p>
                 <p className="text-xs text-primary mt-1">Открыть заказ →</p>
               </button>
             </div>

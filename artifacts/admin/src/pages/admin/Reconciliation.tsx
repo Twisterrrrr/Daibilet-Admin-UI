@@ -20,18 +20,18 @@ interface ReconRow {
 }
 
 const recon: ReconRow[] = [
-  { id: "REC-2026-04-20-kaspi", date: "2026-04-20", provider: "Kaspi Pay",  ourTotal: 28_900_000, providerTotal: 28_758_000, diff: -142_000, rowsOk: 281, rowsMismatch: 4, status: "mismatch" },
-  { id: "REC-2026-04-20-halyk", date: "2026-04-20", provider: "Halyk",      ourTotal: 14_200_000, providerTotal: 14_200_000, diff: 0,        rowsOk: 142, rowsMismatch: 0, status: "matched" },
-  { id: "REC-2026-04-20-woop",  date: "2026-04-20", provider: "Wooppay",    ourTotal: 9_800_000,  providerTotal: 9_800_000,  diff: 0,        rowsOk: 88,  rowsMismatch: 0, status: "matched" },
-  { id: "REC-2026-04-20-forte", date: "2026-04-20", provider: "ForteBank",  ourTotal: 7_400_000,  providerTotal: 0,           diff: -7_400_000, rowsOk: 0, rowsMismatch: 0, status: "pending" },
-  { id: "REC-2026-04-19-kaspi", date: "2026-04-19", provider: "Kaspi Pay",  ourTotal: 26_100_000, providerTotal: 26_100_000, diff: 0,        rowsOk: 254, rowsMismatch: 0, status: "matched" },
+  { id: "REC-2026-04-20-yk",    date: "2026-04-20", provider: "ЮKassa",        ourTotal: 28_900_000, providerTotal: 28_758_000, diff: -142_000, rowsOk: 281, rowsMismatch: 4, status: "mismatch" },
+  { id: "REC-2026-04-20-tk",    date: "2026-04-20", provider: "Тинькофф Касса", ourTotal: 14_200_000, providerTotal: 14_200_000, diff: 0,        rowsOk: 142, rowsMismatch: 0, status: "matched" },
+  { id: "REC-2026-04-20-sbp",   date: "2026-04-20", provider: "СБП",            ourTotal: 9_800_000,  providerTotal: 9_800_000,  diff: 0,        rowsOk: 88,  rowsMismatch: 0, status: "matched" },
+  { id: "REC-2026-04-20-cp",    date: "2026-04-20", provider: "CloudPayments",  ourTotal: 7_400_000,  providerTotal: 0,           diff: -7_400_000, rowsOk: 0, rowsMismatch: 0, status: "pending" },
+  { id: "REC-2026-04-19-yk",    date: "2026-04-19", provider: "ЮKassa",        ourTotal: 26_100_000, providerTotal: 26_100_000, diff: 0,        rowsOk: 254, rowsMismatch: 0, status: "matched" },
 ];
 
 const mismatchDetails = [
-  { our: "TX-89901 / 14 200 ₸", their: "kaspi:8821-410 / 14 250 ₸", diff: 50,    note: "Несоответствие суммы (округление?)" },
-  { our: "TX-89887 / 12 000 ₸", their: "не найдено",                  diff: -12000, note: "Платёж не пришёл от провайдера" },
-  { our: "не найдено",            their: "kaspi:8821-405 / 8 500 ₸",  diff: 8500,  note: "Лишний платёж от провайдера" },
-  { our: "TX-89875 / 6 000 ₸",  their: "kaspi:8821-401 / 6 050 ₸",  diff: 50,    note: "Несоответствие суммы" },
+  { our: "TX-89901 / 14 200 ₽", their: "yk:8821-410 / 14 250 ₽", diff: 50,    note: "Несоответствие суммы (округление?)" },
+  { our: "TX-89887 / 12 000 ₽", their: "не найдено",              diff: -12000, note: "Платёж не пришёл от провайдера" },
+  { our: "не найдено",            their: "yk:8821-405 / 8 500 ₽",  diff: 8500,  note: "Лишний платёж от провайдера" },
+  { our: "TX-89875 / 6 000 ₽",  their: "yk:8821-401 / 6 050 ₽",  diff: 50,    note: "Несоответствие суммы" },
 ];
 
 export default function Reconciliation() {
@@ -69,10 +69,10 @@ export default function Reconciliation() {
           <SelectTrigger className="w-44" data-testid="select-recon-provider"><SelectValue /></SelectTrigger>
           <SelectContent>
             <SelectItem value="all">Все провайдеры</SelectItem>
-            <SelectItem value="Kaspi Pay">Kaspi Pay</SelectItem>
-            <SelectItem value="Halyk">Halyk</SelectItem>
-            <SelectItem value="Wooppay">Wooppay</SelectItem>
-            <SelectItem value="ForteBank">ForteBank</SelectItem>
+            <SelectItem value="ЮKassa">ЮKassa</SelectItem>
+            <SelectItem value="Тинькофф Касса">Тинькофф Касса</SelectItem>
+            <SelectItem value="СБП">СБП</SelectItem>
+            <SelectItem value="CloudPayments">CloudPayments</SelectItem>
           </SelectContent>
         </Select>
         <Select value={period} onValueChange={setPeriod}>
@@ -109,7 +109,7 @@ export default function Reconciliation() {
                 <td className="px-4 py-2 text-right tabular-nums">{formatCurrency(r.ourTotal)}</td>
                 <td className="px-4 py-2 text-right tabular-nums">{r.status === "pending" ? "—" : formatCurrency(r.providerTotal)}</td>
                 <td className={`px-4 py-2 text-right tabular-nums font-medium ${r.diff !== 0 ? "text-red-600" : "text-emerald-600"}`}>
-                  {r.diff === 0 ? "0 ₸" : formatCurrency(r.diff)}
+                  {r.diff === 0 ? "0 ₽" : formatCurrency(r.diff)}
                 </td>
                 <td className="px-4 py-2 text-right text-xs">
                   <span className="text-emerald-600">{r.rowsOk}</span>
@@ -129,7 +129,7 @@ export default function Reconciliation() {
       <div className="bg-card border border-card-border rounded-lg">
         <div className="px-5 py-4 border-b border-border flex items-center gap-2">
           <AlertCircle className="w-4 h-4 text-red-600" />
-          <h3 className="text-sm font-semibold">Детализация расхождений: REC-2026-04-20-kaspi</h3>
+          <h3 className="text-sm font-semibold">Детализация расхождений: REC-2026-04-20-yk</h3>
         </div>
         <table className="w-full text-sm">
           <thead className="text-xs text-muted-foreground bg-muted/50">

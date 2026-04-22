@@ -67,7 +67,7 @@ const navGroups: NavGroup[] = [
   {
     label: "Финансы",
     items: [
-      { label: "Дашборд финансов", href: "/admin/finance", icon: Wallet },
+      { label: "Финансы", href: "/admin/finance", icon: Wallet },
       { label: "Транзакции", href: "/admin/finance/transactions", icon: ArrowLeftRight },
       { label: "Выплаты", href: "/admin/finance/payouts", icon: Wallet },
       { label: "Сверки", href: "/admin/finance/reconciliation", icon: Scale },

@@ -16,14 +16,14 @@ const channelBreakdown = [
 ];
 
 const providerSummary = [
-  { provider: "Kaspi Pay",  volume: 28_900_000, success: 98.4, fee: 868_000 },
-  { provider: "Halyk",      volume: 14_200_000, success: 97.1, fee: 426_000 },
-  { provider: "Wooppay",    volume: 9_800_000,  success: 95.6, fee: 392_000 },
-  { provider: "ForteBank",  volume: 7_400_000,  success: 96.8, fee: 222_000 },
+  { provider: "ЮKassa",        volume: 28_900_000, success: 98.4, fee: 868_000 },
+  { provider: "Тинькофф Касса", volume: 14_200_000, success: 97.1, fee: 426_000 },
+  { provider: "СБП",            volume: 9_800_000,  success: 99.1, fee: 49_000  },
+  { provider: "CloudPayments",  volume: 7_400_000,  success: 96.8, fee: 222_000 },
 ];
 
 const recentAlerts = [
-  { id: 1, severity: "critical", text: "Расхождение со сверкой Kaspi за 19.04 — 142 000 ₸", href: "/admin/finance/reconciliation" },
+  { id: 1, severity: "critical", text: "Расхождение со сверкой ЮKassa за 19.04 — 142 000 ₽", href: "/admin/finance/reconciliation" },
   { id: 2, severity: "warning",  text: "3 выплаты ожидают подтверждения свыше 48 часов", href: "/admin/finance/payouts" },
   { id: 3, severity: "info",     text: "Выплата SUP-02 (Star Events) запланирована на завтра", href: "/admin/finance/payouts" },
 ];
@@ -32,7 +32,7 @@ export default function FinanceDashboard() {
   const [period, setPeriod] = useState("30d");
 
   return (
-    <AdminLayout title="Финансы" breadcrumbs={[{ label: "Администратор" }, { label: "Финансы" }]}>
+    <AdminLayout title="Финансы" breadcrumbs={[{ label: "Администратор", href: "/admin" }, { label: "Финансы" }]}>
       <PageHeader
         title="Финансовый дашборд"
         description="Сводка по обороту, комиссиям и выплатам"
