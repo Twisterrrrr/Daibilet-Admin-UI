@@ -10,8 +10,9 @@ import { IssueList } from "@/components/shared/IssueList";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { ArrowLeft, Edit2, Eye, Image as ImageIcon, FileText, Map, ListOrdered, Ticket, Plus, Clock, Calendar, Sparkles, Building2, CalendarRange } from "lucide-react";
-import { formatNumber, formatCurrency } from "@/lib/utils";
+import { formatNumber, formatCurrency, formatPhone } from "@/lib/utils";
 import { SalesModelBadge, salesModelMeta, type SalesModel } from "./VenuesList";
+import { HubGraph } from "@/components/shared/HubGraph";
 
 const venue = {
   id: "VEN-007",
@@ -436,6 +437,26 @@ export default function VenueDetail({ params: _params }: { params?: { id?: strin
           )}
         </div>
       )}
+
+      <div className="mt-4">
+        <HubGraph
+          subject={`${venue.name} (${venue.id})`}
+          links={[
+            { group: "Город",               label: venue.city,                                  href: `/admin/cities/CTY-001`,                          hint: venue.citySlug },
+            { group: "Поставщик / куратор",  label: "Daibilet (внутренний)",                      href: "/admin/suppliers/SUP-01",                         hint: "internal" },
+            { group: "События на площадке", label: "Выставка «Степь и небо»",                    href: "/admin/events/EVT-101",                            hint: "01.05" },
+            { group: "События на площадке", label: "Лекция: казахстанский авангард",              href: "/admin/events/EVT-102",                            hint: "08.05" },
+            { group: "События на площадке", label: "Ночь музеев 2026",                            href: "/admin/events/EVT-103",                            hint: "18.05" },
+            { group: "События на площадке", label: "Все события Музея Кастеева",                  href: `/admin/events?venue=${venue.id}`, count: 14 },
+            { group: "Лендинги с площадкой", label: "Главная Алматы",                              href: "/admin/landings/LND-001",                          hint: "блок «Площадки»" },
+            { group: "Лендинги с площадкой", label: "Музеи Алматы",                                 href: "/admin/landings/LND-014",                          hint: "single_city" },
+            { group: "Заказы",                label: "Билеты на площадку",                          href: `/admin/orders?venue=${venue.id}`, count: 1248, hint: "30 дн" },
+            { group: "Финансы",                label: "Выплаты по площадке",                          href: `/admin/finance/payouts?venue=${venue.id}`, count: 4 },
+            { group: "Дубли / качество",      label: "Записей-кандидатов",                            href: "/admin/venues/candidates", count: 0, hint: "ok" },
+          ]}
+          warning={venue.isContentHub === false ? "Контент-хаб выключен — страница не индексируется" : undefined}
+        />
+      </div>
     </AdminLayout>
   );
 }

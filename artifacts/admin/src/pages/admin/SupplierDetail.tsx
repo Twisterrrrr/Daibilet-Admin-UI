@@ -9,8 +9,28 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { DataTable, Column } from "@/components/shared/DataTable";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { formatDate, formatDateTime } from "@/lib/utils";
+import { formatDate, formatDateTime, formatPhone } from "@/lib/utils";
 import { ArrowLeft, Edit2, ExternalLink, Info, CheckCircle2, XCircle, Plug } from "lucide-react";
+import { LegalRequisites, type LegalRequisitesData } from "@/components/shared/LegalRequisites";
+import { HubGraph } from "@/components/shared/HubGraph";
+
+const mockLegal: LegalRequisitesData = {
+  country: "KZ",
+  form: "TOO",
+  legalName: 'ТОО "Стар Эвентс"',
+  bin: "180940004411",
+  kbe: "17",
+  isVatPayer: true,
+  vatCert: "сертификат № 12345 от 01.04.2024",
+  bankName: "Halyk Bank",
+  iban: "KZ206017131000123456",
+  bik: "HSBKKZKX",
+  legalAddress: "010000, г. Астана, пр. Республики, 24, офис 1102",
+  actualAddress: "010000, г. Астана, пр. Республики, 24, офис 1102",
+  sameAddress: true,
+  edoOperator: "ИС ЭСФ (esf.gov.kz)",
+  edoId: "KZ-EDO-580221",
+};
 
 const mockSupplier = {
   id: "SUP-02",
@@ -167,7 +187,7 @@ export default function SupplierDetail({ params: _params }: { params?: { id?: st
 
         <DetailSection title="Контакты">
           <DetailField label="E-mail" value={mockSupplier.contactEmail} />
-          <DetailField label="Телефон" value={mockSupplier.contactPhone} />
+          <DetailField label="Телефон" value={<span className="font-mono">{formatPhone(mockSupplier.contactPhone)}</span>} />
           <DetailField label="Сайт" value={
             mockSupplier.website ? (
               <a href={mockSupplier.website} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline flex items-center gap-1">
@@ -183,6 +203,24 @@ export default function SupplierDetail({ params: _params }: { params?: { id?: st
           <DetailField label="Город" value={mockSupplier.city} readOnly />
           <DetailField label="Адрес" value={mockSupplier.address} readOnly />
         </DetailSection>
+
+        <LegalRequisites data={mockLegal} />
+
+        <HubGraph
+          subject={`${mockSupplier.name} (${mockSupplier.id})`}
+          links={[
+            { group: "Город регистрации",  label: mockSupplier.city,                    href: "/admin/cities/CTY-002",                hint: mockSupplier.city === "Астана" ? "Astana" : undefined },
+            { group: "Площадки поставщика", label: "Алатау Арена",                       href: "/admin/venues/VEN-001", count: 8 },
+            { group: "Площадки поставщика", label: "Барыс Арена",                        href: "/admin/venues/VEN-002", count: 5 },
+            { group: "События",             label: "Forum на Arena",                     href: "/admin/events/EVT-002", hint: "06.2025" },
+            { group: "События",             label: "Almaty Theatre Week",                href: "/admin/events/EVT-007", hint: "09.2025" },
+            { group: "Интеграция",          label: mockSupplier.integration.name,        href: "/admin/integrations",   hint: "API" },
+            { group: "Финансы",              label: "Выплаты по поставщику",              href: "/admin/finance/payouts", count: 12, hint: "за 30д" },
+            { group: "Финансы",              label: "Сверка за апрель",                    href: "/admin/finance/reconciliation",        hint: "акт-02-2026" },
+            { group: "Команда",              label: "Менеджер: " + mockSupplier.managerName, href: "/admin/staff" },
+          ]}
+          warning={mockSupplier.integration.status === "stale" ? "Sync интеграции устарел — данные событий могут расходиться" : undefined}
+        />
 
         <div className="bg-card border border-card-border rounded-lg">
           <div className="px-5 py-4 border-b border-border">

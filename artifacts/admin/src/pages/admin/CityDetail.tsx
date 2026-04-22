@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { ArrowLeft, Edit2, Eye, ExternalLink, Image as ImageIcon, FileText, ListOrdered } from "lucide-react";
 import { formatNumber } from "@/lib/utils";
+import { HubGraph } from "@/components/shared/HubGraph";
 
 const city = {
   id: "CTY-001",
@@ -279,6 +280,27 @@ export default function CityDetail({ params: _params }: { params?: { id?: string
           </DetailSection>
         </div>
       )}
+
+      <div className="mt-4">
+        <HubGraph
+          subject={`${city.nameRu} (${city.id})`}
+          links={[
+            { group: "Площадки города",  label: "Алатау Арена",                href: "/admin/venues/VEN-001", count: 8,  hint: "ивент-only" },
+            { group: "Площадки города",  label: "Музей Кастеева",               href: "/admin/venues/VEN-007", count: 3,  hint: "hybrid" },
+            { group: "Площадки города",  label: "Мега Silk Way",                href: "/admin/venues/VEN-003", count: 12 },
+            { group: "Площадки города",  label: "Все площадки в Алматы",        href: "/admin/venues?city=almaty", count: 47 },
+            { group: "Лендинги",          label: "Главная Алматы",               href: "/admin/landings/LND-001", hint: "single_city" },
+            { group: "Лендинги",          label: "Концерты Алматы — весна 2025", href: "/admin/landings/LND-002", hint: "single_city" },
+            { group: "Лендинги",          label: "Stand Up афиша по Казахстану", href: "/admin/landings/LND-007", hint: "multi_city" },
+            { group: "События",           label: "Ближайшие в Алматы",           href: "/admin/events?city=almaty", count: 184, hint: "30 дн" },
+            { group: "События",           label: "Ночь музыки 2025",             href: "/admin/events/EVT-001",     hint: "VEN-12 · 15.05" },
+            { group: "Контент",           label: "Подборка «Лучшее в Алматы»",    href: "/admin/collections/COL-001" },
+            { group: "Контент",           label: "Статьи о городе",               href: "/admin/articles?city=almaty", count: 12 },
+            { group: "Заказы",             label: "Заказы по городу",              href: "/admin/orders?city=almaty",   count: 4214, hint: "30 дн" },
+          ]}
+          warning={!city.isContentHub ? "Контент-хаб выключен — кросс-страницы не индексируются" : undefined}
+        />
+      </div>
     </AdminLayout>
   );
 }

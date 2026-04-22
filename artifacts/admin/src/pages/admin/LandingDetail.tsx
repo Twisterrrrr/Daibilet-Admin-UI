@@ -10,6 +10,7 @@ import { IssueList } from "@/components/shared/IssueList";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { formatDate } from "@/lib/utils";
+import { HubGraph } from "@/components/shared/HubGraph";
 import { ArrowLeft, Edit2, Eye, Globe2, MapPin, Layers, ListOrdered, Plus, X, Image as ImageIcon, FileText } from "lucide-react";
 
 type Scope = "global" | "single_city" | "multi_city";
@@ -301,6 +302,25 @@ export default function LandingDetail({ params: _params }: { params?: { id?: str
           <DetailField label="Обновлён" value={formatDate(initial.updatedAt)} readOnly />
         </DetailSection>
       )}
+
+      <div className="mt-4">
+        <HubGraph
+          subject={`${initial.title} (${initial.id})`}
+          links={[
+            ...initial.cities.map((c) => ({ group: "Города в скоупе", label: c.name, href: `/admin/cities/${c.slug.toUpperCase()}`, count: c.visits30d, hint: `pos ${c.position}` })),
+            { group: "Площадки в подборке", label: "Loft (Алматы)",       href: "/admin/venues/VEN-021", hint: "stand-up" },
+            { group: "Площадки в подборке", label: "Hardrock Cafe Astana", href: "/admin/venues/VEN-018", hint: "stand-up" },
+            { group: "События в подборке",   label: "Stand Up Almaty — апрель", href: "/admin/events/EVT-200" },
+            { group: "События в подборке",   label: "Stand Up Astana — май",     href: "/admin/events/EVT-201" },
+            { group: "События в подборке",   label: "Все Stand Up события",       href: "/admin/events?tag=standup", count: 24 },
+            { group: "Связанные лендинги",    label: "Главная Алматы",             href: "/admin/landings/LND-001", hint: "ссылается" },
+            { group: "Связанные лендинги",    label: "Главная Астана",              href: "/admin/landings/LND-003", hint: "ссылается" },
+            { group: "Контент",                label: "Промо-блок «Главные Stand Up»", href: "/admin/promo-blocks/PRB-007" },
+            { group: "Контент",                label: "Статья «Stand Up в КЗ — гид»",  href: "/admin/articles/ART-014" },
+          ]}
+          warning={initial.scope === "multi_city" ? "Multi-city: при добавлении нового города не забудьте {placeholders} в шаблонах SEO" : undefined}
+        />
+      </div>
     </AdminLayout>
   );
 }

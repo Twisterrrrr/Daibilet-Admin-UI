@@ -11,6 +11,7 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { formatDate, formatCurrency, formatDateTime } from "@/lib/utils";
+import { HubGraph } from "@/components/shared/HubGraph";
 import { ArrowLeft, Edit2, RefreshCw, Lock, Pencil } from "lucide-react";
 
 const mockEvent = {
@@ -276,6 +277,26 @@ export default function EventDetail({ params }: { params?: { id?: string } }) {
           </ul>
         </div>
       )}
+
+      <div className="mt-4">
+        <HubGraph
+          subject={`${mockEvent.title} (${mockEvent.id})`}
+          links={[
+            { group: "Город",       label: mockEvent.city,             href: "/admin/cities/CTY-001",                              hint: "almaty" },
+            { group: "Площадка",    label: mockEvent.venue,            href: `/admin/venues/${mockEvent.venueId}`,                  hint: "ивент-only" },
+            { group: "Поставщик",   label: mockEvent.supplier,         href: `/admin/suppliers/${mockEvent.supplierId}`,            hint: "API · ticketon" },
+            { group: "Категория",   label: mockEvent.category,          href: "/admin/categories",                                    },
+            { group: "Теги",         label: "Музыка · 16+ · Сидячие",     href: "/admin/tags",                                         },
+            { group: "Лендинги",      label: "Главная Алматы (блок «Хиты»)", href: "/admin/landings/LND-001",                              hint: "приоритет 3" },
+            { group: "Лендинги",      label: "Концерты весна 2025",          href: "/admin/landings/LND-002",                              hint: "ручной выбор" },
+            { group: "Промо",         label: "Главные концерты весны",        href: "/admin/promo-blocks/PRB-002",                          hint: "слот A1" },
+            { group: "Заказы",         label: "Заказы по событию",              href: `/admin/orders?event=${mockEvent.id}`, count: mockEvent.soldCount },
+            { group: "Возвраты",       label: "Возвраты по событию",             href: `/admin/refunds?event=${mockEvent.id}`, count: 8 },
+            { group: "Внешний источник", label: `${mockEvent.externalSource} · ${mockEvent.externalId}`, href: mockEvent.externalUrl, hint: "API" },
+          ]}
+          warning={mockEvent.hasOverrides ? `Поля переопределены вручную (${mockEvent.overriddenFields.length}) — обновления из источника их не перезаписывают` : undefined}
+        />
+      </div>
     </AdminLayout>
   );
 }

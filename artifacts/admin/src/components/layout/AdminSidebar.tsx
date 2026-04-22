@@ -101,6 +101,7 @@ const navGroups: NavGroup[] = [
       { label: "Сотрудники / RBAC", href: "/admin/staff", icon: ShieldCheck },
       { label: "Логи / диагностика", href: "/admin/logs", icon: Activity },
       { label: "Настройки", href: "/admin/settings", icon: Settings },
+      { label: "Локаль и форматы", href: "/admin/settings/locale", icon: Globe },
     ],
   },
 ];

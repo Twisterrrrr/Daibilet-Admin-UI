@@ -22,6 +22,7 @@ import LandingDetail from "@/pages/admin/LandingDetail";
 import PromoBlocksList from "@/pages/admin/PromoBlocksList";
 import PromoBlockDetail from "@/pages/admin/PromoBlockDetail";
 import Settings from "@/pages/admin/Settings";
+import SettingsLocale from "@/pages/admin/SettingsLocale";
 import UsersList from "@/pages/admin/UsersList";
 import UserDetail from "@/pages/admin/UserDetail";
 import RefundsList from "@/pages/admin/RefundsList";
@@ -105,6 +106,7 @@ function Router() {
       <Route path="/admin/promo-blocks/:id" component={PromoBlockDetail} />
       <Route path="/admin/logs" component={Logs} />
       <Route path="/admin/settings" component={Settings} />
+      <Route path="/admin/settings/locale" component={SettingsLocale} />
 
       {/* Finance */}
       <Route path="/admin/finance" component={FinanceDashboard} />
